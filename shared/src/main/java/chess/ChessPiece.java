@@ -61,6 +61,10 @@ public class ChessPiece {
             BishopMovement bm = new BishopMovement(piece.getTeamColor());
             return bm.calculateValidMoves(board, myPosition);
         }
+        if (piecetype.equals(PieceType.KNIGHT)) {
+            KnightMovement km = new KnightMovement(piece.getTeamColor());
+            return km.calculateValidMoves(board,myPosition);
+        }
         return null;
     }
 
