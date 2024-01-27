@@ -73,6 +73,10 @@ public class ChessPiece {
             QueenMovement qk = new QueenMovement(piece.getTeamColor());
             return qk.calculateValidMoves(board,myPosition);
         }
+        if (piecetype.equals(PieceType.PAWN)) {
+            PawnMovement pm = new PawnMovement(piece.getTeamColor());
+            return pm.calculateValidMoves(board,myPosition);
+        }
         return null;
     }
 
