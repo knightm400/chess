@@ -65,6 +65,10 @@ public class ChessPiece {
             KnightMovement km = new KnightMovement(piece.getTeamColor());
             return km.calculateValidMoves(board,myPosition);
         }
+        if (piecetype.equals(PieceType.ROOK)) {
+            RookMovement rk = new RookMovement(piece.getTeamColor());
+            return rk.calculateValidMoves(board,myPosition);
+        }
         return null;
     }
 
