@@ -65,13 +65,13 @@ public class ChessGame {
         Collection<ChessMove> potentialMoves = piece.pieceMoves(board,startPosition);
 
         for (ChessMove move : potentialMoves) {
-            ChessPiece originalPieceAtDest = board.getPiece(move.getEndPosition());
+            ChessPiece originalPiece = board.getPiece(move.getEndPosition());
             board.movePiece(move);
             if (!isInCheck(piece.getTeamColor())) {
                 moves.add(move);
             }
             board.setPiece(move.getStartPosition(), piece);
-            board.setPiece(move.getEndPosition(), originalPieceAtDest);
+            board.setPiece(move.getEndPosition(), originalPiece);
         }
         return moves;
     }
@@ -157,7 +157,33 @@ public class ChessGame {
      * @param teamColor which team to check for checkmate
      * @return True if the specified team is in checkmate
      */
-    public boolean isInCheckmate(TeamColor teamColor) {throw new RuntimeException("Not implemented");}
+    public boolean isInCheckmate(TeamColor teamColor) {
+        if (!isInCheck(teamColor)) {
+            return false;
+        }
+
+        for (int row = 1; row <= 8; row++) {
+            for (int col = 1; col <= 8; col++) {
+                ChessPosition currentPosition = new ChessPosition(row, col);
+                ChessPiece currentPiece = board.getPiece(currentPosition);
+                if (currentPiece != null && currentPiece.getTeamColor() == teamColor) {
+                    Collection<ChessMove> validMoves = validMoves(currentPosition);
+                    for (ChessMove move : validMoves) {
+                        ChessPiece originalPiece = board.getPiece(move.getEndPosition());
+                        board.movePiece(move);
+                        boolean stillInCheck = isInCheck(teamColor);
+                        board.setPiece(move.getStartPosition(), currentPiece);
+                        board.setPiece(move.getEndPosition(), originalPiece);
+                        if (!stillInCheck) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
 
 
     /**
