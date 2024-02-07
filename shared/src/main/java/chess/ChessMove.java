@@ -18,6 +18,10 @@ public class ChessMove {
         this.promotionPiece = promotionPiece;
     }
 
+    public ChessPiece.PieceType getPromotionType() {
+        return this.promotionPiece;
+    }
+
     @Override
     public String toString() {
         return String.format("Move from %s to %s%s", getStartPosition(), getEndPosition(), (getPromotionPiece() != null) ? (", promoting to " + getPromotionPiece()) : "");

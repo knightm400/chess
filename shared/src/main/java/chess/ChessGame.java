@@ -104,7 +104,17 @@ public class ChessGame {
         if (!isValid) {
             throw new InvalidMoveException("Move is not valid.");
         }
+
         board.movePiece(move);
+
+        if (piece.getPieceType() == ChessPiece.PieceType.PAWN) {
+            if ((piece.getTeamColor() == TeamColor.WHITE && move.getEndPosition().getRow() == 8) ||
+                    (piece.getTeamColor() == TeamColor.BLACK && move.getEndPosition().getRow() == 1)) {
+                ChessPiece promotedPiece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
+                board.setPiece(move.getEndPosition(), promotedPiece);
+            }
+        }
+
         switchTurns();
 
     }
