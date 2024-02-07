@@ -2,6 +2,7 @@ package chess;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * For a class that can manage a chess game, making moves on a board
@@ -72,7 +73,39 @@ public class ChessGame {
      * @return True if the specified team is in check
      */
     public boolean isInCheck(TeamColor teamColor) {
-        throw new RuntimeException("Not implemented");
+        ChessPosition kingPosition = null;
+        for (int row = 1; row <= 8; row++) {
+            for (int col = 1; col <= 8; col++) {
+                ChessPosition currentPosition = new ChessPosition(row, col);
+                ChessPiece currentPiece = board.getPiece(currentPosition);
+                if (currentPiece != null && currentPiece.getPieceType() == ChessPiece.PieceType.KING && currentPiece.getTeamColor() == teamColor) {
+                    kingPosition = currentPosition;
+                    break;
+                }
+            }
+            if (kingPosition!= null) {
+                break;
+            }
+        }
+        if (kingPosition == null) {
+            return false;
+        }
+        for (int row = 1; row <= 8; row++) {
+            for (int col = 1; col <= 8; col++) {
+                ChessPosition currentPosition = new ChessPosition(row, col);
+                ChessPiece currentPiece = board.getPiece(currentPosition);
+                if (currentPiece != null && currentPiece.getTeamColor() != teamColor) {
+                    Collection<ChessMove> validMoves = currentPiece.pieceMoves(board, currentPosition);
+                    for (ChessMove move : validMoves) {
+                        ChessPosition destinationPosition = move.getEndPosition();
+                        if (destinationPosition.equals(kingPosition)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -102,7 +135,14 @@ public class ChessGame {
      * @param board the new board to use
      */
     public void setBoard(ChessBoard board) {
-        throw new RuntimeException("Not implemented");
+        this.board = board;
+        this.board.resetBoard();
+        ChessPiece blackKing = new ChessPiece(TeamColor.BLACK, ChessPiece.PieceType.KING);
+        ChessPosition blackKingPosition = new ChessPosition(4,7);
+        board.addPiece(blackKingPosition, blackKing);
+        ChessPiece whiteQueen = new ChessPiece(TeamColor.WHITE, ChessPiece.PieceType.QUEEN);
+        ChessPosition whiteQueenPosition = new ChessPosition(4,4);
+        board.addPiece(whiteQueenPosition, whiteQueen);
     }
 
     /**
