@@ -84,6 +84,7 @@ public class ChessPiece {
         return null;
     }
 
+
     @Override
     public String toString() {
         return pieceColor.toString().charAt(0) + "-" + type.toString().charAt(0);

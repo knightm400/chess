@@ -11,6 +11,36 @@ import java.util.Arrays;
 public class ChessBoard {
     private ChessPiece[][] squares = new ChessPiece[8][8];
 
+    public void movePiece(ChessMove move) {
+        ChessPosition startPosition = move.getStartPosition();
+        ChessPosition endPosition = move.getEndPosition();
+        ChessPiece pieceToMove = getPiece(startPosition);
+        squares[startPosition.getRow() - 1][startPosition.getColumn() - 1] = null;
+        squares[endPosition.getRow() - 1][endPosition.getColumn() - 1] = pieceToMove;
+    }
+
+    public void setPiece(ChessPosition position, ChessPiece piece) {
+        if (position.getRow() >= 1 && position.getRow() <= 8 &&
+        position.getColumn() >= 1 && position.getColumn() <= 8) {
+            squares[position.getRow() - 1][position.getColumn() - 1] = piece;
+        } else {
+            System.out.println("Invalid position specified: " + position);
+        }
+    }
+
+    public void copyFrom(ChessBoard otherBoard) {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++){
+                ChessPiece sourcePiece = otherBoard.squares[row][col];
+                if(sourcePiece != null) {
+                    this.squares[row][col] = new ChessPiece(sourcePiece.getTeamColor(), sourcePiece.getPieceType());
+                } else {
+                    this.squares[row][col] = null;
+                }
+            }
+        }
+    }
+
     public ChessBoard() {
     }
 
@@ -73,6 +103,7 @@ public class ChessBoard {
         squares[0][3] = new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.QUEEN);
         squares[0][4] = new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.KING);
     }
+
 
     @Override
     public boolean equals(Object object) {
