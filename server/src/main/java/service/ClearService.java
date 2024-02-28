@@ -1,7 +1,7 @@
 package service;
 
 import dataAccess.DataAccess;
-import dataAcess.DataAcessInterface;
+import dataAccess.DataAccessInterface;
 
 public class ClearService {
     private DataAccessInterface dao;
