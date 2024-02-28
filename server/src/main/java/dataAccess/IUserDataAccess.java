@@ -8,4 +8,7 @@ public interface IUserDataAccess {
     void updateUser(UserData user) throws DataAccessException;
     void deleteUser(String username) throws DataAccessException;
     List<UserData> getAllUsers() throws DataAccessException;
+    void clearAllGames() throws DataAccessException;
+    void clearAllUsers() throws DataAccessException;
+    void clearAllAuthTokens() throws DataAccessException;
 }

@@ -1,16 +1,18 @@
 package service;
 
-import dataAccess.DataAccess;
-import dataAccess.DataAccessInterface;
+import dataAccess.IUserDataAccess;
+import dataAccess.DataAccessException;
 
 public class ClearService {
-    private DataAccessInterface dao;
+    private IUserDataAccess userDataAccess;
 
-    public ClearService() {
-        dao = new DataAcess();
+    public ClearService(IUserDataAccess userDataAccess) {
+        this.userDataAccess = userDataAccess;
     }
 
-    public void clearData() {
-        dao.clearAll();
+    public void clearAllData() throws DataAccessException {
+        userDataAccess.clearAllUsers();
+        userDataAccess.clearAllGames();
+        userDataAccess.clearAllAuthTokens();
     }
 }
