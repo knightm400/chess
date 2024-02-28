@@ -11,6 +11,10 @@ import java.util.stream.Collectors;
 public class UserDataAccess implements IUserDataAccess {
     private final Map<String, UserData> users = new HashMap<>();
 
+    public void clearAllData() {
+        users.clear();
+    }
+
     @Override
     public void insertUser(UserData user) throws DataAccessException {
         if (users.containsKey(user.getUsername())) {
