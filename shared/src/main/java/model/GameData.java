@@ -1,24 +1,24 @@
 package model;
 
 public class GameData {
-    private int gameID;
+    private String gameID;
     private String whiteUsername;
     private String blackUsername;
     private String gameName;
     private String gameData;
 
-    public GameData(int gameID, String whiteUsername, String blackUsername, String gameName) {
+    public GameData(String gameID, String whiteUsername, String blackUsername, String gameName) {
         this.gameID = gameID;
         this.whiteUsername = whiteUsername;
         this.blackUsername = blackUsername;
         this.gameName = gameName;
     }
 
-    public int getGameID() {
+    public String getGameID() {
         return gameID;
     }
 
-    public void setGameID(int gameID) {
+    public void setGameID(String gameID) {
         this.gameID = gameID;
     }
 
