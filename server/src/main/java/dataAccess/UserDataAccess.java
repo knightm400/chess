@@ -20,6 +20,7 @@ public class UserDataAccess implements IUserDataAccess {
 
     public void clearAllUsers() throws DataAccessException{}
     public void clearAllAuthTokens() throws DataAccessException{}
+    public void insertUser() throws DataAccessException{}
 
     @Override
     public void insertUser(UserData user) throws DataAccessException {
