@@ -1,26 +1,20 @@
 package dataAccess;
 
 import model.UserData;
+import org.eclipse.jetty.server.Authentication;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class UserDataAccess implements IUserDataAccess {
     private final Map<String, UserData> users = new HashMap<>();
 
+    @Override
     public void clearAllData() {
         users.clear();
     }
-
-    @Override
-    public void clearAllGames() throws DataAccessException{}
-
-    public void clearAllUsers() throws DataAccessException{}
-    public void clearAllAuthTokens() throws DataAccessException{}
-    public void insertUser() throws DataAccessException{}
 
     @Override
     public void insertUser(UserData user) throws DataAccessException {
