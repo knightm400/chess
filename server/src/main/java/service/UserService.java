@@ -14,4 +14,8 @@ public class UserService {
         dataAccess.insertUser(user);
         return user;
     }
+
+    public UserData getUser(String username) throws DataAccessException {
+        return dataAccess.getUser(username);
+    }
 }

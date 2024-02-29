@@ -2,7 +2,6 @@ package serviceTests;
 
 
 import dataAccess.DataAccessException;
-import dataAccess.IUserDataAccess;
 import dataAccess.UserDataAccess;
 import model.UserData;
 import org.junit.jupiter.api.BeforeEach;
