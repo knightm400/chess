@@ -1,12 +1,22 @@
 package model;
 
 public class GameData {
+    private String gameID;
     private String gameName;
-    private String username;
+    private String gameData;
 
     public GameData(String gameName, String username) {
+        this.gameID = gameID;
         this.gameName = gameName;
-        this.username = username;
+        this.gameData = gameData;
+    }
+
+    public String getGameID() {
+        return gameID;
+    }
+
+    public void setGameID(String gameID) {
+        this.gameID = gameID;
     }
 
     public String getGameName() {
@@ -17,11 +27,7 @@ public class GameData {
         this.gameName = gameName;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setGameData(String gameData) {
+        this.gameData = gameData;
     }
 }
