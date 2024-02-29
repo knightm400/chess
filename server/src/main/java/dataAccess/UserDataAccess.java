@@ -18,7 +18,7 @@ public class UserDataAccess implements IUserDataAccess {
     }
 
     @Override
-    public void clearAll() throws DataAccessException {
+    public void clearDatabase() throws DataAccessException {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM user");
             statement.executeUpdate();

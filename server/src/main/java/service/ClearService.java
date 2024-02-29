@@ -10,7 +10,7 @@ public class ClearService {
         this.userDataAccess = userDataAccess;
     }
 
-    public void clearAllData() throws DataAccessException {
-        userDataAccess.clearAll();
+    public void clearAll() throws DataAccessException {
+        userDataAccess.clearDatabase();
     }
 }

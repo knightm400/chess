@@ -3,7 +3,7 @@ package dataAccess;
 import model.UserData;
 import java.util.List;
 public interface IUserDataAccess {
-    void clearAll() throws DataAccessException;
+    void clearDatabase() throws DataAccessException;
     void insertUser(UserData user) throws DataAccessException;
     UserData getUser(String username) throws DataAccessException;
     void updateUser(UserData user) throws DataAccessException;
