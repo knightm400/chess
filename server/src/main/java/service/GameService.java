@@ -1,6 +1,8 @@
 package service;
 
 import dataAccess.DataAccessException;
+import dataAccess.IGameDataAccess;
+import model.GameData;
 
 public class GameService {
     private IGameDataAccess gameDataAccess;
