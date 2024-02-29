@@ -16,6 +16,12 @@ public class UserDataAccess implements IUserDataAccess {
     }
 
     @Override
+    public void clearAllGames() throws DataAccessException{}
+
+    public void clearAllUsers() throws DataAccessException{}
+    public void clearAllAuthTokens() throws DataAccessException{}
+
+    @Override
     public void insertUser(UserData user) throws DataAccessException {
         if (users.containsKey(user.getUsername())) {
             throw new DataAccessException("User already exists.");
