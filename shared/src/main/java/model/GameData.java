@@ -1,22 +1,41 @@
 package model;
 
 public class GameData {
-    private String gameID;
+    private int gameID;
+    private String whiteUsername;
+    private String blackUsername;
     private String gameName;
     private String gameData;
-    private String username;
 
-    public GameData(String gameName, String username) {
+    public GameData(int gameID, String whiteUsername, String blackUsername, String gameName) {
+        this.gameID = gameID;
+        this.whiteUsername = whiteUsername;
+        this.blackUsername = blackUsername;
         this.gameName = gameName;
-        this.username = username;
     }
 
-    public String getGameID() {
+    public int getGameID() {
         return gameID;
     }
 
-    public void setGameID(String gameID) {
+    public void setGameID(int gameID) {
         this.gameID = gameID;
+    }
+
+    public String getWhiteUsername() {
+        return whiteUsername;
+    }
+
+    public void setWhiteUsername(String whiteUsername) {
+        this.whiteUsername = whiteUsername;
+    }
+
+    public String getBlackUsername() {
+        return blackUsername;
+    }
+
+    public void setBlackUsername(String blackUsername) {
+        this.blackUsername = blackUsername;
     }
 
     public String getGameName() {
@@ -27,11 +46,12 @@ public class GameData {
         this.gameName = gameName;
     }
 
-    public void setGameData(String gameData) {
-        this.gameData = gameData;
-    }
-
     public String getGameData() {
         return gameData;
     }
+
+    public void setGameData(String gameData) {
+        this.gameData = gameData;
+    }
 }
+
