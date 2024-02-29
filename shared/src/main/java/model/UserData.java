@@ -1,5 +1,7 @@
 package model;
 
+import com.google.gson.Gson;
+
 public class UserData {
     private String username;
     private String password;
@@ -19,23 +21,21 @@ public class UserData {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String toJson() {
+        return new Gson().toJson(this);
     }
+
+    public static UserData fromJson(String json) {
+        return new Gson().fromJson(json, UserData.class);
+    }
+
+
 }

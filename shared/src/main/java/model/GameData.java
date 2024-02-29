@@ -4,11 +4,11 @@ public class GameData {
     private String gameID;
     private String gameName;
     private String gameData;
+    private String username;
 
-    public GameData(String gameID, String gameName, String gameData) {
-        this.gameID = gameID;
+    public GameData(String gameName, String username) {
         this.gameName = gameName;
-        this.gameData = gameData;
+        this.username = username;
     }
 
     public String getGameID() {
