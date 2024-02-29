@@ -12,7 +12,7 @@ public class GameService {
 
     public GameData createGame(String gameName, String username) throws DataAccessException {
         GameData newGame = new GameData(gameName, username);
-        gameDataAccess.insertGame(newGame);
+        gameDataAccess.createGame(newGame);
         return newGame;
     }
 }
