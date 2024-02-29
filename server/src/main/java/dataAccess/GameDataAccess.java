@@ -11,7 +11,7 @@ public class GameDataAccess implements IGameDataAccess {
 
     @Override
     public void createGame(GameData game) throws DataAccessException {
-        games.put(game.getGameName(), game);
+        games.put(game.getGameID(), game);
     }
 
     @Override

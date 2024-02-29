@@ -5,7 +5,7 @@ public class GameData {
     private String gameName;
     private String gameData;
 
-    public GameData(String gameName, String username) {
+    public GameData(String gameID, String gameName, String gameData) {
         this.gameID = gameID;
         this.gameName = gameName;
         this.gameData = gameData;
@@ -29,5 +29,9 @@ public class GameData {
 
     public void setGameData(String gameData) {
         this.gameData = gameData;
+    }
+
+    public String getGameData() {
+        return gameData;
     }
 }
