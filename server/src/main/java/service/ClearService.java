@@ -11,6 +11,6 @@ public class ClearService {
     }
 
     public void clearAllData() throws DataAccessException {
-        userDataAccess.clearAllData();
+        userDataAccess.clearAll();
     }
 }

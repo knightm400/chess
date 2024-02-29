@@ -1,19 +1,32 @@
 package dataAccess;
 
 import model.UserData;
-import org.eclipse.jetty.server.Authentication;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class UserDataAccess implements IUserDataAccess {
+    private final Connection connection;
     private final Map<String, UserData> users = new HashMap<>();
 
+    public UserDataAccess(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
-    public void clearAllData() {
-        users.clear();
+    public void clearAll() throws DataAccessException {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM user");
+            statement.executeUpdate();
+            statement = connection.prepareStatement("DELETE FROM auth");
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to clear user data" + e.getMessage());
+        }
     }
 
     @Override
