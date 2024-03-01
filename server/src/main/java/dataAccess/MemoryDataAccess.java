@@ -1,34 +1,31 @@
 package dataAccess;
 
 import model.UserData;
-import org.eclipse.jetty.server.Authentication;
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class MemoryDataAccess implements UserDataAccess {
-    private boolean throwDataAccessException = false;
-    private Map<String, UserData> userDataMap = new HashMap<>();
+public class MemoryDataAccess {
+    private final Map<String, UserData> users = new HashMap<>();
 
-    @Override
-    public void clearDatabase() throws DataAccessException {
-        if (throwDataAccessException) {
-            throw new DataAccessException("Simulated DataAccessException");
-        }
-        userDataMap.clear();
+    public void clearDatabase() {
+        users.clear();
     }
 
-    @Override
-    public void insertUser(UserData user) throws DataAccessException {
-        userDataMap.put(user.getUsername(), user);
+    public UserData getUser (String username) {
+        return users.get(username);
     }
 
-    @Override
-    public UserData getUser(String username) throws DataAccessException {
-        return userDataMap.get(username);
+    public void updateUser(UserData user) {
+        users.put(user.getUsername(), user);
     }
 
-    public void setThrowDataAccessException(boolean throwDataAccessException) {
-        this.throwDataAccessException = throwDataAccessException;
+    public void deleteUser(String username) {
+        users.remove(username);
+    }
+
+    public List<UserData> getAllUsers() {
+        return new ArrayList<>(users.values());
     }
 }
