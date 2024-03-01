@@ -3,30 +3,33 @@ package dataAccess;
 import model.GameData;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-public class GameDataAccess implements IGameDataAccess {
-    private Map<String, GameData> games = new HashMap<>();
+public class GameDataAccess {
+    private final Map<String, GameData> games = new HashMap<>();
 
-    @Override
-    public void createGame(GameData game) throws DataAccessException {
+    public void clearDatabase() {
+        games.clear();
+    }
+
+    public void insertGame(GameData game) {
         games.put(game.getGameID(), game);
     }
 
-    @Override
-    public GameData getGame(String gameID) throws DataAccessException {
+    public GameData getGame(String gameID) {
         return games.get(gameID);
     }
 
-    @Override
-    public List<GameData> listGames() throws DataAccessException {
-        return new ArrayList<>(games.values());
-
+    public void updateGame(String gameID, GameData game) {
+        games.put(gameID, game);
     }
 
-    @Override
-    public void updateGame(String gameID, GameData game) throws DataAccessException {
-        games.put(gameID, game);
+    public void deleteGame(String gameID) {
+        games.remove(gameID);
+    }
+
+    public List<GameData> getAllGames() {
+        return new ArrayList<>(games.values());
     }
 }
