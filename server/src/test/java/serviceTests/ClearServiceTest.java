@@ -1,6 +1,5 @@
 package serviceTests;
 
-
 import dataAccess.DataAccessException;
 import dataAccess.UserDataAccess;
 import model.UserData;
@@ -8,11 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import service.ClearService;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 
 public class ClearServiceTest {
-    private UserDataAccess userDataAccess;
     private ClearService clearService;
+    private UserDataAccess userDataAccess;
+
     @BeforeEach
     public void setUp() {
         userDataAccess = new UserDataAccess();
@@ -20,10 +22,10 @@ public class ClearServiceTest {
     }
 
     @Test
-    public void clearAllData_success() throws DataAccessException {
+    public void testClearAll() throws DataAccessException {
         userDataAccess.insertUser(new UserData("testUser", "password", "email@example.com"));
-        assertEquals(1, userDataAccess.getAllUsers().size());
-        clearService.clearAllData();
-        assertEquals(0, userDataAccess.getAllUsers().size());
+        assertFalse(userDataAccess.isDatabaseEmpty());
+        clearService.clearAll();
+        assertTrue(userDataAccess.isDatabaseEmpty());
     }
 }

@@ -1,65 +1,42 @@
 package dataAccess;
 
+import model.GameData;
 import model.UserData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UserDataAccess implements IUserDataAccess {
-    private final Connection connection;
-    private final Map<String, UserData> users = new HashMap<>();
-
-    public UserDataAccess(Connection connection) {
-        this.connection = connection;
+public class UserDataAccess{
+    private Map<String, UserData> users = new HashMap<>();
+    public void clearDatabase() {
+        users.clear();
     }
 
-    @Override
-    public void clearDatabase() throws DataAccessException {
-        try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM user");
-            statement.executeUpdate();
-            statement = connection.prepareStatement("DELETE FROM auth");
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            throw new DataAccessException("Failed to clear user data" + e.getMessage());
-        }
-    }
-
-    @Override
-    public void insertUser(UserData user) throws DataAccessException {
-        if (users.containsKey(user.getUsername())) {
-            throw new DataAccessException("User already exists.");
-        }
+    public void insertUser(UserData user) {
         users.put(user.getUsername(), user);
     }
 
-    @Override
-    public UserData getUser(String username) throws DataAccessException {
+    public UserData getUser(String username) {
         return users.get(username);
     }
 
-    @Override
-    public void updateUser(UserData user) throws DataAccessException {
-        if (!users.containsKey(user.getUsername())) {
-            throw new DataAccessException("User does not exist.");
-        }
+    public void updateUser(UserData user) {
         users.put(user.getUsername(), user);
     }
 
-    @Override
-    public void deleteUser(String username) throws DataAccessException {
-        if (!users.containsKey(username)) {
-            throw new DataAccessException("User does not exist.");
-        }
+    public void deleteUser(String username) {
         users.remove(username);
     }
 
-    @Override
     public List<UserData> getAllUsers() {
         return new ArrayList<>(users.values());
+    }
+    public boolean isDatabaseEmpty() {
+        return users.isEmpty();
     }
 }
