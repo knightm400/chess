@@ -2,59 +2,60 @@ package serviceTests;
 
 import dataAccess.GameDataAccess;
 import model.GameData;
+import service.GameService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.GameService;
-
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-public class GameServiceTest {
+class GameServiceTest {
+    private GameService service;
     private GameDataAccess gameDataAccess;
-    private GameService gameService;
 
     @BeforeEach
     void setUp() {
         gameDataAccess = new GameDataAccess();
-        gameService = new GameService(gameDataAccess);
+        service = new GameService(gameDataAccess);
     }
 
     @Test
-    void createGame_success() throws Exception {
-        GameData newGame = gameService.createGame("Chess Championship", "testUser");
-        assertNotNull(newGame);
-        assertEquals("Chess Championship", newGame.getGameName());
+    void createGame() throws Exception {
+        GameData game = new GameData("gameID", "whiteUsername", "blackUsername", "gameName");
+        service.createGame(game);
+        assertNotNull(service.getGame("gameID"));
     }
 
     @Test
-    void getGame_success() throws Exception {
-        GameData game = new GameData("gameID1", "Chess", "GameData");
-        gameDataAccess.createGame(game);
-        GameData found = gameService.getGame("gameID1");
-        assertNotNull(found);
-        assertEquals("Chess", found.getGameName());
+    void getGame() throws Exception {
+        GameData game = new GameData("gameID", "whiteUsername", "blackUsername", "gameName");
+        gameDataAccess.insertGame(game); // Directly insert to simulate existing game
+        assertNotNull(service.getGame("gameID"));
     }
 
     @Test
-    void listGames_success() throws Exception {
-        GameData game1 = new GameData("gameID1", "Chess", "GameData");
-        GameData game2 = new GameData("gameID2", "Checkers", "GameData");
-        gameDataAccess.createGame(game1);
-        gameDataAccess.createGame(game2);
-        List<GameData> games = gameService.listGames();
-        assertEquals(2, games.size());
-
+    void updateGame() throws Exception {
+        GameData game = new GameData("gameID", "whiteUsername", "blackUsername", "gameName");
+        gameDataAccess.insertGame(game);
+        game.setGameName("newGameName");
+        service.updateGame("gameID", game);
+        assertEquals("newGameName", service.getGame("gameID").getGameName());
     }
 
     @Test
-    void updateGame_success() throws Exception {
-        GameData orginalGame = new GameData("gameID", "OldName", "OldData");
-        gameDataAccess.createGame(orginalGame);
-        GameData updatedGame = new GameData("gameID", "NewName", "NewData");
-        GameData result = gameService.getGame("gameID");
-        assertEquals("NewName", result.getGameName());
-        assertEquals("NewData", result.getGameData());
+    void deleteGame() throws Exception {
+        GameData game = new GameData("gameID", "whiteUsername", "blackUsername", "gameName");
+        gameDataAccess.insertGame(game);
+        service.deleteGame("gameID");
+        assertNull(service.getGame("gameID"));
+    }
+
+    @Test
+    void listAllGames() throws Exception {
+        GameData game1 = new GameData("gameID1", "whiteUsername1", "blackUsername1", "gameName1");
+        GameData game2 = new GameData("gameID2", "whiteUsername2", "blackUsername2", "gameName2");
+        gameDataAccess.insertGame(game1);
+        gameDataAccess.insertGame(game2);
+        List<GameData> games = service.listAllGames();
+        assertTrue(games.contains(game1) && games.contains(game2));
     }
 }
