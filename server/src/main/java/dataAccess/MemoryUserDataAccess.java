@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MemoryDataAccess {
+public class MemoryUserDataAccess {
     private final Map<String, UserData> users = new HashMap<>();
 
     public void clearDatabase() {
