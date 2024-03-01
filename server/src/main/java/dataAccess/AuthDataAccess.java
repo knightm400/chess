@@ -1,26 +1,25 @@
 package dataAccess;
 
+import model.AuthData;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
-public class AuthDataAccess implements IAuthDataAccess {
-    private Map<String, String> authTokens = new HashMap<>();
+public class AuthDataAccess {
+    private Map<String, AuthData> authTokens = new HashMap<>();
 
-    @Override
-    public String createAuth(String username) throws DataAccessException {
-        String authToken = UUID.randomUUID().toString();
-        authTokens.put(authToken, username);
-        return authToken;
+    public void insertAuthData(AuthData auth) {
+        authTokens.put(auth.getAuthToken(), auth);
     }
 
-    @Override
-    public String getAuth(String authToken) throws DataAccessException {
+    public AuthData getAuthData(String authToken) {
         return authTokens.get(authToken);
     }
 
-    @Override
-    public void deleteAuth(String authToken) throws DataAccessException {
+    public void deleteAuthData(String authToken) {
         authTokens.remove(authToken);
+    }
+
+    public void clearDatabase() {
+        authTokens.clear();
     }
 }
