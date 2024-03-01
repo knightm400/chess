@@ -1,6 +1,5 @@
 package service;
 
-import dataAccess.IUserDataAccess;
 import dataAccess.DataAccessException;
 
 public class ClearService {

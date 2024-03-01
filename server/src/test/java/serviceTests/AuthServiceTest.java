@@ -1,7 +1,6 @@
 package serviceTests;
 
 import dataAccess.AuthDataAccess;
-import dataAccess.IAuthDataAccess;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import service.AuthService;

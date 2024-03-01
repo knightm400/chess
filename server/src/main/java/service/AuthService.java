@@ -1,23 +1,40 @@
 package service;
 
+import dataAccess.UserDataAccess;
+import model.UserData;
 import dataAccess.DataAccessException;
-import dataAccess.IAuthDataAccess;
+import model.AuthData;
 
 public class AuthService {
-    private IAuthDataAccess authDataAccess;
-    public AuthService(IAuthDataAccess authDataAccess) {
-        this.authDataAccess = authDataAccess;
+    private UserDataAccess userDataAccess;
+
+    public AuthService(UserDataAccess userDataAccess) {
+        this.userDataAccess = userDataAccess;
     }
 
-    public String createAuth(String username) throws DataAccessException {
-        return authDataAccess.createAuth(username);
+    public AuthData register(UserData user) throws DataAccessException {
+        // Check if user already exists
+        if (userDataAccess.getUser(user.getUsername()) != null) {
+            throw new DataAccessException("User already exists.");
+        }
+        // Insert new user
+        userDataAccess.insertUser(user);
+        // Return new auth token (this should be generated appropriately)
+        return new AuthData(user.getUsername(), "generated_auth_token");
     }
 
-    public String getAuth(String authToken) throws DataAccessException {
-        return authDataAccess.getAuth(authToken);
+    public AuthData login(UserData user) throws DataAccessException {
+        UserData foundUser = userDataAccess.getUser(user.getUsername());
+        if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
+            // Return auth token if login is successful
+            return new AuthData(user.getUsername(), "generated_auth_token");
+        } else {
+            throw new DataAccessException("Invalid username or password.");
+        }
     }
 
-    public void deleteAuth(String authToken) throws DataAccessException {
-        authDataAccess.deleteAuth(authToken);
+    public void logout(String username) throws DataAccessException {
+        // This method could invalidate the user's auth token if implemented
+        // For now, it's just a placeholder to match the structure.
     }
 }
