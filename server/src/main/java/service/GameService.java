@@ -1,32 +1,36 @@
 package service;
 
-import dataAccess.DataAccessException;
-import dataAccess.IGameDataAccess;
+import dataAccess.GameDataAccess;
 import model.GameData;
+import dataAccess.DataAccessException;
 
 import java.util.List;
 
 public class GameService {
-    private IGameDataAccess gameDataAccess;
-    public GameService(IGameDataAccess gameDataAccess) {
+    private GameDataAccess gameDataAccess;
+
+    public GameService(GameDataAccess gameDataAccess) {
         this.gameDataAccess = gameDataAccess;
     }
 
-    public GameData createGame(String gameName, String username) throws DataAccessException {
-        GameData newGame = new GameData(gameName, username);
-        gameDataAccess.createGame(newGame);
-        return newGame;
+    public void createGame(GameData game) throws DataAccessException {
+        gameDataAccess.insertGame(game);
     }
 
     public GameData getGame(String gameID) throws DataAccessException {
         return gameDataAccess.getGame(gameID);
     }
 
-    public List<GameData> listGames() throws DataAccessException {
-        return gameDataAccess.listGames();
-    }
-
     public void updateGame(String gameID, GameData game) throws DataAccessException {
         gameDataAccess.updateGame(gameID, game);
     }
+
+    public void deleteGame(String gameID) throws DataAccessException {
+        gameDataAccess.deleteGame(gameID);
+    }
+
+    public List<GameData> listAllGames() throws DataAccessException {
+        return gameDataAccess.getAllGames();
+    }
+
 }
