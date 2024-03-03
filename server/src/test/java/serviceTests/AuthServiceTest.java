@@ -1,42 +1,59 @@
 package serviceTests;
 
-import dataAccess.AuthDataAccess;
+import dataAccess.UserDataAccess;
+import model.UserData;
+import model.AuthData;
+import service.AuthService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.AuthService;
-
 import static org.junit.jupiter.api.Assertions.*;
-public class AuthServiceTest {
+
+class AuthServiceTest {
     private AuthService authService;
-    private IAuthDataAccess authDataAccess;
+    private UserDataAccess userDataAccess;
 
     @BeforeEach
     void setUp() {
-        authDataAccess = new AuthDataAccess();
-        authService = new AuthService(authDataAccess);
+        userDataAccess = new UserDataAccess();
+        authService = new AuthService(userDataAccess);
     }
 
     @Test
-    void createAuth_success() throws Exception {
-        String username = "testUser";
-        String authToken = authService.createAuth(username);
-        assertNotNull(authToken);
-        assertEquals(username, authService.getAuth(authToken));
+    void registerSuccessful() throws Exception {
+        UserData user = new UserData("testUser", "testPass", "testEmail");
+        AuthData authData = authService.register(user);
+        assertNotNull(authData);
+        assertEquals(user.getUsername(), authData.getUsername());
     }
 
     @Test
-    void getAuth_success() throws Exception {
-        String username = "testUser";
-        String authToken = authService.createAuth(username);
-        String retrievedUsername = authService.getAuth(authToken);
-        assertEquals(username, retrievedUsername);
+    void registerFailUserExists() throws Exception {
+        UserData user = new UserData("existingUser", "testPass", "testEmail");
+        authService.register(user);
+        assertThrows(Exception.class, () -> authService.register(user));
     }
 
     @Test
-    void deleteAuth_success() throws Exception {
-        String username = "testUser";
-        String authToken = authService.createAuth(username);
-        authService.deleteAuth(authToken);
-        assertNull(authService.getAuth(authToken));
+    void loginSuccessful() throws Exception {
+        UserData user = new UserData("loginUser", "loginPass", "loginEmail");
+        authService.register(user);
+        AuthData authData = authService.login(user);
+        assertNotNull(authData);
+        assertEquals(user.getUsername(), authData.getUsername());
+    }
+
+    @Test
+    void loginFailWrongCredentials() throws Exception {
+        UserData user = new UserData("userWrong", "passWrong", "emailWrong");
+        authService.register(user);
+        assertThrows(Exception.class, () -> authService.login(new UserData("userWrong", "incorrectPass", "")));
+    }
+
+    @Test
+    void logout() throws Exception {
+        UserData user = new UserData("logoutUser", "logoutPass", "logoutEmail");
+        AuthData authData = authService.register(user);
+        authService.logout(authData.getAuthToken());
+        assertThrows(Exception.class, () -> authService.validateAuth(authData.getAuthToken()));
     }
 }
