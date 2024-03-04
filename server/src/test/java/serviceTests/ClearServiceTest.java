@@ -1,6 +1,7 @@
 package serviceTests;
 
 import dataAccess.DataAccessException;
+import dataAccess.GameDataAccess;
 import dataAccess.UserDataAccess;
 import model.UserData;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,11 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class ClearServiceTest {
     private ClearService clearService;
     private UserDataAccess userDataAccess;
+    private GameDataAccess gameDataAccess;
 
     @BeforeEach
     public void setUp() {
         userDataAccess = new UserDataAccess();
-        clearService = new ClearService(userDataAccess);
+        gameDataAccess = new GameDataAccess();
+        clearService = new ClearService(userDataAccess, gameDataAccess);
     }
 
     @Test
