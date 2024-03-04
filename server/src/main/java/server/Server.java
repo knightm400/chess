@@ -1,36 +1,39 @@
 package server;
 
 import com.google.gson.Gson;
+import dataAccess.AuthDataAccess;
 import dataAccess.DataAccessException;
+import dataAccess.GameDataAccess;
+import dataAccess.UserDataAccess;
 import model.AuthData;
 import model.GameData;
 import model.UserData;
-import spark.*;
 import service.*;
+import spark.*;
 
 import java.util.List;
 
 public class Server {
-    private AuthService authService;
-    private ClearService clearService;
-    private CreateGameService createGameService;
-    private ListGamesService listGamesService;
-    private LoginService loginService;
-    private LogoutService logoutService;
-    private RegisterService registerService;
-    private JoinGameService joinGameService;
+    private final AuthService authService;
+    private final ClearService clearService;
+    private final CreateGameService createGameService;
+    private final ListGamesService listGamesService;
+    private final LoginService loginService;
+    private final LogoutService logoutService;
+    private final RegisterService registerService;
+    private final JoinGameService joinGameService;
 
-    public Server(AuthService authService, ClearService clearService, CreateGameService createGameService,
-                  ListGamesService listGamesService, LoginService loginService, LogoutService logoutService,
-                  RegisterService registerService, JoinGameService joinGameService) {
-        this.authService = authService;
-        this.clearService = clearService;
-        this.createGameService = createGameService;
-        this.listGamesService = listGamesService;
-        this.loginService = loginService;
-        this.logoutService = logoutService;
-        this.registerService = registerService;
+    public Server() {
+        this.authService = new AuthService(new UserDataAccess());
+        this.clearService = new ClearService(new UserDataAccess(), new GameDataAccess());
+        this.createGameService = new CreateGameService(new GameDataAccess());
+        this.listGamesService = new ListGamesService(new GameDataAccess());
+        this.loginService = new LoginService(new UserDataAccess());
+        this.logoutService = new LogoutService(new AuthDataAccess());
+        this.registerService = new RegisterService(new UserDataAccess());
+        this.joinGameService = new JoinGameService(new GameDataAccess());
     }
+
 
     public int run(int desiredPort) {
         Spark.port(desiredPort);
