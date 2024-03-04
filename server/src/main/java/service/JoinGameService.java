@@ -2,7 +2,6 @@ package service;
 
 import dataAccess.GameDataAccess;
 import model.GameData;
-import dataAccess.DataAccessException;
 
 public class JoinGameService {
     private GameDataAccess gameDataAccess;

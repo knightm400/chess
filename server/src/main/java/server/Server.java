@@ -22,7 +22,7 @@ public class Server {
 
     public Server(AuthService authService, ClearService clearService, CreateGameService createGameService,
                   ListGamesService listGamesService, LoginService loginService, LogoutService logoutService,
-                  RegisterService registerService) {
+                  RegisterService registerService, JoinGameService joinGameService) {
         this.authService = authService;
         this.clearService = clearService;
         this.createGameService = createGameService;
@@ -44,10 +44,10 @@ public class Server {
 
             try {
                 AuthData authData = registerService.register(userData);
-                response.status(200); // OK
+                response.status(200);
                 return gson.toJson(authData);
             } catch (DataAccessException e) {
-                response.status(400); // Bad Request
+                response.status(400);
                 return "User registration failed: " + e.getMessage();
             }
         });
@@ -58,10 +58,10 @@ public class Server {
 
             try {
                 AuthData authData = loginService.login(username, password);
-                response.status(200); // OK
+                response.status(200);
                 return "Login successful, token: " + authData.getAuthToken();
             } catch (DataAccessException e) {
-                response.status(401); // Unauthorized
+                response.status(401);
                 return "Login failed: " + e.getMessage();
             }
         });
@@ -127,7 +127,7 @@ public class Server {
         });
 
         Spark.exception(Exception.class, (exception, request, response) -> {
-            response.status(500); 
+            response.status(500);
             response.body("An error occurred: " + exception.getMessage());
         });
 
