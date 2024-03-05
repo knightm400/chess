@@ -54,11 +54,16 @@ public class Server {
         Spark.post("/session", (request, response) -> {
             UserData userData = gson.fromJson(request.body(), UserData.class);
             try {
+                // Attempt to login with the provided credentials
                 AuthData authData = loginService.login(userData.getUsername(), userData.getPassword());
                 response.status(200); // OK
-                return gson.toJson(authData);
+                response.type("application/json"); // Ensure the response type is set to JSON
+                // Return the AuthData object as a JSON string
+                return gson.toJson(new UserResponse(authData.getUsername(), authData.getAuthToken()));
             } catch (DataAccessException e) {
                 response.status(401); // Unauthorized
+                response.type("application/json");
+                // Return an error message as a JSON string
                 return gson.toJson(Map.of("message", "Login failed: " + e.getMessage()));
             }
         }, gson::toJson);
