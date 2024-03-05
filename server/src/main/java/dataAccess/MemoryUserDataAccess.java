@@ -45,4 +45,15 @@ public class MemoryUserDataAccess implements UserDataAccess {
     public List<UserData> listUsers() {
         return new ArrayList<>(users.values());
     }
+
+
+    @Override
+    public UserData validateUser(String username, String password) throws DataAccessException {
+        UserData user = users.get(username);
+        if (user != null && user.password().equals(password)) {
+            return user;
+        } else {
+            throw new DataAccessException("Invalid username or password.");
+        }
+    }
 }

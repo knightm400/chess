@@ -5,26 +5,31 @@ import dataAccess.DataAccessException;
 import dataAccess.UserDataAccess;
 import model.AuthData;
 import model.UserData;
+import com.google.gson.Gson;
 
 public class LoginService {
-    private UserDataAccess userDataAccess;
-    private AuthDataAccess authDataAccess;
 
-    public LoginService(UserDataAccess userDataAccess, AuthDataAccess authDataAccess) {
-        this.userDataAccess = userDataAccess;
+    private final AuthDataAccess authDataAccess;
+    private final UserDataAccess userDataAccess;
+
+    public LoginService(AuthDataAccess authDataAccess, UserDataAccess userDataAccess) {
         this.authDataAccess = authDataAccess;
+        this.userDataAccess = userDataAccess;
     }
 
-    public AuthData login(String username, String password) throws DataAccessException {
-        UserData user = userDataAccess.getUser(username);
+    public LoginResult login(LoginRequest request) throws DataAccessException {
+        UserData user = userDataAccess.validateUser(request.username(), request.password());
         if (user == null) {
-            throw new DataAccessException("User does not exist");
+            throw new DataAccessException("Invalid username or password.");
         }
-        if (!user.password().equals(password)) {
-            throw new DataAccessException("Incorrect password");
-        }
-        AuthData newAuth = new AuthData(java.util.UUID.randomUUID().toString(), username);
-        authDataAccess.insertAuth(newAuth);
-        return newAuth;
+
+        AuthData authData = new AuthData(user.username(), generateAuthToken());
+        authDataAccess.insertAuth(authData);
+
+        return new LoginResult(authData.username(), authData.authToken());
+    }
+
+    private String generateAuthToken() {
+        return Long.toHexString(Double.doubleToLongBits(Math.random()));
     }
 }

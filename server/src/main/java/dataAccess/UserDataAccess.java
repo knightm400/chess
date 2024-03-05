@@ -9,4 +9,5 @@ public interface UserDataAccess {
     void updateUser(UserData user) throws DataAccessException;
     void deleteUser(String username) throws DataAccessException;
     List<UserData> listUsers() throws DataAccessException;
+    UserData validateUser(String username, String password) throws DataAccessException;
 }
