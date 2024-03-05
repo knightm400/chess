@@ -10,4 +10,5 @@ public interface AuthDataAccess {
     List<AuthData> listAuths() throws DataAccessException;
     void clearAuths() throws DataAccessException;
     String generateAuthToken();
+    AuthData getAuthByUsername(String username) throws DataAccessException;
 }

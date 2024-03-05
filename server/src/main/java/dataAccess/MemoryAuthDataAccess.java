@@ -45,7 +45,16 @@ public class MemoryAuthDataAccess implements AuthDataAccess {
 
 
     @Override
+    public AuthData getAuthByUsername(String username) throws DataAccessException {
+        return authTokens.values().stream()
+                .filter(authData -> authData.username().equals(username))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
     public String generateAuthToken() {
         return UUID.randomUUID().toString();
     }
+
 }
