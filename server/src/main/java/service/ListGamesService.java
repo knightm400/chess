@@ -17,6 +17,6 @@ public class ListGamesService {
 
     public ListGamesResult listGames(ListGamesRequest request) throws DataAccessException {
         List<GameData> gamesList = gameDataAccess.listGames();
-        return new ListGamesResult(gamesList, true, ""); 
+        return new ListGamesResult(gamesList, true, "");
     }
 }
