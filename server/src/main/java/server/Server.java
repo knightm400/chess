@@ -12,6 +12,7 @@ import service.*;
 import spark.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class Server {
     private final AuthService authService;
@@ -40,73 +41,71 @@ public class Server {
 
         Spark.staticFiles.location("web");
 
+        Gson gson = new Gson();
 
         Spark.post("/user", (request, response) -> {
-            Gson gson = new Gson();
             UserData userData = gson.fromJson(request.body(), UserData.class);
-
             try {
                 AuthData authData = registerService.register(userData);
-                response.status(200);
+                response.status(200); // OK
                 return gson.toJson(authData);
             } catch (DataAccessException e) {
-                response.status(400);
-                return "User registration failed: " + e.getMessage();
+                response.status(400); // Bad Request
+                return gson.toJson(Map.of("message", "User registration failed: " + e.getMessage()));
             }
-        });
+        }, gson::toJson);
 
         Spark.post("/session", (request, response) -> {
-            String username = request.queryParams("username");
-            String password = request.queryParams("password");
-
+            UserData userData = gson.fromJson(request.body(), UserData.class);
             try {
-                AuthData authData = loginService.login(username, password);
-                response.status(200);
-                return "Login successful, token: " + authData.getAuthToken();
+                AuthData authData = loginService.login(userData.getUsername(), userData.getPassword());
+                response.status(200); // OK
+                return gson.toJson(authData);
             } catch (DataAccessException e) {
-                response.status(401);
-                return "Login failed: " + e.getMessage();
+                response.status(401); // Unauthorized
+                return gson.toJson(Map.of("message", "Login failed: " + e.getMessage()));
             }
-        });
+        }, gson::toJson);
 
         Spark.delete("/session", (request, response) -> {
-            String authToken = request.queryParams("authToken");
+            String authToken = request.params(":authToken");
             try {
                 logoutService.logout(authToken);
-                response.status(200);
-                return "Logout successful";
+                response.status(200); // OK
+                return gson.toJson(Map.of("message", "Logout successful"));
             } catch (DataAccessException e) {
-                response.status(401);
-                return "Logout failed: " + e.getMessage();
+                response.status(401); // Unauthorized
+                return gson.toJson(Map.of("message", "Logout failed: " + e.getMessage()));
             }
-        });
+        }, gson::toJson);
 
         Spark.get("/game", (request, response) -> {
             String authToken = request.queryParams("authToken");
             try {
                 List<GameData> gamesList = listGamesService.listGames(authToken);
-                response.status(200);
+                response.status(200); // OK
                 response.type("application/json");
-                return new Gson().toJson(gamesList);
+                return gson.toJson(gamesList);
             } catch (Exception e) {
-                response.status(401);
-                return "Failed to list games: " + e.getMessage();
+                response.status(401); // Unauthorized
+                return gson.toJson(Map.of("message", "Failed to list games: " + e.getMessage()));
             }
-        });
+        }, gson::toJson);
 
         Spark.post("/game", (request, response) -> {
             String authToken = request.queryParams("authToken");
             String gameName = request.queryParams("gameName");
             try {
                 GameData newGame = createGameService.createGame(authToken, gameName);
-                response.status(200);
+                response.status(200); // OK
                 response.type("application/json");
-                return new Gson().toJson(newGame);
+                return gson.toJson(newGame);
             } catch (Exception e) {
-                response.status(400);
-                return "Failed to create game: " + e.getMessage();
+                response.status(400); // Bad Request
+                return gson.toJson(Map.of("message", "Failed to create game: " + e.getMessage()));
             }
-        });
+        }, gson::toJson);
+
 
         Spark.put("/game", (request, response) -> {
             String authToken = request.queryParams("authToken");
@@ -114,24 +113,26 @@ public class Server {
             String playerColor = request.queryParams("playerColor");
             try {
                 JoinGameResult result = joinGameService.joinGame(authToken, gameID, playerColor);
-                response.status(200);
+                response.status(200); // OK
                 response.type("application/json");
-                return new Gson().toJson(result);
+                return gson.toJson(result);
             } catch (Exception e) {
-                response.status(400);
-                return "Failed to join game: " + e.getMessage();
+                response.status(400); // Bad Request
+                return gson.toJson(Map.of("message", "Failed to join game: " + e.getMessage()));
             }
-        });
+        }, gson::toJson);
 
         Spark.delete("/db", (request, response) -> {
             clearService.clearAll();
             response.status(200); // OK
-            return "All data cleared successfully";
-        });
+            return gson.toJson(Map.of("message", "All data cleared successfully"));
+        }, gson::toJson);
 
         Spark.exception(Exception.class, (exception, request, response) -> {
-            response.status(500);
-            response.body("An error occurred: " + exception.getMessage());
+            response.status(500); // Internal Server Error
+            response.type("application/json"); // Set response type
+            Map<String, String> errorResponse = Map.of("message", "An error occurred: " + exception.getMessage());
+            response.body(new Gson().toJson(errorResponse)); // Convert map to JSON
         });
 
         Spark.awaitInitialization();
