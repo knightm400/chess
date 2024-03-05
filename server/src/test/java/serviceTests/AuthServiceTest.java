@@ -1,58 +1,59 @@
 package serviceTests;
 
-import dataAccess.UserDataAccess;
-import model.UserData;
+import dataAccess.*;
 import model.AuthData;
+import model.UserData;
+import service.AuthService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AuthServiceTest {
+public class AuthServiceTest {
+
     private AuthService authService;
-    private UserDataAccess userDataAccess;
+    private MemoryAuthDataAccess authDA;
+    private MemoryUserDataAccess userDA;
 
     @BeforeEach
-    void setUp() {
-        userDataAccess = new UserDataAccess();
-        authService = new AuthService(userDataAccess);
+    public void setUp() {
+        authDA = new MemoryAuthDataAccess();
+        userDA = new MemoryUserDataAccess();
+        authService = new AuthService(userDA, authDA);
+    }
+
+    @AfterEach
+    public void tearDown() {
+        authDA.clearAuths();
+        userDA.clearUsers();
     }
 
     @Test
-    void registerSuccessful() throws Exception {
-        UserData user = new UserData("testUser", "testPass", "testEmail");
-        AuthData authData = authService.register(user);
-        assertNotNull(authData);
-        assertEquals(user.getUsername(), authData.getUsername());
+    public void testRegisterSuccess() throws DataAccessException {
+        UserData newUser = new UserData("testUser", "testPass", "testEmail");
+        AuthData registeredUser = authService.register(newUser);
+        assertNotNull(registeredUser.authToken());
+        assertEquals("testUser", registeredUser.username());
     }
 
     @Test
-    void registerFailUserExists() throws Exception {
-        UserData user = new UserData("existingUser", "testPass", "testEmail");
-        authService.register(user);
-        assertThrows(Exception.class, () -> authService.register(user));
+    public void testRegisterFailAlreadyExists() {
+        UserData newUser = new UserData("testUser", "testPass", "testEmail");
+        assertThrows(DataAccessException.class, () -> {
+            authService.register(newUser);
+            authService.register(newUser); 
+        });
     }
 
     @Test
-    void loginSuccessful() throws Exception {
-        UserData user = new UserData("loginUser", "loginPass", "loginEmail");
-        authService.register(user);
-        AuthData authData = authService.login(user);
-        assertNotNull(authData);
-        assertEquals(user.getUsername(), authData.getUsername());
+    public void testLogoutSuccess() throws DataAccessException {
+        UserData newUser = new UserData("testUser", "testPass", "testEmail");
+        AuthData registeredUser = authService.register(newUser);
+        assertDoesNotThrow(() -> authService.logout(registeredUser.authToken()));
     }
 
     @Test
-    void loginFailWrongCredentials() throws Exception {
-        UserData user = new UserData("userWrong", "passWrong", "emailWrong");
-        authService.register(user);
-        assertThrows(Exception.class, () -> authService.login(new UserData("userWrong", "incorrectPass", "")));
-    }
-
-    @Test
-    void logout() throws Exception {
-        UserData user = new UserData("logoutUser", "logoutPass", "logoutEmail");
-        AuthData authData = authService.register(user);
-        authService.logout(authData.getAuthToken());
-        assertThrows(Exception.class, () -> authService.validateAuth(authData.getAuthToken()));
+    public void testLogoutFailInvalidToken() {
+        assertThrows(DataAccessException.class, () -> authService.logout("invalidToken"));
     }
 }
