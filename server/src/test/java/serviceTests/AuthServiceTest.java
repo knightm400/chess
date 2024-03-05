@@ -3,7 +3,6 @@ package serviceTests;
 import dataAccess.UserDataAccess;
 import model.UserData;
 import model.AuthData;
-import service.AuthService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

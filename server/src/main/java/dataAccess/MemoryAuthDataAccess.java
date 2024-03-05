@@ -2,10 +2,7 @@ package dataAccess;
 
 import model.AuthData;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MemoryAuthDataAccess implements AuthDataAccess {
@@ -44,5 +41,11 @@ public class MemoryAuthDataAccess implements AuthDataAccess {
     @Override
     public void clearAuths() {
         this.authTokens.clear();
+    }
+
+
+    @Override
+    public String generateAuthToken() {
+        return UUID.randomUUID().toString();
     }
 }
