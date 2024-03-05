@@ -39,4 +39,10 @@ public class MemoryAuthDataAccess implements AuthDataAccess {
     public List<AuthData> listAuths() {
         return new ArrayList<>(authTokens.values());
     }
+
+
+    @Override
+    public void clearAuths() {
+        this.authTokens.clear();
+    }
 }

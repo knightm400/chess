@@ -8,4 +8,5 @@ public interface AuthDataAccess {
     AuthData getAuth(String authToken) throws DataAccessException;
     void deleteAuth(String authToken) throws DataAccessException;
     List<AuthData> listAuths() throws DataAccessException;
+    void clearAuths() throws DataAccessException;
 }

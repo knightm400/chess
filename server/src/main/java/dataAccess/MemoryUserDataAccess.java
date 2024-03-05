@@ -56,4 +56,9 @@ public class MemoryUserDataAccess implements UserDataAccess {
             throw new DataAccessException("Invalid username or password.");
         }
     }
+
+    @Override
+    public void clearUsers() {
+        users.clear();
+    }
 }

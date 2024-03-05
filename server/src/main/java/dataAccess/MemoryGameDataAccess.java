@@ -45,4 +45,9 @@ public class MemoryGameDataAccess implements GameDataAccess {
     public List<GameData> listGames() {
         return new ArrayList<>(games.values());
     }
+
+    @Override
+    public void clearGames() {
+        games.clear();
+    }
 }
