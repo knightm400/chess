@@ -1,24 +1,36 @@
 package service;
 
+import dataAccess.AuthDataAccess;
 import dataAccess.UserDataAccess;
 import dataAccess.DataAccessException;
-import model.UserData;
 import model.AuthData;
+import model.UserData;
+
 
 public class RegisterService {
-    private UserDataAccess userDataAccess;
+    private final UserDataAccess userDataAccess;
+    private final AuthDataAccess authDataAccess;
 
-    public RegisterService(UserDataAccess userDataAccess) {
+    public RegisterService(UserDataAccess userDataAccess, AuthDataAccess authDataAccess) {
         this.userDataAccess = userDataAccess;
+        this.authDataAccess = authDataAccess;
     }
 
-    public AuthData register(UserData user) throws DataAccessException {
-        if (userDataAccess.getUser(user.getUsername()) != null) {
-            throw new DataAccessException("User already exists.");
+    public RegisterResult register(RegisterRequest request) throws DataAccessException {
+        if (userDataAccess.getUser(request.username()) != null) {
+            throw new DataAccessException("Username already taken");
         }
+        UserData newUser = new UserData(request.username(), request.password(), request.email());
+        userDataAccess.insertUser(newUser);
 
-        userDataAccess.insertUser(user);
-        String authToken = "generated_auth_token_for_" + user.getUsername();
-        return new AuthData(user.getUsername(), authToken);
+        String authToken = generateAuthToken();
+        AuthData authData = new AuthData(authToken, request.username());
+        authDataAccess.insertAuth(authData);
+
+        return new RegisterResult(request.username(), authToken);
+    }
+
+    private String generateAuthToken() {
+        return Long.toHexString(Double.doubleToLongBits(Math.random()));
     }
 }
