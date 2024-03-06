@@ -41,7 +41,7 @@ public class AuthServiceTest {
         UserData newUser = new UserData("testUser", "testPass", "testEmail");
         assertThrows(DataAccessException.class, () -> {
             authService.register(newUser);
-            authService.register(newUser); 
+            authService.register(newUser);
         });
     }
 
