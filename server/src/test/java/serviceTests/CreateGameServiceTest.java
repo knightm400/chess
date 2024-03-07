@@ -29,7 +29,7 @@ public class CreateGameServiceTest {
     @Test
     public void createGameSuccessfully() throws Exception {
         String authToken = "testAuthToken";
-        memoryAuthDataAccess.insertAuth(new AuthData(authToken, "testUser")); // Pre-insert auth data for validation
+        memoryAuthDataAccess.insertAuth(new AuthData(authToken, "testUser"));
 
         CreateGameRequest request = new CreateGameRequest(authToken, "Test Game");
         CreateGameResult result = createGameService.createGame(request);
