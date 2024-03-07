@@ -1,54 +1,48 @@
 package serviceTests;
 
-import dataAccess.UserDataAccess;
+import dataAccess.*;
+import model.AuthData;
 import model.UserData;
+import service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.List;
 
-class UserServiceTest {
-    private UserService service;
-    private UserDataAccess userDataAccess;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class UserServiceTest {
+
+    private UserService userService;
+    private MemoryUserDataAccess userDataAccess;
+    private MemoryAuthDataAccess authDataAccess;
 
     @BeforeEach
-    void setUp() {
-        userDataAccess = new UserDataAccess();
-        service = new UserService(userDataAccess);
+    public void setUp() {
+        userDataAccess = new MemoryUserDataAccess();
+        authDataAccess = new MemoryAuthDataAccess();
+        userService = new UserService(userDataAccess, authDataAccess);
     }
 
     @Test
-    void addUser() throws Exception {
-        UserData newUser = new UserData("testUser", "password123", "testUser@example.com");
-        service.addUser(newUser);
-        UserData fetchedUser = service.getUser("testUser");
-        assertEquals(newUser.getUsername(), fetchedUser.getUsername());
+    public void registerSuccess() throws DataAccessException {
+        UserData newUser = new UserData("newUser", "password", "email@example.com");
+        AuthData registeredUser = userService.register(newUser);
+        assertNotNull(registeredUser.authToken());
+        assertEquals("newUser", registeredUser.username());
     }
 
     @Test
-    void deleteUser() throws Exception {
-        UserData newUser = new UserData("testUser", "password123", "testUser@example.com");
-        service.addUser(newUser);
-        service.deleteUser("testUser");
-        assertNull(service.getUser("testUser"));
+    public void loginSuccess() throws DataAccessException {
+        userDataAccess.insertUser(new UserData("existingUser", "password", "email@example.com"));
+        AuthData loggedInUser = userService.login("existingUser", "password");
+        assertNotNull(loggedInUser.authToken());
+        assertEquals("existingUser", loggedInUser.username());
     }
 
     @Test
-    void listUsers() throws Exception {
-        service.clearAllUsers(); // Clear all before testing
-        UserData user1 = new UserData("user1", "pass1", "user1@example.com");
-        UserData user2 = new UserData("user2", "pass2", "user2@example.com");
-        service.addUser(user1);
-        service.addUser(user2);
-        List<UserData> users = service.listUsers();
-        assertTrue(users.contains(user1) && users.contains(user2));
+    public void logoutSuccess() throws DataAccessException {
+        userDataAccess.insertUser(new UserData("user", "password", "email@example.com"));
+        AuthData loggedInUser = userService.login("user", "password");
+        assertDoesNotThrow(() -> userService.logout(loggedInUser.authToken()));
     }
 
-    @Test
-    void clearAllUsers() throws Exception {
-        UserData newUser = new UserData("testUser", "password123", "testUser@example.com");
-        service.addUser(newUser);
-        service.clearAllUsers();
-        assertTrue(service.listUsers().isEmpty());
-    }
 }
