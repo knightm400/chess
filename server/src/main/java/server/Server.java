@@ -50,7 +50,7 @@ public class Server {
                     res.status(200);
                     return gson.toJson(registerResult);
                 } else {
-                    res.status(400); 
+                    res.status(400);
                     return gson.toJson(new MessageResponse("Error: bad request or username already taken"));
                 }
             } catch (Exception e) {
