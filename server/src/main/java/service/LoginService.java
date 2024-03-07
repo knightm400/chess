@@ -26,7 +26,7 @@ public class LoginService {
         AuthData authData = new AuthData(user.username(), generateAuthToken());
         authDataAccess.insertAuth(authData);
 
-        return new LoginResult(authData.username(), authData.authToken());
+        return new LoginResult(user.username(), authData.authToken());
     }
 
     private String generateAuthToken() {
