@@ -79,6 +79,24 @@ public class Server {
             }
         }, gson::toJson);
 
+
+        //Logout Service Endpoint
+
+        LogoutService logoutService = new LogoutService(authDataAccess);
+
+        Spark.delete("/session", (req, res) -> {
+            try {
+                String authToken = req.headers("Authorization");
+                LogoutRequest logoutRequest = new LogoutRequest(authToken);
+                logoutService.logout(logoutRequest);
+                res.status(200);
+                return gson.toJson(new MessageResponse("Logged out successfully."));
+            } catch (Exception e) {
+                res.status(401);
+                return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
+            }
+        }, gson::toJson);
+
         Spark.awaitInitialization();
         return Spark.port();
     }
