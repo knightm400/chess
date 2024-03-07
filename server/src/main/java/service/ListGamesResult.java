@@ -14,4 +14,8 @@ public class ListGamesResult {
         this.message = message;
     }
 
+    public List<GameData> getGames() {
+        return games;
+    }
+
 }
