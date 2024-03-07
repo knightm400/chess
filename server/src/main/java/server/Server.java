@@ -97,6 +97,23 @@ public class Server {
             }
         }, gson::toJson);
 
+
+        //ListGames Endpoint
+
+        MemoryGameDataAccess gameDataAccess = new MemoryGameDataAccess();
+        ListGamesService listGamesService = new ListGamesService(gameDataAccess);
+
+        Spark.get("/game", (req, res) -> {
+            try {
+                ListGamesResult listGamesResult = listGamesService.listGames(new ListGamesRequest());
+                res.status(200);
+                return gson.toJson(listGamesResult);
+            } catch (Exception e) {
+                res.status(401); 
+                return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
+            }
+        }, gson::toJson);
+
         Spark.awaitInitialization();
         return Spark.port();
     }
