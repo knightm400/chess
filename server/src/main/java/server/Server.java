@@ -24,13 +24,15 @@ public class Server {
         Spark.delete("/db", (req, res) -> {
             try {
                 clearService.clearAll();
+                res.type("application/json");
                 res.status(200);
-                return gson.toJson(new MessageResponse("All data cleared."));
+                return gson.toJson(new MessageResponse("All data cleared"));
             } catch (DataAccessException e) {
+                res.type("application/json");
                 res.status(500);
                 return gson.toJson(new MessageResponse("Error clearing the database: " + e.getMessage()));
             }
-        }, gson::toJson);
+        });
 
 
         //Register Service Endpoint
@@ -44,17 +46,20 @@ public class Server {
                 RegisterResult registerResult = registerService.register(registerRequest);
 
                 if (registerResult.authToken() != null && !registerResult.authToken().isEmpty()) {
+                    res.type("application/json");
                     res.status(200);
                     return gson.toJson(registerResult);
                 } else {
+                    res.type("application/json");
                     res.status(400);
                     return gson.toJson(new MessageResponse("Error: bad request or username already taken"));
                 }
             } catch (Exception e) {
+                res.type("application/json");
                 res.status(500);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
-        }, gson::toJson);
+        });
 
 
         //Login Endpoint
@@ -67,17 +72,20 @@ public class Server {
                 LoginResult loginResult = loginService.login(loginRequest);
 
                 if (loginResult.authToken() != null && !loginResult.authToken().isEmpty()) {
+                    res.type("application/json");
                     res.status(200);
                     return gson.toJson(loginResult);
                 } else {
+                    res.type("application/json");
                     res.status(401);
                     return gson.toJson(new MessageResponse("Error: unauthorized"));
                 }
             } catch (Exception e) {
+                res.type("application/json");
                 res.status(500);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
-        }, gson::toJson);
+        });
 
 
         //Logout Service Endpoint
@@ -89,13 +97,15 @@ public class Server {
                 String authToken = req.headers("Authorization");
                 LogoutRequest logoutRequest = new LogoutRequest(authToken);
                 logoutService.logout(logoutRequest);
+                res.type("application/json");
                 res.status(200);
                 return gson.toJson(new MessageResponse("Logged out successfully."));
             } catch (Exception e) {
+                res.type("application/json");
                 res.status(401);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
-        }, gson::toJson);
+        });
 
 
         //ListGames Endpoint
@@ -106,13 +116,15 @@ public class Server {
         Spark.get("/game", (req, res) -> {
             try {
                 ListGamesResult listGamesResult = listGamesService.listGames(new ListGamesRequest());
+                res.type("application/json");
                 res.status(200);
                 return gson.toJson(listGamesResult);
             } catch (Exception e) {
+                res.type("application/json");
                 res.status(401);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
-        }, gson::toJson);
+        });
 
 
         //CreateGame Endpoint
@@ -124,13 +136,15 @@ public class Server {
                 String authToken = req.headers("Authorization");
                 CreateGameRequest createGameRequest = new CreateGameRequest(authToken, gson.fromJson(req.body(), CreateGameRequest.class).gameName());
                 CreateGameResult createGameResult = createGameService.createGame(createGameRequest);
+                res.type("application/json");
                 res.status(200);
                 return gson.toJson(createGameResult);
             } catch (Exception e) {
+                res.type("application/json");
                 res.status(500);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
-        }, gson::toJson);
+        });
 
 
         //JoinGame Endpoint
@@ -142,13 +156,15 @@ public class Server {
                 String authToken = req.headers("Authorization");
                 JoinGameRequest joinGameRequest = gson.fromJson(req.body(), JoinGameRequest.class);
                 JoinGameResult joinGameResult = joinGameService.joinGame(authToken, joinGameRequest.gameID(), joinGameRequest.playerColor());
+                res.type("application/json");
                 res.status(200);
                 return gson.toJson(joinGameResult);
             } catch (Exception e) {
-                res.status(401);  
+                res.type("application/json");
+                res.status(401);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
-        }, gson::toJson);
+        });
 
         Spark.awaitInitialization();
         return Spark.port();
