@@ -67,21 +67,19 @@ public class Server {
         LoginService loginService = new LoginService(authDataAccess, userDataAccess);
 
         Spark.post("/session", (req, res) -> {
+            res.type("application/json");
             try {
                 LoginRequest loginRequest = gson.fromJson(req.body(), LoginRequest.class);
                 LoginResult loginResult = loginService.login(loginRequest);
 
-                if (loginResult.authToken() != null && !loginResult.authToken().isEmpty()) {
-                    res.type("application/json");
+                if (loginResult != null && loginResult.authToken() != null && !loginResult.authToken().isEmpty()) {
                     res.status(200);
                     return gson.toJson(loginResult);
                 } else {
-                    res.type("application/json");
                     res.status(401);
                     return gson.toJson(new MessageResponse("Error: unauthorized"));
                 }
             } catch (Exception e) {
-                res.type("application/json");
                 res.status(500);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }

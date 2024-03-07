@@ -17,16 +17,15 @@ public class LoginService {
         this.userDataAccess = userDataAccess;
     }
 
-    public LoginResult login(LoginRequest request) throws DataAccessException {
-        UserData user = userDataAccess.validateUser(request.username(), request.password());
-        if (user == null) {
-            throw new DataAccessException("Invalid username or password.");
+    public LoginResult login(LoginRequest request) {
+        try {
+            UserData user = userDataAccess.validateUser(request.username(), request.password());
+            AuthData authData = new AuthData(user.username(), generateAuthToken());
+            authDataAccess.insertAuth(authData);
+            return new LoginResult(user.username(), authData.authToken());
+        } catch (DataAccessException e) {
+            return null;
         }
-
-        AuthData authData = new AuthData(user.username(), generateAuthToken());
-        authDataAccess.insertAuth(authData);
-
-        return new LoginResult(user.username(), authData.authToken());
     }
 
     private String generateAuthToken() {
