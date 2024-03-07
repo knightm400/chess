@@ -127,7 +127,25 @@ public class Server {
                 res.status(200);
                 return gson.toJson(createGameResult);
             } catch (Exception e) {
-                res.status(500);  
+                res.status(500);
+                return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
+            }
+        }, gson::toJson);
+
+
+        //JoinGame Endpoint
+
+        JoinGameService joinGameService = new JoinGameService(gameDataAccess, authDataAccess); // Initialize appropriately
+
+        Spark.put("/game", (req, res) -> {
+            try {
+                String authToken = req.headers("Authorization");
+                JoinGameRequest joinGameRequest = gson.fromJson(req.body(), JoinGameRequest.class);
+                JoinGameResult joinGameResult = joinGameService.joinGame(authToken, joinGameRequest.gameID(), joinGameRequest.playerColor());
+                res.status(200);
+                return gson.toJson(joinGameResult);
+            } catch (Exception e) {
+                res.status(401);  
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
         }, gson::toJson);
