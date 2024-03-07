@@ -3,7 +3,6 @@ package dataAccess;
 import model.AuthData;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class MemoryAuthDataAccess implements AuthDataAccess {
     private final Map<String, AuthData> authTokens = new HashMap<>();
