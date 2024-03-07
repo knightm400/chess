@@ -20,9 +20,10 @@ public class LoginService {
     public LoginResult login(LoginRequest request) {
         try {
             UserData user = userDataAccess.validateUser(request.username(), request.password());
-            AuthData authData = new AuthData(user.username(), generateAuthToken());
+            String newToken = authDataAccess.generateAuthToken();
+            AuthData authData = new AuthData(user.username(), newToken);
             authDataAccess.insertAuth(authData);
-            return new LoginResult(user.username(), authData.authToken());
+            return new LoginResult(user.username(), newToken);
         } catch (DataAccessException e) {
             return null;
         }
