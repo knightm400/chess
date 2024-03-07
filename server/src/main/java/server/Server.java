@@ -5,11 +5,8 @@ import dataAccess.MemoryAuthDataAccess;
 import dataAccess.MemoryGameDataAccess;
 import dataAccess.MemoryUserDataAccess;
 import model.MessageResponse;
-import service.RegisterRequest;
-import service.RegisterResult;
-import service.RegisterService;
+import service.*;
 import spark.*;
-import service.ClearService;
 import com.google.gson.Gson;
 
 public class Server {
@@ -52,6 +49,29 @@ public class Server {
                 } else {
                     res.status(400);
                     return gson.toJson(new MessageResponse("Error: bad request or username already taken"));
+                }
+            } catch (Exception e) {
+                res.status(500);
+                return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
+            }
+        }, gson::toJson);
+
+
+        //Login Endpoint
+
+        LoginService loginService = new LoginService(authDataAccess, userDataAccess);
+
+        Spark.post("/session", (req, res) -> {
+            try {
+                LoginRequest loginRequest = gson.fromJson(req.body(), LoginRequest.class);
+                LoginResult loginResult = loginService.login(loginRequest);
+
+                if (loginResult.authToken() != null && !loginResult.authToken().isEmpty()) {
+                    res.status(200);
+                    return gson.toJson(loginResult);
+                } else {
+                    res.status(401);
+                    return gson.toJson(new MessageResponse("Error: unauthorized"));
                 }
             } catch (Exception e) {
                 res.status(500);
