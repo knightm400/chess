@@ -20,6 +20,9 @@ public class LoginService {
     public LoginResult login(LoginRequest request) {
         try {
             UserData user = userDataAccess.validateUser(request.username(), request.password());
+            if (user == null) {
+                return null;
+            }
             String newToken = authDataAccess.generateAuthToken();
             AuthData authData = new AuthData(newToken, user.username());
             authDataAccess.insertAuth(authData);
@@ -27,9 +30,5 @@ public class LoginService {
         } catch (DataAccessException e) {
             return null;
         }
-    }
-
-    private String generateAuthToken() {
-        return Long.toHexString(Double.doubleToLongBits(Math.random()));
     }
 }
