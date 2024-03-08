@@ -22,29 +22,28 @@ public class JoinGameService {
     public JoinGameResult joinGame(String authToken, Integer gameID, String playerColor) throws DataAccessException {
         AuthData authData = authDataAccess.getAuth(authToken);
         if (authData == null) {
-            throw new DataAccessException("Invalid or expired authToken.");
+            throw new DataAccessException("Error: unauthorized");
         }
 
         GameData gameData = gameDataAccess.getGame(gameID);
         if (gameData == null) {
-            throw new DataAccessException("Game does not exist.");
+            throw new DataAccessException("Error: bad request");
         }
 
         Set<String> takenColors = new HashSet<>(gameData.takenColors());
-        String assignedColor = playerColor;
-        if (playerColor != null && !takenColors.contains(playerColor)) {
+        if (playerColor == null) {
+            playerColor = "OBSERVER";
             takenColors.add(playerColor);
-            gameData = new GameData(gameID, "WHITE".equals(playerColor) ? authData.username() : gameData.whiteUsername(),
-                    "BLACK".equals(playerColor) ? authData.username() : gameData.blackUsername(),
-                    gameData.gameName(), gameData.gameData(),
-                    "WHITE".equals(playerColor) ? playerColor : gameData.whiteColor(),
-                    "BLACK".equals(playerColor) ? playerColor : gameData.blackColor(),
-                    takenColors);
-            gameDataAccess.updateGame(gameData);
-        } else {
-            assignedColor = "OBSERVER";
+        } else if (!playerColor.equals("WHITE") && !playerColor.equals("BLACK") || takenColors.contains(playerColor)) {
+            throw new DataAccessException("Error: already taken");
         }
 
-        return new JoinGameResult(gameID, assignedColor, true, "Successfully joined the game");
+        gameData = new GameData(gameID, "WHITE".equals(playerColor) ? authData.username() : gameData.whiteUsername(),
+                "BLACK".equals(playerColor) ? authData.username() : gameData.blackUsername(),
+                gameData.gameName(), gameData.gameData(), "WHITE".equals(playerColor) ? playerColor : gameData.whiteColor(),
+                "BLACK".equals(playerColor) ? playerColor : gameData.blackColor(), takenColors);
+        gameDataAccess.updateGame(gameData);
+
+        return new JoinGameResult(gameID, playerColor, true, "Successfully joined the game");
     }
 }

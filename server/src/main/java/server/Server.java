@@ -13,11 +13,14 @@ public class Server {
 
         Spark.staticFiles.location("web");
 
+        UserDataAccess userDataAccess = new MemoryUserDataAccess();
+        AuthDataAccess authDataAccess = new MemoryAuthDataAccess();
+        GameDataAccess gameDataAccess = new MemoryGameDataAccess();
+
+
         // Register your endpoints and handle exceptions here.
         // Clear Service Endpoint
-        ClearService clearService = new ClearService(new MemoryUserDataAccess(), new MemoryGameDataAccess(), new MemoryAuthDataAccess());
-        MemoryAuthDataAccess authDataAccess = new MemoryAuthDataAccess();
-
+        ClearService clearService = new ClearService(userDataAccess, gameDataAccess, authDataAccess);
         Gson gson = new Gson();
 
         Spark.delete("/db", (req, res) -> {
@@ -35,7 +38,6 @@ public class Server {
 
 
         //Register Service Endpoint
-        MemoryUserDataAccess userDataAccess = new MemoryUserDataAccess();
         RegisterService registerService = new RegisterService(userDataAccess, authDataAccess);
 
         Spark.post("/user", (req, res) -> {
@@ -105,12 +107,12 @@ public class Server {
 
         //ListGames Endpoint
 
-        MemoryGameDataAccess gameDataAccess = new MemoryGameDataAccess();
-        ListGamesService listGamesService = new ListGamesService(gameDataAccess);
+        ListGamesService listGamesService = new ListGamesService(gameDataAccess, authDataAccess);
 
         Spark.get("/game", (req, res) -> {
             try {
-                ListGamesResult listGamesResult = listGamesService.listGames(new ListGamesRequest());
+                String authToken = req.headers("Authorization");
+                ListGamesResult listGamesResult = listGamesService.listGames(authToken, new ListGamesRequest());
                 res.type("application/json");
                 res.status(200);
                 return gson.toJson(listGamesResult);
@@ -154,9 +156,22 @@ public class Server {
                 res.type("application/json");
                 res.status(200);
                 return gson.toJson(joinGameResult);
-            } catch (Exception e) {
+            } catch (DataAccessException e) {
                 res.type("application/json");
-                res.status(400);
+                switch (e.getMessage()) {
+                    case "Invalid or expired authToken.":
+                        res.status(401);
+                        break;
+                    case "Game does not exist.":
+                    case "Invalid game ID.":
+                        res.status(400);
+                        break;
+                    case "Team color already taken.":
+                        res.status(403);
+                        break;
+                    default:
+                        res.status(500);
+                }
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
         });
