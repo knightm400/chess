@@ -29,7 +29,7 @@ public class GameService {
         }
 
         String username = authData.username();
-        String gameID = UUID.randomUUID().toString();
+        Integer gameID = UUID.randomUUID().hashCode();
         String gameName = request.gameName();
         String whiteUsername = username;
         String blackUsername = "";

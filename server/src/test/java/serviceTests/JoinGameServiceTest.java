@@ -32,10 +32,10 @@ public class JoinGameServiceTest {
     public void joinGameSuccessfully() throws DataAccessException {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
-        GameData game = new GameData("testGameID", "testUser", "", "Test Game", "", "WHITE", "", new HashSet<>());
+        GameData game = new GameData(1234, "testUser", "", "Test Game", "", "WHITE", "", new HashSet<>());
         memoryGameDataAccess.insertGame(game);
 
-        JoinGameRequest request = new JoinGameRequest(testAuthToken, "testGameID", "BLACK");
+        JoinGameRequest request = new JoinGameRequest(testAuthToken, 1234, "BLACK");
         JoinGameResult result = joinGameService.joinGame(request.authToken(), request.gameID(), request.playerColor());
 
         assertTrue(result.success(), "Joining game should be successful.");
@@ -45,7 +45,7 @@ public class JoinGameServiceTest {
 
     @Test
     public void joinGameWithInvalidToken() throws DataAccessException {
-        JoinGameRequest request = new JoinGameRequest("invalidToken", "testGameID", "WHITE");
+        JoinGameRequest request = new JoinGameRequest("invalidToken", 1234, "WHITE");
         assertThrows(DataAccessException.class, () -> joinGameService.joinGame(request.authToken(), request.gameID(), request.playerColor()), "Should throw error for invalid token.");
     }
 
@@ -54,7 +54,7 @@ public class JoinGameServiceTest {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
 
-        JoinGameRequest request = new JoinGameRequest(testAuthToken, "nonexistentGameID", "WHITE");
+        JoinGameRequest request = new JoinGameRequest(testAuthToken, 1234, "WHITE");
         assertThrows(DataAccessException.class, () -> joinGameService.joinGame(request.authToken(), request.gameID(), request.playerColor()), "Should throw error for non-existent game.");
     }
 

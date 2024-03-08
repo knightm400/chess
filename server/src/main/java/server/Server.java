@@ -44,19 +44,16 @@ public class Server {
             try {
                 RegisterRequest registerRequest = gson.fromJson(req.body(), RegisterRequest.class);
                 RegisterResult registerResult = registerService.register(registerRequest);
-
-                if (registerResult.authToken() != null && !registerResult.authToken().isEmpty()) {
-                    res.type("application/json");
-                    res.status(200);
-                    return gson.toJson(registerResult);
-                } else {
-                    res.type("application/json");
-                    res.status(400);
-                    return gson.toJson(new MessageResponse("Error: bad request or username already taken"));
-                }
-            } catch (Exception e) {
                 res.type("application/json");
-                res.status(500);
+                res.status(200);
+                return gson.toJson(registerResult);
+            } catch (DataAccessException e) {
+                res.type("application/json");
+                if (e.getMessage().equals("Username already taken")) {
+                    res.status(403);
+                } else {
+                    res.status(500);
+                }
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
         });

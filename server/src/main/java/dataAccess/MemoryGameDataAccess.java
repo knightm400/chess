@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MemoryGameDataAccess implements GameDataAccess {
-    private final Map<String, GameData> games = new HashMap<>();
+    private final Map<Integer, GameData> games = new HashMap<>();
 
     @Override
     public void insertGame(GameData game) throws DataAccessException {
@@ -18,7 +18,7 @@ public class MemoryGameDataAccess implements GameDataAccess {
     }
 
     @Override
-    public GameData getGame(String gameID) throws DataAccessException {
+    public GameData getGame(Integer gameID) throws DataAccessException {
         if (!games.containsKey(gameID)) {
             throw new DataAccessException("Game does not exist.");
         }
@@ -34,7 +34,7 @@ public class MemoryGameDataAccess implements GameDataAccess {
     }
 
     @Override
-    public void deleteGame(String gameID) throws DataAccessException {
+    public void deleteGame(Integer gameID) throws DataAccessException {
         if (!games.containsKey(gameID)) {
             throw new DataAccessException("Game does not exist.");
         }

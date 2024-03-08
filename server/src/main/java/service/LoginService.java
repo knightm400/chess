@@ -21,7 +21,7 @@ public class LoginService {
         try {
             UserData user = userDataAccess.validateUser(request.username(), request.password());
             String newToken = authDataAccess.generateAuthToken();
-            AuthData authData = new AuthData(user.username(), newToken);
+            AuthData authData = new AuthData(newToken, user.username());
             authDataAccess.insertAuth(authData);
             return new LoginResult(user.username(), newToken);
         } catch (DataAccessException e) {

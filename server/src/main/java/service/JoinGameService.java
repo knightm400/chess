@@ -19,7 +19,7 @@ public class JoinGameService {
         this.authDataAccess = authDataAccess;
     }
 
-    public JoinGameResult joinGame(String authToken, String gameID, String playerColor) throws DataAccessException {
+    public JoinGameResult joinGame(String authToken, Integer gameID, String playerColor) throws DataAccessException {
         AuthData authData = authDataAccess.getAuth(authToken);
         if (authData == null) {
             throw new DataAccessException("Invalid or expired authToken.");
