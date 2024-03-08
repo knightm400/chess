@@ -17,6 +17,10 @@ public class RegisterService {
     }
 
     public RegisterResult register(RegisterRequest request) throws DataAccessException {
+        if (request.username() == null || request.password() == null || request.email() == null) {
+            throw new DataAccessException("Invalid registration information provided"); // Use specific code for bad request
+        }
+
         if (userDataAccess.getUser(request.username()) != null) {
             throw new DataAccessException("Username already taken");
         }

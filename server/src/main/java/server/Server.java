@@ -51,6 +51,8 @@ public class Server {
                 res.type("application/json");
                 if (e.getMessage().equals("Username already taken")) {
                     res.status(403);
+                } else if (e.getMessage().equals("Invalid registration information provided")) {
+                    res.status(400);
                 } else {
                     res.status(500);
                 }
