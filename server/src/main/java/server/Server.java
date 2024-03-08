@@ -156,7 +156,7 @@ public class Server {
                 return gson.toJson(joinGameResult);
             } catch (Exception e) {
                 res.type("application/json");
-                res.status(401);
+                res.status(400);
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
         });
