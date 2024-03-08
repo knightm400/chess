@@ -30,11 +30,11 @@ public class ClearServiceTest {
 
     @Test
     public void clearAllDataSuccessfully() throws DataAccessException {
-        memoryAuthDataAccess.insertAuth(new AuthData("testToken", "testUser"));
+        String testAuthToken = "validTestAuthToken";
+        memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
         memoryUserDataAccess.insertUser(new UserData("testUser", "testPass", "testEmail"));
         memoryGameDataAccess.insertGame(new GameData(1234, "testUser1", "testUser2", "testGame", "testData", "WHITE", "BLACK", new HashSet<>()));
 
-        // Action: Clear all data
         ClearResult clearResult = clearService.clearAll();
 
         // Verify: Check if all data is cleared

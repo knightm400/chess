@@ -1,9 +1,6 @@
 package server;
 
-import dataAccess.DataAccessException;
-import dataAccess.MemoryAuthDataAccess;
-import dataAccess.MemoryGameDataAccess;
-import dataAccess.MemoryUserDataAccess;
+import dataAccess.*;
 import model.MessageResponse;
 import service.*;
 import spark.*;
@@ -19,11 +16,13 @@ public class Server {
         // Register your endpoints and handle exceptions here.
         // Clear Service Endpoint
         ClearService clearService = new ClearService(new MemoryUserDataAccess(), new MemoryGameDataAccess(), new MemoryAuthDataAccess());
+        MemoryAuthDataAccess authDataAccess = new MemoryAuthDataAccess();
+
         Gson gson = new Gson();
 
         Spark.delete("/db", (req, res) -> {
             try {
-                clearService.clearAll();
+                clearService.clearAll(); // No authToken needed
                 res.type("application/json");
                 res.status(200);
                 return gson.toJson(new MessageResponse("All data cleared"));
@@ -37,7 +36,6 @@ public class Server {
 
         //Register Service Endpoint
         MemoryUserDataAccess userDataAccess = new MemoryUserDataAccess();
-        MemoryAuthDataAccess authDataAccess = new MemoryAuthDataAccess();
         RegisterService registerService = new RegisterService(userDataAccess, authDataAccess);
 
         Spark.post("/user", (req, res) -> {

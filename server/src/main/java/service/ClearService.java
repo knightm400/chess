@@ -20,6 +20,6 @@ public class ClearService {
         userDataAccess.clearUsers();
         gameDataAccess.clearGames();
         authDataAccess.clearAuths();
-        return null;
+        return new ClearResult("All data cleared");
     }
 }
