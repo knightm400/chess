@@ -1,5 +1,6 @@
 package serviceTests;
 
+import dataAccess.DataAccessException;
 import dataAccess.MemoryAuthDataAccess;
 import dataAccess.MemoryGameDataAccess;
 import model.AuthData;
@@ -10,7 +11,6 @@ import service.CreateGameService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateGameServiceTest {
@@ -37,6 +37,25 @@ public class CreateGameServiceTest {
         assertNotNull(result.gameID(), "Game ID should not be null after game creation.");
         GameData newGameData = memoryGameDataAccess.getGame(result.gameID());
         assertNotNull(newGameData, "New game data should exist in database after creation.");
-        assertEquals("Test Game", newGameData.gameID(), "The game name should match the requested name.");
+        assertEquals("Test Game", newGameData.gameName(), "The game name should match the requested name.");
+    }
+
+    @Test
+    public void createGameFailInvalidToken() {
+        String invalidAuthToken = "invalidAuthToken";
+        CreateGameRequest request = new CreateGameRequest(invalidAuthToken, "Test Game");
+
+        Exception exception = assertThrows(DataAccessException.class, () -> createGameService.createGame(request));
+        assertEquals("Unauthorized", exception.getMessage(), "Should throw DataAccessException due to invalid token.");
+    }
+
+    @Test
+    public void createGameFailNullGameName() throws Exception {
+        String authToken = "testAuthToken";
+        memoryAuthDataAccess.insertAuth(new AuthData(authToken, "testUser"));
+
+        CreateGameRequest request = new CreateGameRequest(authToken, null);
+        Exception exception = assertThrows(DataAccessException.class, () -> createGameService.createGame(request));
+        assertEquals("Bad Request", exception.getMessage(), "Should throw DataAccessException due to null game name.");
     }
 }
