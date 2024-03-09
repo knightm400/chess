@@ -37,12 +37,10 @@ public class AuthServiceTest {
     }
 
     @Test
-    public void testRegisterFailAlreadyExists() {
+    public void testRegisterFailAlreadyExists() throws DataAccessException {
         UserData newUser = new UserData("testUser", "testPass", "testEmail");
-        assertThrows(DataAccessException.class, () -> {
-            authService.register(newUser);
-            authService.register(newUser);
-        });
+        authService.register(newUser);
+        assertThrows(DataAccessException.class, () -> authService.register(newUser));
     }
 
     @Test
