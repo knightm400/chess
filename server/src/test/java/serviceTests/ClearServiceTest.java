@@ -37,8 +37,7 @@ public class ClearServiceTest {
 
         ClearResult clearResult = clearService.clearAll();
 
-        // Verify: Check if all data is cleared
-        assertEquals("All data cleared successfully.", clearResult.message(), "Message should confirm success.");
+        assertEquals("All data cleared", clearResult.message(), "Message should confirm success.");
         assertTrue(memoryAuthDataAccess.listAuths().isEmpty(), "Auth data should be cleared.");
         assertTrue(memoryUserDataAccess.listUsers().isEmpty(), "User data should be cleared.");
         assertTrue(memoryGameDataAccess.listGames().isEmpty(), "Game data should be cleared.");
