@@ -19,9 +19,6 @@ public class MemoryGameDataAccess implements GameDataAccess {
 
     @Override
     public GameData getGame(Integer gameID) throws DataAccessException {
-        if (!games.containsKey(gameID)) {
-            throw new DataAccessException("Game does not exist.");
-        }
         return games.get(gameID);
     }
 

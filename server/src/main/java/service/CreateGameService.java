@@ -25,7 +25,11 @@ public class CreateGameService {
     public CreateGameResult createGame(CreateGameRequest request) throws DataAccessException {
         AuthData authData = authDataAccess.getAuth(request.authToken());
         if (authData == null) {
-            throw new DataAccessException("Unauthorized: Invalid authToken");
+            throw new DataAccessException("Unauthorized");
+        }
+
+        if (request.gameName() == null) {
+            throw new DataAccessException("Bad Request");
         }
 
         Integer gameID = UUID.randomUUID().hashCode();

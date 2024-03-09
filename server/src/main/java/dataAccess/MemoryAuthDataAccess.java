@@ -17,9 +17,6 @@ public class MemoryAuthDataAccess implements AuthDataAccess {
 
     @Override
     public AuthData getAuth(String authToken) throws DataAccessException {
-        if (!authTokens.containsKey(authToken)) {
-            throw new DataAccessException("Auth token does not exist.");
-        }
         return authTokens.get(authToken);
     }
 

@@ -22,12 +22,12 @@ public class JoinGameService {
     public JoinGameResult joinGame(String authToken, Integer gameID, String playerColor) throws DataAccessException {
         AuthData authData = authDataAccess.getAuth(authToken);
         if (authData == null) {
-            throw new DataAccessException("Error: unauthorized");
+            throw new DataAccessException("Unauthorized");
         }
 
         GameData gameData = gameDataAccess.getGame(gameID);
         if (gameData == null) {
-            throw new DataAccessException("Error: bad request");
+            throw new DataAccessException("Bad Request");
         }
 
         Set<String> takenColors = new HashSet<>(gameData.takenColors());
@@ -35,7 +35,7 @@ public class JoinGameService {
             playerColor = "OBSERVER";
             takenColors.add(playerColor);
         } else if (!playerColor.equals("WHITE") && !playerColor.equals("BLACK") || takenColors.contains(playerColor)) {
-            throw new DataAccessException("Error: already taken");
+            throw new DataAccessException("Already taken");
         }
 
         gameData = new GameData(gameID, "WHITE".equals(playerColor) ? authData.username() : gameData.whiteUsername(),

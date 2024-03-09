@@ -92,8 +92,8 @@ public class Server {
         Spark.delete("/session", (req, res) -> {
             try {
                 String authToken = req.headers("Authorization");
-                LogoutRequest logoutRequest = new LogoutRequest(authToken);
-                logoutService.logout(logoutRequest);
+                LogoutRequest logoutRequest = new LogoutRequest();
+                logoutService.logout(authToken, logoutRequest);
                 res.type("application/json");
                 res.status(200);
                 return gson.toJson(new MessageResponse("Logged out successfully."));
@@ -138,7 +138,13 @@ public class Server {
                 return gson.toJson(createGameResult);
             } catch (Exception e) {
                 res.type("application/json");
-                res.status(500);
+                if (e.getMessage().equals("Unauthorized")) {
+                    res.status(401);
+                } else if (e.getMessage().equals("Bad Request")) {
+                    res.status(400);
+                } else {
+                    res.status(500);
+                }
                 return gson.toJson(new MessageResponse("Error: " + e.getMessage()));
             }
         });
@@ -159,14 +165,13 @@ public class Server {
             } catch (DataAccessException e) {
                 res.type("application/json");
                 switch (e.getMessage()) {
-                    case "Invalid or expired authToken.":
+                    case "Unauthorized":
                         res.status(401);
                         break;
-                    case "Game does not exist.":
-                    case "Invalid game ID.":
+                    case "Bad Request":
                         res.status(400);
                         break;
-                    case "Team color already taken.":
+                    case "Already taken":
                         res.status(403);
                         break;
                     default:

@@ -26,15 +26,15 @@ public class LogoutServiceTest {
         String testAuthToken = "validToken";
         authDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
 
-        LogoutRequest request = new LogoutRequest(testAuthToken);
-        assertDoesNotThrow(() -> logoutService.logout(request), "Logging out should not throw an exception for a valid token.");
+        LogoutRequest request = new LogoutRequest();
+        assertDoesNotThrow(() -> logoutService.logout(testAuthToken, request), "Logging out should not throw an exception for a valid token.");
     }
 
     @Test
     public void logoutFailureInvalidToken() throws DataAccessException {
         String invalidToken = "invalidToken";
 
-        LogoutRequest request = new LogoutRequest(invalidToken);
-        assertThrows(DataAccessException.class, () -> logoutService.logout(request), "Should throw an exception for an invalid token.");
+        LogoutRequest request = new LogoutRequest();
+        assertThrows(DataAccessException.class, () -> logoutService.logout(invalidToken, request), "Should throw an exception for an invalid token.");
     }
 }

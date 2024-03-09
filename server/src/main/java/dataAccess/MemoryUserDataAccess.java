@@ -19,9 +19,6 @@ public class MemoryUserDataAccess implements UserDataAccess {
 
     @Override
     public UserData getUser(String username) throws DataAccessException {
-        if (!users.containsKey(username)) {
-            return null;
-        }
         return users.get(username);
     }
 
