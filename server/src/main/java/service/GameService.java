@@ -7,8 +7,6 @@ import model.AuthData;
 import model.GameData;
 import service.*;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 public class GameService {
@@ -29,18 +27,16 @@ public class GameService {
         }
 
         String username = authData.username();
-        Integer gameID = UUID.randomUUID().hashCode();
+        Integer gameID = Math.abs(UUID.randomUUID().hashCode());
+        if (gameID < 0) {
+            gameID = Math.abs(gameID + 1);
+        }
         String gameName = request.gameName();
-        String whiteUsername = username;
-        String blackUsername = "";
-        Set<String> takenColors = new HashSet<>();
-        takenColors.add("WHITE");
 
-        GameData newGame = new GameData(gameID, whiteUsername, blackUsername, gameName, "", "WHITE", "", takenColors);
+        GameData newGame = new GameData(gameID, username, "", gameName, "", "WHITE", "");
         gameDataAccess.insertGame(newGame);
 
         return new CreateGameResult(gameID);
-
     }
 
     public JoinGameResult joinGame(JoinGameRequest request) throws DataAccessException {
@@ -54,31 +50,36 @@ public class GameService {
             return new JoinGameResult(request.gameID(), request.playerColor(), false, "Game does not exist.");
         }
 
-        Set<String> updatedColors = new HashSet<>(gameData.takenColors());
-        if (request.playerColor() != null && !updatedColors.contains(request.playerColor())) {
-            updatedColors.add(request.playerColor());
+        if ("WHITE".equals(request.playerColor()) && gameData.whiteUsername() != null) {
+            return new JoinGameResult(request.gameID(), null, false, "White color already taken.");
+        } else if ("BLACK".equals(request.playerColor()) && gameData.blackUsername() != null) {
+            return new JoinGameResult(request.gameID(), null, false, "Black color already taken.");
+        }
 
-            String whiteUsername = gameData.whiteUsername();
-            String blackUsername = gameData.blackUsername();
-            if ("WHITE".equals(request.playerColor())) {
-                whiteUsername = authData.username();
-            } else if ("BLACK".equals(request.playerColor())) {
-                blackUsername = authData.username();
-            }
-
-            gameDataAccess.updateGame(new GameData(
+        if ("WHITE".equals(request.playerColor())) {
+            gameData = new GameData(
                     gameData.gameID(),
-                    whiteUsername,
-                    blackUsername,
+                    authData.username(),
+                    gameData.blackUsername(),
+                    gameData.gameName(),
+                    gameData.gameData(),
+                    "WHITE",
+                    gameData.blackColor()
+            );
+        } else if ("BLACK".equals(request.playerColor())) {
+            gameData = new GameData(
+                    gameData.gameID(),
+                    gameData.whiteUsername(),
+                    authData.username(),
                     gameData.gameName(),
                     gameData.gameData(),
                     gameData.whiteColor(),
-                    gameData.blackColor(),
-                    updatedColors
-            ));
-            return new JoinGameResult(request.gameID(), request.playerColor(), true, "Joined game successfully.");
-        } else {
-            return new JoinGameResult(request.gameID(), null, true, "Joined as observer.");
+                    "BLACK"
+            );
         }
+
+        gameDataAccess.updateGame(gameData);
+
+        return new JoinGameResult(request.gameID(), request.playerColor(), true, "Joined game successfully.");
     }
 }

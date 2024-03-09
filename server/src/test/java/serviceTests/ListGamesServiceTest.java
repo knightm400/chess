@@ -24,8 +24,8 @@ public class ListGamesServiceTest {
         memoryGameDataAccess = new MemoryGameDataAccess();
         listGamesService = new ListGamesService(memoryGameDataAccess, authDataAccess);
 
-        memoryGameDataAccess.insertGame(new GameData(1, "user1", "user2", "Game 1", "", "WHITE", "", new HashSet<>()));
-        memoryGameDataAccess.insertGame(new GameData(2, "user3", "user4", "Game 2", "", "BLACK", "", new HashSet<>()));
+        memoryGameDataAccess.insertGame(new GameData(1, "user1", "user2", "Game 1", "", "WHITE", ""));
+        memoryGameDataAccess.insertGame(new GameData(2, "user3", "user4", "Game 2", "", "BLACK", ""));
     }
 
     @Test

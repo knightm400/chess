@@ -32,9 +32,12 @@ public class CreateGameService {
             throw new DataAccessException("Bad Request");
         }
 
-        Integer gameID = UUID.randomUUID().hashCode();
+        Integer gameID = Math.abs(UUID.randomUUID().hashCode());
+        if (gameID < 0) {
+            gameID = Math.abs(gameID+ 1);
+        }
 
-        GameData newGame = new GameData(gameID, null, null, request.gameName(), "", null, null, new HashSet<>());
+        GameData newGame = new GameData(gameID, null, null, request.gameName(), "", null, null);
         gameDataAccess.insertGame(newGame);
 
         return new CreateGameResult(newGame.gameID());

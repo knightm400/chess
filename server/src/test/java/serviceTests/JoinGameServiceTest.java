@@ -32,7 +32,7 @@ public class JoinGameServiceTest {
     public void joinGameSuccessfully() throws DataAccessException {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
-        GameData game = new GameData(1234, "testUser", "", "Test Game", "", "WHITE", "", new HashSet<>());
+        GameData game = new GameData(1234, "testUser", "", "Test Game", "", "WHITE", "");
         memoryGameDataAccess.insertGame(game);
 
         JoinGameRequest request = new JoinGameRequest(testAuthToken, 1234, "BLACK");

@@ -33,7 +33,7 @@ public class ClearServiceTest {
         String testAuthToken = "validTestAuthToken";
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
         memoryUserDataAccess.insertUser(new UserData("testUser", "testPass", "testEmail"));
-        memoryGameDataAccess.insertGame(new GameData(1234, "testUser1", "testUser2", "testGame", "testData", "WHITE", "BLACK", new HashSet<>()));
+        memoryGameDataAccess.insertGame(new GameData(1234, "testUser1", "testUser2", "testGame", "testData", "WHITE", "BLACK"));
 
         ClearResult clearResult = clearService.clearAll();
 
