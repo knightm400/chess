@@ -29,9 +29,9 @@ public class JoinGameService {
         }
 
         if ("WHITE".equals(playerColor) && gameData.whiteUsername() != null) {
-            throw new DataAccessException("White color already taken");
+            throw new DataAccessException("Already taken");
         } else if ("BLACK".equals(playerColor) && gameData.blackUsername() != null) {
-            throw new DataAccessException("Black color already taken");
+            throw new DataAccessException("Already taken");
         }
 
         if ("WHITE".equals(playerColor)) {
