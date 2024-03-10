@@ -9,7 +9,6 @@ import service.LoginResult;
 import service.LoginService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginServiceTest {
@@ -24,22 +23,32 @@ public class LoginServiceTest {
         userDataAccess = new MemoryUserDataAccess();
         loginService = new LoginService(authDataAccess, userDataAccess);
 
-        // Set up a dummy user for testing
         userDataAccess.insertUser(new UserData("testUser", "testPassword", "testEmail"));
     }
 
     @Test
-    public void loginSuccess() throws DataAccessException {
+    public void loginSuccess() {
         LoginRequest request = new LoginRequest("testUser", "testPassword");
         LoginResult result = loginService.login(request);
 
-        assertNotNull(result.authToken(), "Auth token should not be null.");
-        assertEquals("testUser", result.username(), "Username should match.");
+        assertNotNull(result, "Login result should not be null.");
+        assertNotNull(result.authToken(), "Auth token should not be null after successful login.");
+        assertEquals("testUser", result.username(), "Username should match the one used for login.");
     }
 
     @Test
-    public void loginFailure() {
+    public void loginFailureInvalidCredentials() {
         LoginRequest request = new LoginRequest("testUser", "wrongPassword");
-        assertThrows(DataAccessException.class, () -> loginService.login(request), "Should throw exception for wrong password.");
+        LoginResult result = loginService.login(request);
+
+        assertNull(result, "Login result should be null for incorrect credentials.");
+    }
+
+    @Test
+    public void loginFailureNonexistentUser() {
+        LoginRequest request = new LoginRequest("nonexistentUser", "testPassword");
+        LoginResult result = loginService.login(request);
+
+        assertNull(result, "Login result should be null for nonexistent user.");
     }
 }

@@ -45,7 +45,7 @@ public class ListGamesServiceTest {
     @Test
     public void listGamesFailWithInvalidToken() {
         ListGamesRequest request = new ListGamesRequest();
-        String invalidAuthToken = "invalidAuthToken"; 
+        String invalidAuthToken = "invalidAuthToken";
 
         assertThrows(DataAccessException.class, () -> listGamesService.listGames(invalidAuthToken, request), "Should throw DataAccessException due to unauthorized access.");
     }
