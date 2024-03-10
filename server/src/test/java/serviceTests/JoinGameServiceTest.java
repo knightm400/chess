@@ -52,7 +52,7 @@ public class JoinGameServiceTest {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
 
-        JoinGameRequest request = new JoinGameRequest(testAuthToken, 9999, "WHITE");  
+        JoinGameRequest request = new JoinGameRequest(testAuthToken, 9999, "WHITE");
         assertThrows(DataAccessException.class, () -> joinGameService.joinGame(request.authToken(), request.gameID(), request.playerColor()), "Should throw error for non-existent game.");
     }
 }
