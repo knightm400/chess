@@ -31,7 +31,7 @@ public class LogoutServiceTest {
     }
 
     @Test
-    public void logoutFailureInvalidToken() throws DataAccessException {
+    public void logoutFailureInvalidToken() {
         String invalidToken = "invalidToken";
 
         LogoutRequest request = new LogoutRequest();
