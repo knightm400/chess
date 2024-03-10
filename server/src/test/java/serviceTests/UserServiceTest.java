@@ -45,4 +45,21 @@ public class UserServiceTest {
         assertDoesNotThrow(() -> userService.logout(loggedInUser.authToken()));
     }
 
+    @Test
+    public void loginFailureWrongPassword() throws DataAccessException {
+        userDataAccess.insertUser(new UserData("existingUser", "password", "email@example.com"));
+        assertThrows(DataAccessException.class, () -> userService.login("existingUser", "wrongPassword"), "Should throw exception for wrong password.");
+    }
+
+    @Test
+    public void loginFailureNoSuchUser() {
+        assertThrows(DataAccessException.class, () -> userService.login("nonExistingUser", "password"), "Should throw exception for non-existing user.");
+    }
+
+    @Test
+    public void logoutFailureInvalidToken() {
+        assertThrows(DataAccessException.class, () -> userService.logout("invalidToken"), "Should throw exception for invalid token.");
+    }
+
+
 }
