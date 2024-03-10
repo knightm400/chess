@@ -3,6 +3,7 @@ package serviceTests;
 import dataAccess.DataAccessException;
 import dataAccess.MemoryUserDataAccess;
 import dataAccess.MemoryAuthDataAccess;
+import model.AuthData;
 import model.UserData;
 import service.RegisterRequest;
 import service.RegisterResult;
@@ -32,6 +33,14 @@ public class RegisterServiceTest {
 
         assertNotNull(result.authToken(), "Auth token should not be null.");
         assertEquals("newUser", result.username(), "Username should match.");
+
+        UserData registeredUser = memoryUserDataAccess.getUser("newUser");
+        assertNotNull(registeredUser, "User should be added to the database.");
+        assertEquals("email@example.com", registeredUser.email(), "User email should match.");
+
+        AuthData authData = memoryAuthDataAccess.getAuth(result.authToken());
+        assertNotNull(authData, "Auth data should not be null.");
+        assertEquals("newUser", authData.username(), "Auth token should be associated with the new user.");
     }
 
     @Test
