@@ -1,89 +1,101 @@
 package dataAccess;
 
-import java.sql.*;
-import java.util.ArrayList;
+import model.AuthData;
+import model.GameData;
+import model.UserData;
 import java.util.List;
 
-import com.google.gson.Gson;
-import model.*;
-import dataAccess.*;
-
-import javax.xml.crypto.Data;
-
 public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserDataAccess {
-    private static final Gson gson = new Gson();
 
-    @Override
-    public void insertAuth(AuthData auth) throws DataAccessException {}
-
-    @Override
-    public AuthData getAuth(String authToken) throws DataAccessException {}
-
-    @Override
-    public void deleteAuth(String authToken) throws DataAccessException {}
-
-    @Override
-    public List<AuthData> listAuths() throws DataAccessException {
-        // SQL to list all auth tokens
+    // Constructor
+    public MySqlDataAccess() {
     }
 
-    // Implementing methods from GameDataAccess
+    // AuthDataAccess implementation
     @Override
-    public void insertGame(GameData game) throws DataAccessException {
-        // Example SQL: "INSERT INTO game_table (gameID, whiteUsername, ...) VALUES (?, ?, ...)"
-        // Convert complex objects to JSON string if necessary using gson
+    public void insertAuth(AuthData auth) {
+        // Implement database insert logic
     }
 
     @Override
-    public GameData getGame(Integer gameID) throws DataAccessException {
-        // SQL to get a game by ID
+    public AuthData getAuth(String authToken) {
+        // Implement fetch logic
+        return null; // Placeholder return
     }
 
     @Override
-    public void updateGame(GameData game) throws DataAccessException {
-        // SQL to update a game's details
+    public void deleteAuth(String authToken) {
+        // Implement fetch logic
     }
 
     @Override
-    public void deleteGame(Integer gameID) throws DataAccessException {
-        // SQL to delete a game
+    public List<AuthData> listAuths() {
+        return null;
     }
 
     @Override
-    public List<GameData> listGames() throws DataAccessException {
-        // SQL to list all games
-    }
-
-    // Implementing methods from UserDataAccess
-    @Override
-    public void insertUser(UserData user) throws DataAccessException {
-        // SQL to insert a new user
+    public void clearAuths() {
     }
 
     @Override
-    public UserData getUser(String username) throws DataAccessException {
-        // SQL to get a user by username
+    public String generateAuthToken() {
+        return null;
     }
 
     @Override
-    public void updateUser(UserData user) throws DataAccessException {
-        // SQL to update user's details
+    public AuthData getAuthByUsername(String username) {
+        return null;
+    }
+
+    // GameDataAccess implementation
+    @Override
+    public void insertGame(GameData game) {
+        // Implement database insert logic
     }
 
     @Override
-    public void deleteUser(String username) throws DataAccessException {
-        // SQL to delete a user
+    public GameData getGame(Integer gameID) {
+        // Implement fetch logic
+        return null; // Placeholder return
     }
 
     @Override
-    public List<UserData> listUsers() throws DataAccessException {
-        // SQL to list all users
+    public void updateGame(GameData game) {
+
     }
 
     @Override
-    public UserData validateUser(String username, String password) throws DataAccessException {
-        // SQL to validate a user's login
+    public void deleteGame(Integer gameID) {}
+    public List<GameData> listGames() {
+        return null;
+    }
+    public void clearGames() {}
+
+
+    // UserDataAccess implementation
+    @Override
+    public void insertUser(UserData user) {
+        // Implement database insert logic
     }
 
-    // Additional private helper methods as needed, similar to your Memory-based classes
+    @Override
+    public UserData getUser(String username) {
+        // Implement fetch logic
+        return null; // Placeholder return
+    }
+
+    @Override
+    public void updateUser(UserData user) {
+    }
+    public void deleteUser(String username) {}
+    public List<UserData> listUsers() {
+        return null;
+    }
+    public UserData validateUser(String username, String password) {
+        return null;
+    }
+    public void clearUsers() {}
+
+
 }
+
