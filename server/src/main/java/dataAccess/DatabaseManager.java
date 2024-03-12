@@ -7,10 +7,10 @@ public class DatabaseManager {
     private static final String databaseName;
     private static final String user;
     private static final String password;
-    private static final String connectionUrl;
+    private static final String baseConnectionUrl;
 
     /*
-     * Load the database information for the db.properties file.
+     * Load the database information from the db.properties file.
      */
     static {
         try {
@@ -24,25 +24,45 @@ public class DatabaseManager {
 
                 var host = props.getProperty("db.host");
                 var port = Integer.parseInt(props.getProperty("db.port"));
-                connectionUrl = String.format("jdbc:mysql://%s:%d", host, port);
+                baseConnectionUrl = String.format("jdbc:mysql://%s:%d", host, port);
             }
         } catch (Exception ex) {
-            throw new RuntimeException("unable to process db.properties. " + ex.getMessage());
+            throw new RuntimeException("Unable to process db.properties: " + ex.getMessage());
         }
     }
 
-    /**
-     * Creates the database if it does not already exist.
-     */
-    static void createDatabase() throws DataAccessException {
-        try {
-            var statement = "CREATE DATABASE IF NOT EXISTS " + databaseName;
-            var conn = DriverManager.getConnection(connectionUrl, user, password);
-            try (var preparedStatement = conn.prepareStatement(statement)) {
-                preparedStatement.executeUpdate();
+    public static void initializeDatabaseAndTables() throws SQLException {
+        try (Connection conn = DriverManager.getConnection(baseConnectionUrl, user, password);
+             Statement statement = conn.createStatement()) {
+            String createDatabase = "CREATE DATABASE IF NOT EXISTS " + databaseName;
+            statement.execute(createDatabase);
+
+            try (Connection dbConn = DriverManager.getConnection(baseConnectionUrl + "/" + databaseName, user, password);
+                 Statement dbStatement = dbConn.createStatement()) {
+                String createUsersTable = "CREATE TABLE IF NOT EXISTS Users (" +
+                        "username VARCHAR(255) NOT NULL PRIMARY KEY, " +
+                        "password VARCHAR(255) NOT NULL, " +
+                        "email VARCHAR(255) NOT NULL);";
+                String createAuthTokensTable = "CREATE TABLE IF NOT EXISTS AuthTokens (" +
+                        "authToken VARCHAR(255) NOT NULL PRIMARY KEY, " +
+                        "username VARCHAR(255) NOT NULL, " +
+                        "FOREIGN KEY (username) REFERENCES Users(username));";
+                String createGamesTable = "CREATE TABLE IF NOT EXISTS Games (" +
+                        "gameID INT AUTO_INCREMENT PRIMARY KEY, " +
+                        "whiteUsername VARCHAR(255) NOT NULL, " +
+                        "blackUsername VARCHAR(255) NOT NULL, " +
+                        "gameName VARCHAR(255), " +
+                        "gameData TEXT, " +
+                        "whiteColor VARCHAR(10), " +
+                        "blackColor VARCHAR(10), " +
+                        "FOREIGN KEY (whiteUsername) REFERENCES Users(username), " +
+                        "FOREIGN KEY (blackUsername) REFERENCES Users(username));";
+                dbStatement.execute(createUsersTable);
+                dbStatement.execute(createAuthTokensTable);
+                dbStatement.execute(createGamesTable);
             }
         } catch (SQLException e) {
-            throw new DataAccessException(e.getMessage());
+            throw new RuntimeException("Error initializing database and tables: " + e.getMessage());
         }
     }
 
@@ -59,16 +79,12 @@ public class DatabaseManager {
      * </code>
      */
 
-
-    static Connection getConnection() throws DataAccessException {
+    static Connection getConnection() throws SQLException {
         try {
-            var conn = DriverManager.getConnection(connectionUrl, user, password);
-            conn.setCatalog(databaseName);
+            var conn = DriverManager.getConnection(baseConnectionUrl + "/" + databaseName, user, password);
             return conn;
         } catch (SQLException e) {
-            throw new DataAccessException(e.getMessage());
+            throw new RuntimeException("Error connecting to the database: " + e.getMessage());
         }
     }
-
-
 }

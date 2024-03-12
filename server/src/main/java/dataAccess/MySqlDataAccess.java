@@ -209,11 +209,13 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
     @Override
     public UserData validateUser(String username, String password) throws DataAccessException {
         UserData user = getUser(username);
-        if (user != null && user.password().equals(password)) {
-            return user;
-        } else {
-            throw new DataAccessException("Invalid username or password.");
+        if (user != null) {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            if (encoder.matches(password, user.password())) {
+                return user;
+            }
         }
+        throw new DataAccessException("Invalid username or password.");
     }
 
     @Override
