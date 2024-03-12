@@ -129,7 +129,7 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
             preparedStatement.setString(1, user.username());
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             String hashedPassword = encoder.encode(user.password());
-            preparedStatement.setString(2, user.password());
+            preparedStatement.setString(2, hashedPassword);
             preparedStatement.setString(3, user.email());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -161,7 +161,7 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
              PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             String hashedPassword = encoder.encode(user.password());
-            preparedStatement.setString(1, user.password());
+            preparedStatement.setString(1, hashedPassword);
             preparedStatement.setString(2, user.email());
             preparedStatement.setString(3, user.username());
             int affectedRows = preparedStatement.executeUpdate();
