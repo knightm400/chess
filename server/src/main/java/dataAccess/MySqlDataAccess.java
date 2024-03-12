@@ -3,6 +3,7 @@ package dataAccess;
 import model.AuthData;
 import model.GameData;
 import model.UserData;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -126,6 +127,8 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
             preparedStatement.setString(1, user.username());
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String hashedPassword = encoder.encode(user.password());
             preparedStatement.setString(2, user.password());
             preparedStatement.setString(3, user.email());
             preparedStatement.executeUpdate();
@@ -156,6 +159,8 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
         String sql = "UPDATE Users SET password = ?, email = ? WHERE username = ?";
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String hashedPassword = encoder.encode(user.password());
             preparedStatement.setString(1, user.password());
             preparedStatement.setString(2, user.email());
             preparedStatement.setString(3, user.username());
@@ -258,7 +263,7 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
                             rs.getString("blackColor")
                     );
                 } else {
-                    return null; // Game not found
+                    return null;
                 }
             }
         } catch (SQLException e) {
