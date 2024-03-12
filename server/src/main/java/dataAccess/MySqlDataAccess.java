@@ -221,6 +221,121 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
             throw new DataAccessException("Error clearing users: " + e.getMessage());
         }
     }
+
+    @Override
+    public void insertGame(GameData game) throws DataAccessException {
+        String sql = "INSERT INTO Games (gameID, whiteUsername, blackUsername, gameName, gameData, whiteColor, blackColor) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            preparedStatement.setInt(1, game.gameID());
+            preparedStatement.setString(2, game.whiteUsername());
+            preparedStatement.setString(3, game.blackUsername());
+            preparedStatement.setString(4, game.gameName());
+            preparedStatement.setString(5, game.gameData());
+            preparedStatement.setString(6, game.whiteColor());
+            preparedStatement.setString(7, game.blackColor());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new DataAccessException("Error inserting game: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public GameData getGame(Integer gameID) throws DataAccessException {
+        String sql = "SELECT * FROM Games WHERE gameID = ?";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            preparedStatement.setInt(1, gameID);
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                if (rs.next()) {
+                    return new GameData(
+                            rs.getInt("gameID"),
+                            rs.getString("whiteUsername"),
+                            rs.getString("blackUsername"),
+                            rs.getString("gameName"),
+                            rs.getString("gameData"),
+                            rs.getString("whiteColor"),
+                            rs.getString("blackColor")
+                    );
+                } else {
+                    return null; // Game not found
+                }
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Error retrieving game: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void updateGame(GameData game) throws DataAccessException {
+        String sql = "UPDATE Games SET whiteUsername = ?, blackUsername = ?, gameName = ?, gameData = ?, whiteColor = ?, blackColor = ? WHERE gameID = ?";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            preparedStatement.setString(1, game.whiteUsername());
+            preparedStatement.setString(2, game.blackUsername());
+            preparedStatement.setString(3, game.gameName());
+            preparedStatement.setString(4, game.gameData());
+            preparedStatement.setString(5, game.whiteColor());
+            preparedStatement.setString(6, game.blackColor());
+            preparedStatement.setInt(7, game.gameID());
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new DataAccessException("Updating game failed, no rows affected.");
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Error updating game: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void deleteGame(Integer gameID) throws DataAccessException {
+        String sql = "DELETE FROM Games WHERE gameID = ?";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            preparedStatement.setInt(1, gameID);
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new DataAccessException("Deleting game failed, no rows affected.");
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Error deleting game: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public List<GameData> listGames() throws DataAccessException {
+        List<GameData> games = new ArrayList<>();
+        String sql = "SELECT * FROM Games";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(sql);
+             ResultSet rs = preparedStatement.executeQuery()) {
+            while (rs.next()) {
+                games.add(new GameData(
+                        rs.getInt("gameID"),
+                        rs.getString("whiteUsername"),
+                        rs.getString("blackUsername"),
+                        rs.getString("gameName"),
+                        rs.getString("gameData"),
+                        rs.getString("whiteColor"),
+                        rs.getString("blackColor")
+                ));
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Error listing games: " + e.getMessage());
+        }
+        return games;
+    }
+
+    @Override
+    public void clearGames() throws DataAccessException {
+        String sql = "TRUNCATE TABLE Games";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new DataAccessException("Error clearing games: " + e.getMessage());
+        }
+    }
 }
 
-}
+
