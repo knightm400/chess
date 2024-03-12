@@ -58,6 +58,8 @@ public class DatabaseManager {
      * }
      * </code>
      */
+
+
     static Connection getConnection() throws DataAccessException {
         try {
             var conn = DriverManager.getConnection(connectionUrl, user, password);
@@ -67,4 +69,6 @@ public class DatabaseManager {
             throw new DataAccessException(e.getMessage());
         }
     }
+
+
 }
