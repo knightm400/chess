@@ -5,6 +5,8 @@ import dataAccess.MemoryAuthDataAccess;
 import dataAccess.MemoryGameDataAccess;
 import model.AuthData;
 import model.GameData;
+import service.GameService;
+import service.Request.CreateGameRequest;
 import service.Request.ListGamesRequest;
 import service.Result.ListGamesResult;
 import service.ListGamesService;
@@ -18,6 +20,7 @@ public class ListGamesServiceTest {
     private ListGamesService listGamesService;
     private MemoryGameDataAccess memoryGameDataAccess;
     private MemoryAuthDataAccess memoryAuthDataAccess;
+    private GameService gameService;
 
     @BeforeEach
     public void setUp() throws DataAccessException {
@@ -34,13 +37,17 @@ public class ListGamesServiceTest {
 
     @Test
     public void listAllGamesSuccessfully() throws DataAccessException {
-        ListGamesRequest request = new ListGamesRequest();
         String dummyAuthToken = memoryAuthDataAccess.generateAuthToken();
+        memoryAuthDataAccess.insertAuth(new AuthData(dummyAuthToken, "dummyUser"));
+
+        gameService.createGame(new CreateGameRequest(dummyAuthToken, "Game1"));
+        gameService.createGame(new CreateGameRequest(dummyAuthToken, "Game2"));
+
+        ListGamesRequest request = new ListGamesRequest();
         ListGamesResult result = listGamesService.listGames(dummyAuthToken, request);
 
         assertNotNull(result.getGames(), "Game list should not be null.");
-        assertEquals(2, result.getGames().size(), "There should be two games listed.");
-    }
+        assertEquals(2, result.getGames().size(), "There should be two games listed.");    }
 
     @Test
     public void listGamesFailWithInvalidToken() {
