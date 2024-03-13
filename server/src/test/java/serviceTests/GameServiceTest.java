@@ -4,6 +4,7 @@ import dataAccess.DataAccessException;
 import dataAccess.MemoryAuthDataAccess;
 import dataAccess.MemoryGameDataAccess;
 import model.AuthData;
+import model.GameData;
 import service.Request.CreateGameRequest;
 import service.Result.CreateGameResult;
 import service.GameService;
@@ -53,14 +54,20 @@ public class GameServiceTest {
     public void joinGameSuccessfully() throws DataAccessException {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
+
         CreateGameRequest createRequest = new CreateGameRequest(testAuthToken, "testGame");
         CreateGameResult createResult = gameService.createGame(createRequest);
+
+        assertNotNull(createResult.gameID(), "Game creation should be successful and return a valid game ID.");
 
         JoinGameRequest joinRequest = new JoinGameRequest(testAuthToken, createResult.gameID(), "BLACK");
         JoinGameResult joinResult = gameService.joinGame(joinRequest);
 
-        assertTrue(joinResult.success(), "Joining game should be successful.");
-        assertEquals("BLACK", memoryGameDataAccess.getGame(joinResult.gameID()).blackUsername(), "Black player should match the joining user.");
+        assertTrue(joinResult.success(), "Joining game should be successful. Message: " + joinResult.message());
+
+        GameData joinedGame = memoryGameDataAccess.getGame(createResult.gameID());
+
+        assertEquals("testUser", joinedGame.blackUsername(), "Black player should match the joining user.");
     }
 
     @Test
