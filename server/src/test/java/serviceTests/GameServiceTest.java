@@ -90,6 +90,11 @@ public class GameServiceTest {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
         JoinGameRequest joinRequest = new JoinGameRequest(testAuthToken, 99999, "WHITE");
-        assertThrows(DataAccessException.class, () -> gameService.joinGame(joinRequest), "Should throw DataAccessException because game does not exist.");
+
+        JoinGameResult result = gameService.joinGame(joinRequest);
+
+        assertFalse(result.success(), "Joining a non-existent game should not be successful.");
+
+        assertEquals("Game does not exist.", result.message(), "Error message should indicate that the game does not exist.");
     }
 }
