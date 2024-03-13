@@ -26,8 +26,6 @@ public class GameServiceTest {
         memoryAuthDataAccess = new MemoryAuthDataAccess();
         memoryGameDataAccess = new MemoryGameDataAccess();
         gameService = new GameService(memoryGameDataAccess, memoryAuthDataAccess);
-        String testAuthToken = memoryAuthDataAccess.generateAuthToken();
-        memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
     }
 
     @Test

@@ -53,10 +53,12 @@ public class GameService {
             return new JoinGameResult(request.gameID(), request.playerColor(), false, "Game does not exist.");
         }
 
-        if ("WHITE".equals(request.playerColor()) && gameData.whiteUsername() != null) {
-            return new JoinGameResult(request.gameID(), null, false, "White color already taken.");
-        } else if ("BLACK".equals(request.playerColor()) && gameData.blackUsername() != null) {
+        if ("BLACK".equals(request.playerColor()) && (gameData.blackUsername() != null && !gameData.blackUsername().isEmpty())) {
             return new JoinGameResult(request.gameID(), null, false, "Black color already taken.");
+        }
+
+        if ("WHITE".equals(request.playerColor()) && (gameData.whiteUsername() != null && !gameData.whiteUsername().isEmpty())) {
+            return new JoinGameResult(request.gameID(), null, false, "White color already taken.");
         }
 
         if ("WHITE".equals(request.playerColor())) {

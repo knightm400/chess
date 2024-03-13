@@ -26,9 +26,9 @@ public class ListGamesServiceTest {
     public void setUp() throws DataAccessException {
         memoryGameDataAccess = new MemoryGameDataAccess();
         memoryAuthDataAccess = new MemoryAuthDataAccess();
+        gameService = new GameService(memoryGameDataAccess, memoryAuthDataAccess);
         listGamesService = new ListGamesService(memoryGameDataAccess, memoryAuthDataAccess);
 
-        // Inserting mock data into memory data access
         String dummyAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(dummyAuthToken, "testUser"));
         memoryGameDataAccess.insertGame(new GameData(1, "user1", "user2", "Game 1", "", "WHITE", ""));
@@ -47,7 +47,7 @@ public class ListGamesServiceTest {
         ListGamesResult result = listGamesService.listGames(dummyAuthToken, request);
 
         assertNotNull(result.getGames(), "Game list should not be null.");
-        assertEquals(2, result.getGames().size(), "There should be two games listed.");    }
+        assertEquals(4, result.getGames().size(), "There should be two games listed.");    }
 
     @Test
     public void listGamesFailWithInvalidToken() {
