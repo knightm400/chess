@@ -6,7 +6,7 @@ import java.util.Collection;
 public class BishopMovement extends ChessMovement{
 
     public BishopMovement(ChessGame.TeamColor teamColor) {
-        super.teamColor = teamColor;
+        this.teamColor = teamColor;
     }
 
 
@@ -14,9 +14,8 @@ public class BishopMovement extends ChessMovement{
     @Override
     Collection<ChessMove> calculateValidMoves(ChessBoard board, ChessPosition myPosition) {
         Collection<ChessMove> validMoves = new ArrayList<>();
-        int[][] diagonalDir = { { -1, -1 }, { -1, 1 }, { 1, -1 }, { 1, 1 } };
 
-        for (int[] direction : diagonalDir) {
+        for (int[] direction : DIAGONAL_DIRECTIONS) {
             int row = myPosition.getRow();
             int col = myPosition.getColumn();
 
