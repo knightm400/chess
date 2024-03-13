@@ -156,42 +156,6 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
     }
 
     @Override
-    public void updateUser(UserData user) throws DataAccessException {
-        String sql = "UPDATE Users SET password = ?, email = ? WHERE username = ?";
-        try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            String hashedPassword = encoder.encode(user.password());
-            preparedStatement.setString(1, hashedPassword);
-            preparedStatement.setString(2, user.email());
-            preparedStatement.setString(3, user.username());
-            int affectedRows = preparedStatement.executeUpdate();
-
-            if (affectedRows == 0) {
-                throw new DataAccessException("User update failed: User not found.");
-            }
-        } catch (SQLException e) {
-            throw new DataAccessException("Error updating user: " + e.getMessage());
-        }
-    }
-
-    @Override
-    public void deleteUser(String username) throws DataAccessException {
-        String sql = "DELETE FROM Users WHERE username = ?";
-        try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-            preparedStatement.setString(1, username);
-            int affectedRows = preparedStatement.executeUpdate();
-
-            if (affectedRows == 0) {
-                throw new DataAccessException("User deletion failed: User not found.");
-            }
-        } catch (SQLException e) {
-            throw new DataAccessException("Error deleting user: " + e.getMessage());
-        }
-    }
-
-    @Override
     public List<UserData> listUsers() throws DataAccessException {
         List<UserData> userList = new ArrayList<>();
         String sql = "SELECT username, password, email FROM Users";
@@ -293,21 +257,6 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
             }
         } catch (SQLException e) {
             throw new DataAccessException("Error updating game: " + e.getMessage());
-        }
-    }
-
-    @Override
-    public void deleteGame(Integer gameID) throws DataAccessException {
-        String sql = "DELETE FROM Games WHERE gameID = ?";
-        try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-            preparedStatement.setInt(1, gameID);
-            int affectedRows = preparedStatement.executeUpdate();
-            if (affectedRows == 0) {
-                throw new DataAccessException("Deleting game failed, no rows affected.");
-            }
-        } catch (SQLException e) {
-            throw new DataAccessException("Error deleting game: " + e.getMessage());
         }
     }
 

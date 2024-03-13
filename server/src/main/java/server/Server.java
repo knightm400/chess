@@ -15,8 +15,13 @@ public class Server {
     }
 
     public int run(int desiredPort) {
-        Spark.port(desiredPort);
+        try {
+            DatabaseManager.initializeDatabaseAndTables();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        Spark.port(desiredPort);
         Spark.staticFiles.location("web");
 
         // Register your endpoints and handle exceptions here.
@@ -28,9 +33,7 @@ public class Server {
         ListGamesEndpoint.setup(gameDataAccess, authDataAccess);
         CreateGameServiceEndpoint.setup(authDataAccess, gameDataAccess);
         JoinGameEndpoint.setup(gameDataAccess, authDataAccess);
-
-
-
+        
         Spark.awaitInitialization();
         return Spark.port();
     }
