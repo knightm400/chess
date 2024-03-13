@@ -37,7 +37,7 @@ public class JoinGameServiceTest {
         JoinGameResult result = joinGameService.joinGame(request.authToken(), request.gameID(), request.playerColor());
 
         assertTrue(result.success(), "Joining game should be successful.");
-        assertEquals("BLACK", memoryGameDataAccess.getGame(result.gameID()).blackUsername(), "Player should join as BLACK.");
+        assertEquals("testUser", memoryGameDataAccess.getGame(result.gameID()).blackUsername(), "Player should join as BLACK.");
         assertEquals(1234, result.gameID(), "Game ID should match.");
     }
 
