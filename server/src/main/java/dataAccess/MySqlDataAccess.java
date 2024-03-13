@@ -1,5 +1,6 @@
 package dataAccess;
 
+import com.google.gson.Gson;
 import model.AuthData;
 import model.GameData;
 import model.UserData;
@@ -229,6 +230,7 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
         }
     }
 
+    private final Gson gson = new Gson();
     @Override
     public void insertGame(GameData game) throws DataAccessException {
         String sql = "INSERT INTO Games (gameID, whiteUsername, blackUsername, gameName, gameData, whiteColor, blackColor) VALUES (?, ?, ?, ?, ?, ?, ?)";
