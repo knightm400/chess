@@ -1,4 +1,4 @@
-package service;
+package service.Request;
 
 public class ListGamesRequest {
 }

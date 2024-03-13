@@ -4,11 +4,11 @@ import dataAccess.DataAccessException;
 import dataAccess.MemoryAuthDataAccess;
 import dataAccess.MemoryGameDataAccess;
 import model.AuthData;
-import service.CreateGameRequest;
-import service.CreateGameResult;
+import service.Request.CreateGameRequest;
+import service.Result.CreateGameResult;
 import service.GameService;
-import service.JoinGameRequest;
-import service.JoinGameResult;
+import service.Request.JoinGameRequest;
+import service.Result.JoinGameResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

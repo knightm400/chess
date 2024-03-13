@@ -3,6 +3,7 @@ package server;
 import dataAccess.AuthDataAccess;
 import model.MessageResponse;
 import service.*;
+import service.Request.LogoutRequest;
 import spark.Spark;
 import com.google.gson.Gson;
 

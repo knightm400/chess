@@ -5,6 +5,8 @@ import dataAccess.DataAccessException;
 import dataAccess.GameDataAccess;
 import model.MessageResponse;
 import service.*;
+import service.Request.JoinGameRequest;
+import service.Result.JoinGameResult;
 import spark.Spark;
 import com.google.gson.Gson;
 

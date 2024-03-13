@@ -4,6 +4,8 @@ import dataAccess.AuthDataAccess;
 import dataAccess.GameDataAccess;
 import model.MessageResponse;
 import service.*;
+import service.Request.CreateGameRequest;
+import service.Result.CreateGameResult;
 import spark.Spark;
 import com.google.gson.Gson;
 

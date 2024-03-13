@@ -5,7 +5,10 @@ import dataAccess.AuthDataAccess;
 import dataAccess.DataAccessException;
 import model.AuthData;
 import model.GameData;
-import service.*;
+import service.Request.CreateGameRequest;
+import service.Request.JoinGameRequest;
+import service.Result.CreateGameResult;
+import service.Result.JoinGameResult;
 
 import java.util.UUID;
 
