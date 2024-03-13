@@ -12,9 +12,7 @@ public class RookMovement extends ChessMovement {
     Collection<ChessMove> calculateValidMoves(ChessBoard board, ChessPosition myPosition) {
         Collection<ChessMove> validMoves = new ArrayList<>();
 
-        for (int[] direction : STRAIGHT_DIRECTIONS) {
-            addMovesInDirection(board, myPosition, validMoves, STRAIGHT_DIRECTIONS);
-        }
+        addMovesInDirection(board, myPosition, validMoves, STRAIGHT_DIRECTIONS);
         return validMoves;
     }
 

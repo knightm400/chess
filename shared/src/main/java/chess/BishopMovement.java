@@ -12,10 +12,7 @@ public class BishopMovement extends ChessMovement {
     @Override
     Collection<ChessMove> calculateValidMoves(ChessBoard board, ChessPosition myPosition) {
         Collection<ChessMove> validMoves = new ArrayList<>();
-
-        for (int[] direction : DIAGONAL_DIRECTIONS) {
-            addMovesInDirection(board, myPosition, validMoves, DIAGONAL_DIRECTIONS);
-        }
+        addMovesInDirection(board, myPosition, validMoves, DIAGONAL_DIRECTIONS);
 
         return validMoves;
     }

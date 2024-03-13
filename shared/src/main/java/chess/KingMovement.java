@@ -14,7 +14,15 @@ public class KingMovement extends ChessMovement {
         Collection<ChessMove> validMoves = new ArrayList<>();
 
         for (int[] move : KING_MOVES) {
-            addMovesInDirection(board, myPosition, validMoves, KING_MOVES);
+            int newRow = myPosition.getRow() + move[0];
+            int newCol = myPosition.getColumn() + move[1];
+            if (newRow >= 1 && newRow <= 8 && newCol >= 1 && newCol <= 8) {
+                ChessPosition newPosition = new ChessPosition(newRow, newCol);
+                ChessPiece destinationPiece = board.getPiece(newPosition);
+                if (destinationPiece == null || destinationPiece.getTeamColor() != this.teamColor) {
+                    validMoves.add(new ChessMove(myPosition, newPosition, null));
+                }
+            }
         }
         return validMoves;
     }
