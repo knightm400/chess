@@ -30,13 +30,13 @@ public class MemoryGameDataAccess implements GameDataAccess {
         games.put(game.gameID(), game);
     }
 
-    @Override
-    public void deleteGame(Integer gameID) throws DataAccessException {
-        if (!games.containsKey(gameID)) {
-            throw new DataAccessException("Game does not exist.");
-        }
-        games.remove(gameID);
-    }
+//    @Override
+//    public void deleteGame(Integer gameID) throws DataAccessException {
+//        if (!games.containsKey(gameID)) {
+//            throw new DataAccessException("Game does not exist.");
+//        }
+//        games.remove(gameID);
+//    }
 
     @Override
     public List<GameData> listGames() {

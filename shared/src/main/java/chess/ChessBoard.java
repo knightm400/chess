@@ -28,19 +28,6 @@ public class ChessBoard {
         }
     }
 
-    public void copyFrom(ChessBoard otherBoard) {
-        for (int row = 0; row < 8; row++) {
-            for (int col = 0; col < 8; col++){
-                ChessPiece sourcePiece = otherBoard.squares[row][col];
-                if(sourcePiece != null) {
-                    this.squares[row][col] = new ChessPiece(sourcePiece.getTeamColor(), sourcePiece.getPieceType());
-                } else {
-                    this.squares[row][col] = null;
-                }
-            }
-        }
-    }
-
     public ChessBoard() {
     }
 

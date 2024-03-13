@@ -22,21 +22,21 @@ public class MemoryUserDataAccess implements UserDataAccess {
         return users.get(username);
     }
 
-    @Override
-    public void updateUser(UserData user) throws DataAccessException {
-        if (!users.containsKey(user.username())) {
-            throw new DataAccessException("User does not exist.");
-        }
-        users.put(user.username(), user);
-    }
+//    @Override
+//    public void updateUser(UserData user) throws DataAccessException {
+//        if (!users.containsKey(user.username())) {
+//            throw new DataAccessException("User does not exist.");
+//        }
+//        users.put(user.username(), user);
+//    }
 
-    @Override
-    public void deleteUser(String username) throws DataAccessException {
-        if (!users.containsKey(username)) {
-            throw new DataAccessException("User does not exist.");
-        }
-        users.remove(username);
-    }
+//    @Override
+//    public void deleteUser(String username) throws DataAccessException {
+//        if (!users.containsKey(username)) {
+//            throw new DataAccessException("User does not exist.");
+//        }
+//        users.remove(username);
+//    }
 
     @Override
     public List<UserData> listUsers() {
