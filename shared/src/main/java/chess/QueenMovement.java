@@ -4,22 +4,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 public class QueenMovement extends ChessMovement{
     public QueenMovement(ChessGame.TeamColor teamColor) {
-        super.teamColor = teamColor;
+        this.teamColor = teamColor;
     }
 
     @Override
     Collection<ChessMove> calculateValidMoves(ChessBoard board, ChessPosition myPosition) {
         Collection<ChessMove> validMoves = new ArrayList<>();
-        int[][] diagonalDir = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
-        int[][] perpendicularDir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-        addQueenMoves(board, myPosition, validMoves, diagonalDir);
-        addQueenMoves(board, myPosition, validMoves, perpendicularDir);
+        addMovesInDirection(board, myPosition, validMoves, DIAGONAL_DIRECTIONS);
+        addMovesInDirection(board, myPosition, validMoves, STRAIGHT_DIRECTIONS);
 
         return validMoves;
     }
 
-    private void addQueenMoves(ChessBoard board, ChessPosition myPosition, Collection<ChessMove> validMoves, int[][] directions) {
+    private void addMovesInDirection(ChessBoard board, ChessPosition myPosition, Collection<ChessMove> validMoves, int[][] directions) {
         for (int[] direction : directions) {
             int row = myPosition.getRow();
             int col = myPosition.getColumn();
