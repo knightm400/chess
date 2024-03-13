@@ -2,23 +2,26 @@ package server;
 
 import dataAccess.*;
 import spark.*;
+import java.sql.SQLException;
 
 public class Server {
-    private UserDataAccess userDataAccess;
-    private GameDataAccess gameDataAccess;
-    private AuthDataAccess authDataAccess;
+    private final UserDataAccess userDataAccess;
+    private final GameDataAccess gameDataAccess;
+    private final AuthDataAccess authDataAccess;
 
     public Server() {
-        userDataAccess = new MemoryUserDataAccess();
-        gameDataAccess = new MemoryGameDataAccess();
-        authDataAccess = new MemoryAuthDataAccess();
+        userDataAccess = new MySqlDataAccess();
+        gameDataAccess = new MySqlDataAccess();
+        authDataAccess = new MySqlDataAccess();
+
     }
+
 
     public int run(int desiredPort) {
         try {
             DatabaseManager.initializeDatabaseAndTables();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to initialize database and tables: " + e.getMessage());
         }
 
         Spark.port(desiredPort);
@@ -33,7 +36,7 @@ public class Server {
         ListGamesEndpoint.setup(gameDataAccess, authDataAccess);
         CreateGameServiceEndpoint.setup(authDataAccess, gameDataAccess);
         JoinGameEndpoint.setup(gameDataAccess, authDataAccess);
-        
+
         Spark.awaitInitialization();
         return Spark.port();
     }

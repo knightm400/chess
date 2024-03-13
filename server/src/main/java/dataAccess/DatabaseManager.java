@@ -45,18 +45,15 @@ public class DatabaseManager {
                         "email VARCHAR(255) NOT NULL);";
                 String createAuthTokensTable = "CREATE TABLE IF NOT EXISTS AuthTokens (" +
                         "authToken VARCHAR(255) NOT NULL PRIMARY KEY, " +
-                        "username VARCHAR(255) NOT NULL, " +
-                        "FOREIGN KEY (username) REFERENCES Users(username));";
+                        "username VARCHAR(255) NOT NULL);";
                 String createGamesTable = "CREATE TABLE IF NOT EXISTS Games (" +
                         "gameID INT AUTO_INCREMENT PRIMARY KEY, " +
-                        "whiteUsername VARCHAR(255) NOT NULL, " +
-                        "blackUsername VARCHAR(255) NOT NULL, " +
+                        "whiteUsername VARCHAR(255), " +
+                        "blackUsername VARCHAR(255), " +
                         "gameName VARCHAR(255), " +
                         "gameData TEXT, " +
                         "whiteColor VARCHAR(10), " +
-                        "blackColor VARCHAR(10), " +
-                        "FOREIGN KEY (whiteUsername) REFERENCES Users(username), " +
-                        "FOREIGN KEY (blackUsername) REFERENCES Users(username));";
+                        "blackColor VARCHAR(10));";
                 dbStatement.execute(createUsersTable);
                 dbStatement.execute(createAuthTokensTable);
                 dbStatement.execute(createGamesTable);
