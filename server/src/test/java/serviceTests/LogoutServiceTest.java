@@ -3,7 +3,7 @@ package serviceTests;
 import dataAccess.DataAccessException;
 import dataAccess.MemoryAuthDataAccess;
 import model.AuthData;
-import service.LogoutRequest;
+import service.Request.LogoutRequest;
 import service.LogoutService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

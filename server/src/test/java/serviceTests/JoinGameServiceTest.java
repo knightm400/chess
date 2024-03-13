@@ -5,8 +5,8 @@ import dataAccess.MemoryGameDataAccess;
 import dataAccess.DataAccessException;
 import model.AuthData;
 import model.GameData;
-import service.JoinGameRequest;
-import service.JoinGameResult;
+import service.Request.JoinGameRequest;
+import service.Result.JoinGameResult;
 import service.JoinGameService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,7 +37,7 @@ public class JoinGameServiceTest {
         JoinGameResult result = joinGameService.joinGame(request.authToken(), request.gameID(), request.playerColor());
 
         assertTrue(result.success(), "Joining game should be successful.");
-        assertEquals("BLACK", memoryGameDataAccess.getGame(result.gameID()).blackUsername(), "Player should join as BLACK.");
+        assertEquals("testUser", memoryGameDataAccess.getGame(result.gameID()).blackUsername(), "Player should join as BLACK.");
         assertEquals(1234, result.gameID(), "Game ID should match.");
     }
 

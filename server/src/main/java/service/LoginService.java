@@ -5,7 +5,8 @@ import dataAccess.DataAccessException;
 import dataAccess.UserDataAccess;
 import model.AuthData;
 import model.UserData;
-import com.google.gson.Gson;
+import service.Request.LoginRequest;
+import service.Result.LoginResult;
 
 public class LoginService {
 

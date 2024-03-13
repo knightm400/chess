@@ -4,6 +4,7 @@ import dataAccess.UserDataAccess;
 import dataAccess.GameDataAccess;
 import dataAccess.AuthDataAccess;
 import dataAccess.DataAccessException;
+import service.Result.ClearResult;
 
 public class ClearService {
     private final UserDataAccess userDataAccess;

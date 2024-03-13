@@ -4,11 +4,12 @@ import dataAccess.DataAccessException;
 import dataAccess.MemoryAuthDataAccess;
 import dataAccess.MemoryGameDataAccess;
 import model.AuthData;
-import service.CreateGameRequest;
-import service.CreateGameResult;
+import model.GameData;
+import service.Request.CreateGameRequest;
+import service.Result.CreateGameResult;
 import service.GameService;
-import service.JoinGameRequest;
-import service.JoinGameResult;
+import service.Request.JoinGameRequest;
+import service.Result.JoinGameResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,8 +26,6 @@ public class GameServiceTest {
         memoryAuthDataAccess = new MemoryAuthDataAccess();
         memoryGameDataAccess = new MemoryGameDataAccess();
         gameService = new GameService(memoryGameDataAccess, memoryAuthDataAccess);
-        String testAuthToken = memoryAuthDataAccess.generateAuthToken();
-        memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
     }
 
     @Test
@@ -53,14 +52,20 @@ public class GameServiceTest {
     public void joinGameSuccessfully() throws DataAccessException {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
+
         CreateGameRequest createRequest = new CreateGameRequest(testAuthToken, "testGame");
         CreateGameResult createResult = gameService.createGame(createRequest);
+
+        assertNotNull(createResult.gameID(), "Game creation should be successful and return a valid game ID.");
 
         JoinGameRequest joinRequest = new JoinGameRequest(testAuthToken, createResult.gameID(), "BLACK");
         JoinGameResult joinResult = gameService.joinGame(joinRequest);
 
-        assertTrue(joinResult.success(), "Joining game should be successful.");
-        assertEquals("BLACK", memoryGameDataAccess.getGame(joinResult.gameID()).blackUsername(), "Black player should match the joining user.");
+        assertTrue(joinResult.success(), "Joining game should be successful. Message: " + joinResult.message());
+
+        GameData joinedGame = memoryGameDataAccess.getGame(createResult.gameID());
+
+        assertEquals("testUser", joinedGame.blackUsername(), "Black player should match the joining user.");
     }
 
     @Test
@@ -69,13 +74,19 @@ public class GameServiceTest {
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
         String anotherTestAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(anotherTestAuthToken, "anotherTestUser"));
+
         CreateGameRequest createRequest = new CreateGameRequest(testAuthToken, "testGame");
         CreateGameResult createResult = gameService.createGame(createRequest);
+
         JoinGameRequest initialJoinRequest = new JoinGameRequest(testAuthToken, createResult.gameID(), "BLACK");
-        gameService.joinGame(initialJoinRequest);
+        JoinGameResult initialJoinResult = gameService.joinGame(initialJoinRequest);
+        assertTrue(initialJoinResult.success(), "First joining of the game should be successful.");
 
         JoinGameRequest secondJoinRequest = new JoinGameRequest(anotherTestAuthToken, createResult.gameID(), "BLACK");
-        assertThrows(DataAccessException.class, () -> gameService.joinGame(secondJoinRequest), "Should throw DataAccessException because color is already taken.");
+        JoinGameResult secondJoinResult = gameService.joinGame(secondJoinRequest);
+
+        assertFalse(secondJoinResult.success(), "Joining game should fail as color is already taken.");
+        assertEquals("Black color already taken.", secondJoinResult.message(), "Error message should indicate that the black color is already taken.");
     }
 
     @Test
@@ -83,6 +94,11 @@ public class GameServiceTest {
         String testAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
         JoinGameRequest joinRequest = new JoinGameRequest(testAuthToken, 99999, "WHITE");
-        assertThrows(DataAccessException.class, () -> gameService.joinGame(joinRequest), "Should throw DataAccessException because game does not exist.");
+
+        JoinGameResult result = gameService.joinGame(joinRequest);
+
+        assertFalse(result.success(), "Joining a non-existent game should not be successful.");
+
+        assertEquals("Game does not exist.", result.message(), "Error message should indicate that the game does not exist.");
     }
 }

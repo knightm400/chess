@@ -6,10 +6,9 @@ import dataAccess.DataAccessException;
 import dataAccess.GameDataAccess;
 import model.AuthData;
 import model.GameData;
-import service.CreateGameRequest;
-import service.CreateGameResult;
+import service.Request.CreateGameRequest;
+import service.Result.CreateGameResult;
 
-import java.util.HashSet;
 import java.util.UUID;
 
 public class CreateGameService {

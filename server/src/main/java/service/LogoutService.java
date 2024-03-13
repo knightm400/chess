@@ -3,7 +3,7 @@ package service;
 import dataAccess.AuthDataAccess;
 import dataAccess.DataAccessException;
 import model.AuthData;
-import service.*;
+import service.Request.LogoutRequest;
 
 public class LogoutService {
     private final AuthDataAccess authDataAccess;
