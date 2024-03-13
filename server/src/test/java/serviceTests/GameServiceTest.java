@@ -76,13 +76,19 @@ public class GameServiceTest {
         memoryAuthDataAccess.insertAuth(new AuthData(testAuthToken, "testUser"));
         String anotherTestAuthToken = memoryAuthDataAccess.generateAuthToken();
         memoryAuthDataAccess.insertAuth(new AuthData(anotherTestAuthToken, "anotherTestUser"));
+
         CreateGameRequest createRequest = new CreateGameRequest(testAuthToken, "testGame");
         CreateGameResult createResult = gameService.createGame(createRequest);
+
         JoinGameRequest initialJoinRequest = new JoinGameRequest(testAuthToken, createResult.gameID(), "BLACK");
-        gameService.joinGame(initialJoinRequest);
+        JoinGameResult initialJoinResult = gameService.joinGame(initialJoinRequest);
+        assertTrue(initialJoinResult.success(), "First joining of the game should be successful.");
 
         JoinGameRequest secondJoinRequest = new JoinGameRequest(anotherTestAuthToken, createResult.gameID(), "BLACK");
-        assertThrows(DataAccessException.class, () -> gameService.joinGame(secondJoinRequest), "Should throw DataAccessException because color is already taken.");
+        JoinGameResult secondJoinResult = gameService.joinGame(secondJoinRequest);
+
+        assertFalse(secondJoinResult.success(), "Joining game should fail as color is already taken.");
+        assertEquals("Black color already taken.", secondJoinResult.message(), "Error message should indicate that the black color is already taken.");
     }
 
     @Test
