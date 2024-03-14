@@ -294,6 +294,7 @@ public class MySqlDataAccess implements AuthDataAccess, GameDataAccess, UserData
             throw new DataAccessException("Error clearing games: " + e.getMessage());
         }
     }
+
 }
 
 

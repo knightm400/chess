@@ -76,7 +76,7 @@ public class DatabaseManager {
      * </code>
      */
 
-    static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         try {
             var conn = DriverManager.getConnection(baseConnectionUrl + "/" + databaseName, user, password);
             return conn;
