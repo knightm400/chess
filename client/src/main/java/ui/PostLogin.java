@@ -74,16 +74,29 @@ public class PostLogin {
     }
 
     private void displayHelp() {
-        // Similar to PreLogin, list all available commands
         logger.info("Providing help information to the user in PostLogin.");
         System.out.println("Help Information for PostLogin:");
-        // Include descriptions of PostLogin-specific actions
+        System.out.println("- Type '1' for help. This will display all available commands you can perform.");
+        System.out.println("- Type '2' to logout. This will log you out of the system and bring you back to the PreLogin screen.");
+        System.out.println("- Type '3' to create a game. This allows you to create a new game which other players can join.");
+        System.out.println("- Type '4' to list all available games. You will see a list of all games that currently exist.");
+        System.out.println("- Type '5' to join a game. This allows you to join an existing game as a player.");
+        System.out.println("- Type '6' to join as an observer. This allows you to join an existing game as an observer, meaning you can watch but not participate in the game.");
     }
 
     private void logout() {
-        // Call the serverFacade.logout method and handle the response
-        logger.info("Logging out user in PostLogin.");
-        // After successful logout, transition to PreLogin UI
+        logger.info("Attempting to log out user in PostLogin.");
+        String authoken = 
+        try {
+            serverFacade.logout(); // Update this line if your logout method requires parameters.
+            logger.info("User logged out successfully in PostLogin.");
+            System.out.println("You have been logged out. Returning to PreLogin screen...");
+            PreLogin preLogin = new PreLogin(serverFacade);
+            preLogin.displayMenu();
+        } catch (Exception e) {
+            logger.severe("Logout failed in PostLogin: " + e.getMessage());
+            System.out.println("Logout failed: " + e.getMessage());
+        }
     }
 
     private void createGame(Scanner scanner) {

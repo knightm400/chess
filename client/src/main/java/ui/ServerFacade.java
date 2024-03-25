@@ -20,6 +20,11 @@ public class ServerFacade {
     private static final String SERVER_BASE_URL = "http://localhost:8080";
     private static final Gson gson = new Gson();
     private static final Logger logger = Logger.getLogger(ServerFacade.class.getName());
+    private String authToken =  null;
+
+    public void setAuthToken(String newAuthToken) {
+        this.authToken = newAuthToken;
+    }
 
     static {
         try {
@@ -91,6 +96,7 @@ public class ServerFacade {
         int responseCode = connection.getResponseCode();
         if (responseCode == 200) {
             RegisterResult result = gson.fromJson(response.toString(), RegisterResult.class);
+            this.authToken = result.authToken();
             logger.info("User registered successfully: " + username);
             return result.authToken();
         } else {
@@ -130,8 +136,9 @@ public class ServerFacade {
 
         int responseCode = connection.getResponseCode();
         if (responseCode == 200) {
-            logger.info("User logged in successfully: " + username);
             LoginResult result = gson.fromJson(response.toString(), LoginResult.class);
+            this.authToken = result.authToken();
+            logger.info("User logged in successfully: " + username);
             return result.authToken();
         } else if (responseCode == 401) {
             throw new Exception("Login failed: unauthorized (wrong username or password)");
@@ -141,7 +148,7 @@ public class ServerFacade {
         }
     }
 
-    public String logout(String authToken) throws Exception {
+    public String logout() throws Exception {
         logger.info("Attempting to log out user.");
         String endpoint = "/session";
         URL url = new URL(SERVER_BASE_URL + endpoint);
@@ -149,7 +156,9 @@ public class ServerFacade {
 
         connection.setRequestMethod("DELETE");
         connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Authorization", authToken);
+        if (authToken != null) {
+            connection.setRequestProperty("Authorization", this.authToken);
+        }
 
         int responseCode = connection.getResponseCode();
         StringBuilder response = new StringBuilder();
@@ -162,6 +171,7 @@ public class ServerFacade {
         }
 
         if (responseCode == 200) {
+            this.authToken = null;
             logger.info("User logged out successfully.");
             return "Logged out successfully.";
         } else {
@@ -171,7 +181,7 @@ public class ServerFacade {
         }
     }
 
-    public List<GameData> listGames(String authToken) throws Exception {
+    public List<GameData> listGames() throws Exception {
         logger.info("Attempting to list games.");
         String endpoint = "/game";
         URL url = new URL(SERVER_BASE_URL + endpoint);
@@ -179,7 +189,9 @@ public class ServerFacade {
 
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Authorization", authToken);
+        if (this.authToken != null) {
+            connection.setRequestProperty("Authorization", this.authToken);
+        }
 
         int responseCode = connection.getResponseCode();
         StringBuilder response = new StringBuilder();
@@ -210,7 +222,9 @@ public class ServerFacade {
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
         connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Authorization", authToken);
+        if (this.authToken != null) {
+            connection.setRequestProperty("Authorization", this.authToken);
+        }
 
         String jsonRequestBody = gson.toJson(Map.of("gameName", gameName));
 
@@ -248,7 +262,9 @@ public class ServerFacade {
         connection.setRequestMethod("PUT");
         connection.setDoOutput(true);
         connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Authorization", authToken);
+        if (this.authToken != null) {
+            connection.setRequestProperty("Authorization", this.authToken);
+        }
 
         String jsonRequestBody = gson.toJson(Map.of("gameID", gameID, "playerColor", playerColor));
 
