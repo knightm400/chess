@@ -6,16 +6,43 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import model.GameData;
 import model.MessageResponse;
-import service.Result.LoginResult;
-import service.Result.RegisterResult;
+import service.Result.*;
 
 public class ServerFacade {
     private static final String SERVER_BASE_URL = "http://localhost:8080";
     private static final Gson gson = new Gson();
+
+    public String clearData() throws Exception {
+        String endpoint = "/db";
+        URL url = new URL(SERVER_BASE_URL + endpoint);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        connection.setRequestMethod("DELETE");
+        connection.setRequestProperty("Content-Type", "application/json");
+
+        int responseCode = connection.getResponseCode();
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        }
+
+        if (responseCode == 200) {
+            return "All data cleared";
+        } else {
+            MessageResponse messageResponse = gson.fromJson(response.toString(), MessageResponse.class);
+            throw new Exception("Error clearing the database: " + messageResponse.getMessage());
+        }
+    }
 
     public String register(String username, String password, String email) throws Exception {
         String endpoint = "/user";
@@ -120,6 +147,101 @@ public class ServerFacade {
         }
     }
 
+    public List<GameData> listGames(String authToken) throws Exception {
+        String endpoint = "/game";
+        URL url = new URL(SERVER_BASE_URL + endpoint);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Authorization", authToken);
+
+        int responseCode = connection.getResponseCode();
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        }
+
+        if (responseCode == 200) {
+            ListGamesResult listGamesResult = gson.fromJson(response.toString(), ListGamesResult.class);
+            return listGamesResult.getGames();
+        } else {
+            throw new Exception("Failed to list games: HTTP error code " + responseCode);
+        }
+    }
+
+    public GameData createGame(String authToken, String gameName) throws Exception {
+        String endpoint = "/game";
+        URL url = new URL(SERVER_BASE_URL + endpoint);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        connection.setRequestMethod("POST");
+        connection.setDoOutput(true);
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Authorization", authToken);
+
+        String jsonRequestBody = gson.toJson(Map.of("gameName", gameName));
+
+        try (OutputStream os = connection.getOutputStream()) {
+            byte[] input = jsonRequestBody.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        StringBuilder response = new StringBuilder();
+        int responseCode = connection.getResponseCode();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        }
+
+        if (responseCode == 200) {
+            CreateGameResult createGameResult = gson.fromJson(response.toString(), CreateGameResult.class);
+            return new GameData(createGameResult.gameID(), null, null, null, null, null, null); // Modify according to your GameData constructor
+        } else {
+            throw new Exception("Failed to create game: HTTP error code " + responseCode);
+        }
+    }
+
+    public JoinGameResult joinGame(String authToken, Integer gameID, String playerColor) throws Exception {
+        String endpoint = "/game";
+        URL url = new URL(SERVER_BASE_URL + endpoint);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        connection.setRequestMethod("PUT");
+        connection.setDoOutput(true);
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Authorization", authToken);
+
+        String jsonRequestBody = gson.toJson(Map.of("gameID", gameID, "playerColor", playerColor));
+
+        try (OutputStream os = connection.getOutputStream()) {
+            byte[] input = jsonRequestBody.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        StringBuilder response = new StringBuilder();
+        int responseCode = connection.getResponseCode();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        }
+
+        if (responseCode == 200) {
+            JoinGameResult joinGameResult = gson.fromJson(response.toString(), JoinGameResult.class);
+            return joinGameResult;
+        } else {
+            throw new Exception("Failed to join game: HTTP error code " + responseCode);
+        }
+    }
 }
 
