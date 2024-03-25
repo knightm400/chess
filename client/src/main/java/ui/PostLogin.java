@@ -181,7 +181,32 @@ public class PostLogin {
     }
 
     private void joinObserver(Scanner scanner) {
-        // Code to join a game as an observer
         logger.info("Joining a game as an observer in PostLogin.");
+        listGames();
+
+        System.out.print("Enter the ID of the game you want to observe: ");
+        int gameId;
+        while (true) {
+            String input = scanner.nextLine().trim();
+            try {
+                gameId = Integer.parseInt(input);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid game ID. Please enter a valid number: ");
+            }
+        }
+
+        try {
+            boolean success = serverFacade.joinGameAsObserver(gameId);
+            if (success) {
+                logger.info("Successfully joined game " + gameId + " as observer.");
+                System.out.println("Successfully joined game " + gameId + " as an observer.");
+            } else {
+                logger.warning("Failed to join game as observer.");
+                System.out.println("Failed to join the game as an observer. Please try again.");
+            }
+        } catch (Exception e) {
+            logger.severe("Joining a game as an observer failed: " + e.getMessage());
+            System.out.println("Failed to join the game as an observer: " + e.getMessage());
+        }
     }
-}
