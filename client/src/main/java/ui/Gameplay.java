@@ -28,6 +28,6 @@ public class Gameplay {
         System.out.println(ERASE_SCREEN);
         System.out.println(SET_TEXT_COLOR_GREEN);
         drawChessboard();
-        System.out.println(RESET_TEXT_COLOR); 
+        System.out.println(RESET_TEXT_COLOR);
     }
 }
