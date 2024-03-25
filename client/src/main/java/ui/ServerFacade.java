@@ -292,6 +292,45 @@ public class ServerFacade {
             throw new Exception("Failed to join game: HTTP error code " + responseCode);
         }
     }
+
+    public boolean joinGameAsObserver(Integer gameId) throws Exception {
+        logger.info("Attempting to join a game as an observer.");
+        String endpoint = "/game";
+        URL url = new URL(SERVER_BASE_URL + endpoint);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        connection.setRequestMethod("PUT");
+        connection.setDoOutput(true);
+        connection.setRequestProperty("Content-Type", "application/json");
+        if (this.authToken != null) {
+            connection.setRequestProperty("Authorization", this.authToken);
+        }
+
+        String jsonRequestBody = gson.toJson(Map.of("gameID", gameId));
+
+        try (OutputStream os = connection.getOutputStream()) {
+            byte[] input = jsonRequestBody.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        StringBuilder response = new StringBuilder();
+        int responseCode = connection.getResponseCode();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        }
+
+        if (responseCode == 200) {
+            logger.info("Joined game successfully as observer: Game ID " + gameId);
+            return true;
+        } else {
+            logger.warning("Failed to join game as observer: " + responseCode);
+            throw new Exception("Failed to join game as observer: HTTP error code " + responseCode);
+        }
+    }
     public String getAuthToken() {
         return this.authToken;
     }

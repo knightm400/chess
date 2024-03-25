@@ -210,3 +210,4 @@ public class PostLogin {
             System.out.println("Failed to join the game as an observer: " + e.getMessage());
         }
     }
+}
