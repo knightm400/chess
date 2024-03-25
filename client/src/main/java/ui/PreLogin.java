@@ -82,7 +82,10 @@ public class PreLogin {
         try {
             String authToken = serverFacade.login(username, password);
             logger.info("Login successful for user: " + username);
-            System.out.println("Login successful.");
+            System.out.println("Login successful. Transitioning to PostLogin...");
+            PostLogin postLogin = new PostLogin(serverFacade);
+            postLogin.displayMenu();
+            return;
         } catch (Exception e) {
             logger.severe("Login failed for user: " + username + "; Reason: " + e.getMessage());
             System.out.println("Login failed: " + e.getMessage());
@@ -100,8 +103,13 @@ public class PreLogin {
         logger.info("Attempting to register new user: " + username);
         try {
             String authToken = serverFacade.register(username, password, email);
-            logger.info("Registration successful for user: " + username);
-            System.out.println("Registration successful.");
+            if (authToken != null) {
+                logger.info("Registration successful for user: " + username);
+                System.out.println("Registration successful. Transitioning to PostLogin...");
+                PostLogin postLogin = new PostLogin(serverFacade);
+                postLogin.displayMenu();
+                return;
+            }
         } catch (Exception e) {
             logger.severe("Registration failed for user: " + username + "; Reason: " + e.getMessage());
             System.out.println("Registration failed: " + e.getMessage());
