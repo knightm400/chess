@@ -1,7 +1,9 @@
 package ui;
 
 import model.GameData;
+import service.Result.JoinGameResult;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -121,13 +123,61 @@ public class PostLogin {
     }
 
     private void listGames() {
-        // Code to list all existing games
         logger.info("Listing all games in PostLogin.");
+        try {
+            List<GameData> games = serverFacade.listGames();
+            if (games.isEmpty()) {
+                System.out.println("There are currently no games available.");
+            } else {
+                System.out.println("Available games:");
+                int gameNumber = 1;
+                for (GameData game : games) {
+                    System.out.println(gameNumber++ + ". " + game.gameName() + " (ID: " + game.gameID() + ")");
+                }
+            }
+        } catch (Exception e) {
+            logger.severe("Failed to list games in PostLogin: " + e.getMessage());
+            System.out.println("Failed to retrieve the list of games: " + e.getMessage());
+        }
     }
 
     private void joinGame(Scanner scanner) {
-        // Code to join a game
-        logger.info("Joining a game in PostLogin.");
+        logger.info("Prompting user for game ID and player color in PostLogin.");
+
+        listGames();
+
+        System.out.print("Enter the ID of the game you want to join: ");
+        Integer gameId = null;
+        while (true) {
+            String input = scanner.nextLine().trim();
+            try {
+                gameId = Integer.parseInt(input);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid game ID. Please enter a valid integer: ");
+            }
+        }
+
+        System.out.print("Enter the color you want to play as (white/black): ");
+        String playerColor = scanner.nextLine().trim().toLowerCase();
+        while (!playerColor.equals("white") && !playerColor.equals("black")) {
+            System.out.print("Invalid color. Please enter 'white' or 'black': ");
+            playerColor = scanner.nextLine().trim().toLowerCase();
+        }
+
+        try {
+            JoinGameResult result = serverFacade.joinGame(serverFacade.getAuthToken(), gameId, playerColor);
+            if (result != null && result.success()) {
+                logger.info("Successfully joined game " + gameId + " as " + playerColor + " in PostLogin.");
+                System.out.println("Successfully joined game " + gameId + " as " + playerColor + ".");
+            } else {
+                logger.warning("Failed to join game in PostLogin.");
+                System.out.println("Failed to join the game. Please try again.");
+            }
+        } catch (Exception e) {
+            logger.severe("Joining a game failed in PostLogin: " + e.getMessage());
+            System.out.println("Failed to join the game: " + e.getMessage());
+        }
     }
 
     private void joinObserver(Scanner scanner) {
