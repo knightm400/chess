@@ -81,22 +81,16 @@ public class PreLogin {
 
         try {
             String authToken = serverFacade.login(username, password);
-            logger.info("Login successful for user: " + username);
-            System.out.println("Login successful. Transitioning to PostLogin...");
-            PostLogin postLogin = new PostLogin(serverFacade);
-            postLogin.displayMenu();
-            return;
+            if (authToken != null) {
+                serverFacade.setAuthToken(authToken);
+                logger.info("Login successful for user: " + username);
+                System.out.println("Login successful. Transitioning to PostLogin...");
+                PostLogin postLogin = new PostLogin(serverFacade);
+                postLogin.displayMenu();
+            }
         } catch (Exception e) {
             logger.severe("Login failed for user: " + username + "; Reason: " + e.getMessage());
             System.out.println("Login failed: " + e.getMessage());
-        }
-
-        if (authToken != null) {
-            serverFacade.setAuthToken(authToken);
-            logger.info("Login successful for user: " + username);
-            System.out.println("Login successful. Transitioning to PostLogin...");
-            PostLogin postLogin = new PostLogin(serverFacade);
-            postLogin.displayMenu();
         }
     }
 
@@ -108,27 +102,18 @@ public class PreLogin {
         System.out.print("Enter email: ");
         String email = scanner.nextLine();
 
-        logger.info("Attempting to register new user: " + username);
         try {
             String authToken = serverFacade.register(username, password, email);
             if (authToken != null) {
+                serverFacade.setAuthToken(authToken);
                 logger.info("Registration successful for user: " + username);
                 System.out.println("Registration successful. Transitioning to PostLogin...");
                 PostLogin postLogin = new PostLogin(serverFacade);
                 postLogin.displayMenu();
-                return;
             }
         } catch (Exception e) {
             logger.severe("Registration failed for user: " + username + "; Reason: " + e.getMessage());
             System.out.println("Registration failed: " + e.getMessage());
         }
-    }
-
-    if (authToken != null) {
-        serverFacade.setAuthToken(authToken);
-        logger.info("Registration successful for user: " + username);
-        System.out.println("Registration successful. Transitioning to PostLogin...");
-        PostLogin postLogin = new PostLogin(serverFacade);
-        postLogin.displayMenu();
     }
 }
