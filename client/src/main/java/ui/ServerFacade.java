@@ -292,5 +292,8 @@ public class ServerFacade {
             throw new Exception("Failed to join game: HTTP error code " + responseCode);
         }
     }
+    public String getAuthToken() {
+        return this.authToken;
+    }
 }
 

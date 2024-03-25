@@ -1,5 +1,7 @@
 package ui;
 
+import model.GameData;
+
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -86,10 +88,9 @@ public class PostLogin {
 
     private void logout() {
         logger.info("Attempting to log out user in PostLogin.");
-        String authoken = 
         try {
-            serverFacade.logout(); // Update this line if your logout method requires parameters.
-            logger.info("User logged out successfully in PostLogin.");
+            String message = serverFacade.logout();
+            logger.info("User logged out successfully in PostLogin: " + message);
             System.out.println("You have been logged out. Returning to PreLogin screen...");
             PreLogin preLogin = new PreLogin(serverFacade);
             preLogin.displayMenu();
@@ -100,8 +101,23 @@ public class PostLogin {
     }
 
     private void createGame(Scanner scanner) {
-        // Code to create a new game
-        logger.info("Creating a new game in PostLogin.");
+        logger.info("Prompting user for new game details in PostLogin.");
+        System.out.print("Enter name for new game: ");
+        String gameName = scanner.nextLine().trim();
+
+        try {
+            GameData newGame = serverFacade.createGame(serverFacade.getAuthToken(), gameName);
+            if (newGame != null) {
+                logger.info("New game created successfully in PostLogin: " + gameName);
+                System.out.println("Game '" + gameName + "' created successfully!");
+            } else {
+                logger.warning("New game creation failed for unknown reasons in PostLogin.");
+                System.out.println("Failed to create the game due to an unknown error.");
+            }
+        } catch (Exception e) {
+            logger.severe("New game creation failed in PostLogin: " + e.getMessage());
+            System.out.println("Failed to create the game: " + e.getMessage());
+        }
     }
 
     private void listGames() {
