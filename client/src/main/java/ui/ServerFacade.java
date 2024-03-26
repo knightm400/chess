@@ -85,23 +85,25 @@ public class ServerFacade {
             os.write(input, 0, input.length);
         }
 
-        StringBuilder response = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
-            String responseLine = null;
+        int responseCode = connection.getResponseCode();
+        StringBuilder responseBuilder = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine;
             while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
+                responseBuilder.append(responseLine.trim());
             }
         }
 
-        int responseCode = connection.getResponseCode();
-        if (responseCode == 200) {
-            RegisterResult result = gson.fromJson(response.toString(), RegisterResult.class);
+        String response = responseBuilder.toString();
+
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            RegisterResult result = gson.fromJson(response, RegisterResult.class);
             this.authToken = result.authToken();
-            logger.info("User registered successfully: " + username);
             return result.authToken();
         } else {
-            logger.warning("Registration failed: " + responseCode);
-            throw new Exception("Registration failed with status: " + responseCode);
+            MessageResponse messageResponse = gson.fromJson(response, MessageResponse.class);
+            throw new Exception("Registration failed: " + messageResponse.getMessage() + " for URL: " + url);
         }
     }
 

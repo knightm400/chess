@@ -19,6 +19,14 @@ public class RegisterEndpoint {
         Spark.post("/user", (req, res) -> {
             try {
                 RegisterRequest registerRequest = gson.fromJson(req.body(), RegisterRequest.class);
+                if (registerRequest.username() == null || registerRequest.username().trim().isEmpty() ||
+                        registerRequest.password() == null || registerRequest.password().trim().isEmpty() ||
+                        registerRequest.email() == null || registerRequest.email().trim().isEmpty()) {
+
+                    res.type("application/json");
+                    res.status(400);
+                    return gson.toJson(new MessageResponse("Error: Username, password, and email cannot be empty."));
+                }
                 RegisterResult registerResult = registerService.register(registerRequest);
                 res.type("application/json");
                 res.status(200);
