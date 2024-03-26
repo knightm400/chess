@@ -17,7 +17,7 @@ import model.MessageResponse;
 import service.Result.*;
 
 public class ServerFacade {
-    private static final String SERVER_BASE_URL = "http://localhost:8080";
+    private String SERVER_BASE_URL = "http://localhost:8080";
     private static final Gson gson = new Gson();
     private static final Logger logger = Logger.getLogger(ServerFacade.class.getName());
     private String authToken =  null;
@@ -334,5 +334,10 @@ public class ServerFacade {
     public String getAuthToken() {
         return this.authToken;
     }
+
+    public void setServerBaseUrl(String baseUrl) {
+        SERVER_BASE_URL = baseUrl;
+    }
+
 }
 
