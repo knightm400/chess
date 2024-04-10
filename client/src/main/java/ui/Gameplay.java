@@ -1,15 +1,14 @@
 package ui;
 import static ui.EscapeSequences.*;
 
-// Want a grid, and labels for letters and numbers.
 public class Gameplay {
     private static final String emSpace = EscapeSequences.EMPTY;
 
     public static void drawChessboard() {
         String lightSquare = EscapeSequences.SET_BG_COLOR_CREAM;
         String darkSquare = EscapeSequences.SET_BG_COLOR_DARK_GREEN;
-        
-        System.out.print("  ");
+
+        System.out.print(emSpace);
         for (char c = 'a'; c <= 'h'; c++) {
             System.out.print(emSpace + c + emSpace);
         }
@@ -23,7 +22,7 @@ public class Gameplay {
                 System.out.print(squareColor);
                 String piece = determinePiece(col, row);
                 if (!piece.equals(EMPTY)) {
-                    String pieceColor = Character.isUpperCase(piece.charAt(0)) ? SET_TEXT_COLOR_BLACK : SET_TEXT_COLOR_WHITE;
+                    String pieceColor = piece.contains("WHITE") ? SET_TEXT_BOLD + SET_TEXT_COLOR_BLACK : SET_TEXT_COLOR_BLACK;
                     System.out.print(pieceColor);
                     System.out.print(piece);
                     System.out.print(RESET_TEXT_COLOR);
@@ -36,7 +35,7 @@ public class Gameplay {
             System.out.println(emSpace + row);
         }
 
-        System.out.print("  ");
+        System.out.print(emSpace);
         for (char c = 'a'; c <= 'h'; c++) {
             System.out.print(emSpace + c + emSpace);
         }
