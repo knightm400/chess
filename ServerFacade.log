@@ -1,0 +1,2800 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:06:36.402088900Z</date>
+  <millis>1711407996402</millis>
+  <nanos>88900</nanos>
+  <sequence>8</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:21:33.032287800Z</date>
+  <millis>1711408893032</millis>
+  <nanos>287800</nanos>
+  <sequence>6</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:33.460491800Z</date>
+  <millis>1711408893460</millis>
+  <nanos>491800</nanos>
+  <sequence>7</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>User registered successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:53.222782700Z</date>
+  <millis>1711408913222</millis>
+  <nanos>782700</nanos>
+  <sequence>16</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:53.298318300Z</date>
+  <millis>1711408913298</millis>
+  <nanos>318300</nanos>
+  <sequence>17</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:22:09.328105500Z</date>
+  <millis>1711408929328</millis>
+  <nanos>105500</nanos>
+  <sequence>21</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>createGame</method>
+  <thread>1</thread>
+  <message>Attempting to create a new game.</message>
+</record>
+<record>
+  <date>2024-03-25T23:22:09.397927800Z</date>
+  <millis>1711408929397</millis>
+  <nanos>927800</nanos>
+  <sequence>22</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>createGame</method>
+  <thread>1</thread>
+  <message>Game created successfully: Chess2</message>
+</record>
+<record>
+  <date>2024-03-25T23:22:14.623111900Z</date>
+  <millis>1711408934623</millis>
+  <nanos>111900</nanos>
+  <sequence>28</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-25T23:22:14.661593900Z</date>
+  <millis>1711408934661</millis>
+  <nanos>593900</nanos>
+  <sequence>29</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:22:35.349222100Z</date>
+  <millis>1711408955349</millis>
+  <nanos>222100</nanos>
+  <sequence>30</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-25T23:22:35.434015800Z</date>
+  <millis>1711408955434</millis>
+  <nanos>15800</nanos>
+  <sequence>31</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2096512862</message>
+</record>
+<record>
+  <date>2024-03-25T23:28:49.046846Z</date>
+  <millis>1711409329046</millis>
+  <nanos>846000</nanos>
+  <sequence>44</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>Attempting to log out user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:28:49.136452200Z</date>
+  <millis>1711409329136</millis>
+  <nanos>452200</nanos>
+  <sequence>45</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>User logged out successfully.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:32:54.781920600Z</date>
+  <millis>1711409574781</millis>
+  <nanos>920600</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:34:04.571782700Z</date>
+  <millis>1711409644571</millis>
+  <nanos>782700</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:04.941043400Z</date>
+  <millis>1711409644941</millis>
+  <nanos>43400</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:30.709049800Z</date>
+  <millis>1711409670709</millis>
+  <nanos>49800</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>Attempting to log out user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:30.766317300Z</date>
+  <millis>1711409670766</millis>
+  <nanos>317300</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>User logged out successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:41.888965900Z</date>
+  <millis>1711409681888</millis>
+  <nanos>965900</nanos>
+  <sequence>19</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:42.004121800Z</date>
+  <millis>1711409682004</millis>
+  <nanos>121800</nanos>
+  <sequence>20</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:56.583629700Z</date>
+  <millis>1711409696583</millis>
+  <nanos>629700</nanos>
+  <sequence>26</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>createGame</method>
+  <thread>1</thread>
+  <message>Attempting to create a new game.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:56.646687800Z</date>
+  <millis>1711409696646</millis>
+  <nanos>687800</nanos>
+  <sequence>27</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>createGame</method>
+  <thread>1</thread>
+  <message>Game created successfully: Fabuloso</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:12.039041700Z</date>
+  <millis>1711409712039</millis>
+  <nanos>41700</nanos>
+  <sequence>32</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:12.102468400Z</date>
+  <millis>1711409712102</millis>
+  <nanos>468400</nanos>
+  <sequence>33</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:36.793400800Z</date>
+  <millis>1711409736793</millis>
+  <nanos>400800</nanos>
+  <sequence>38</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:36.824910700Z</date>
+  <millis>1711409736824</millis>
+  <nanos>910700</nanos>
+  <sequence>39</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:48.053144100Z</date>
+  <millis>1711409748053</millis>
+  <nanos>144100</nanos>
+  <sequence>40</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:48.117781500Z</date>
+  <millis>1711409748117</millis>
+  <nanos>781500</nanos>
+  <sequence>41</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:57.163755Z</date>
+  <millis>1711409757163</millis>
+  <nanos>755000</nanos>
+  <sequence>46</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>Attempting to log out user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:57.211414700Z</date>
+  <millis>1711409757211</millis>
+  <nanos>414700</nanos>
+  <sequence>47</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>User logged out successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:36:12.142083800Z</date>
+  <millis>1711409772142</millis>
+  <nanos>83800</nanos>
+  <sequence>52</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:36:12.265599600Z</date>
+  <millis>1711409772265</millis>
+  <nanos>599600</nanos>
+  <sequence>53</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>User registered successfully: newPlayer</message>
+</record>
+<record>
+  <date>2024-03-25T23:36:18.812602700Z</date>
+  <millis>1711409778812</millis>
+  <nanos>602700</nanos>
+  <sequence>60</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-25T23:36:18.853655700Z</date>
+  <millis>1711409778853</millis>
+  <nanos>655700</nanos>
+  <sequence>61</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:36:26.274426300Z</date>
+  <millis>1711409786274</millis>
+  <nanos>426300</nanos>
+  <sequence>62</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-25T23:36:26.319179100Z</date>
+  <millis>1711409786319</millis>
+  <nanos>179100</nanos>
+  <sequence>63</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:49:06.792448600Z</date>
+  <millis>1711410546792</millis>
+  <nanos>448600</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:49:07.280129800Z</date>
+  <millis>1711410547280</millis>
+  <nanos>129800</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-25T23:49:13.553353Z</date>
+  <millis>1711410553553</millis>
+  <nanos>353000</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-25T23:49:13.664310200Z</date>
+  <millis>1711410553664</millis>
+  <nanos>310200</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:49:23.196363100Z</date>
+  <millis>1711410563196</millis>
+  <nanos>363100</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGameAsObserver</method>
+  <thread>1</thread>
+  <message>Attempting to join a game as an observer.</message>
+</record>
+<record>
+  <date>2024-03-25T23:49:23.301000500Z</date>
+  <millis>1711410563301</millis>
+  <nanos>500</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGameAsObserver</method>
+  <thread>1</thread>
+  <message>Joined game successfully as observer: Game ID 475630590</message>
+</record>
+<record>
+  <date>2024-03-25T23:55:43.278846700Z</date>
+  <millis>1711410943278</millis>
+  <nanos>846700</nanos>
+  <sequence>20</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-25T23:55:43.387215400Z</date>
+  <millis>1711410943387</millis>
+  <nanos>215400</nanos>
+  <sequence>21</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-25T23:55:55.832477600Z</date>
+  <millis>1711410955832</millis>
+  <nanos>477600</nanos>
+  <sequence>22</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-25T23:55:55.920500800Z</date>
+  <millis>1711410955920</millis>
+  <nanos>500800</nanos>
+  <sequence>23</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:01:01.786954100Z</date>
+  <millis>1711411261786</millis>
+  <nanos>954100</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:01:41.188177600Z</date>
+  <millis>1711411301188</millis>
+  <nanos>177600</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:54.001692400Z</date>
+  <millis>1711411314001</millis>
+  <nanos>692400</nanos>
+  <sequence>7</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:54.281217500Z</date>
+  <millis>1711411314281</millis>
+  <nanos>217500</nanos>
+  <sequence>8</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:57.887244800Z</date>
+  <millis>1711411317887</millis>
+  <nanos>244800</nanos>
+  <sequence>15</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:57.990646800Z</date>
+  <millis>1711411317990</millis>
+  <nanos>646800</nanos>
+  <sequence>16</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:02:10.520110Z</date>
+  <millis>1711411330520</millis>
+  <nanos>110000</nanos>
+  <sequence>17</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:02:10.633782800Z</date>
+  <millis>1711411330633</millis>
+  <nanos>782800</nanos>
+  <sequence>18</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2096512862</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:05:46.537310700Z</date>
+  <millis>1711411546537</millis>
+  <nanos>310700</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:05:47.028555500Z</date>
+  <millis>1711411547028</millis>
+  <nanos>555500</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:05:49.230629500Z</date>
+  <millis>1711411549230</millis>
+  <nanos>629500</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:05:49.335332Z</date>
+  <millis>1711411549335</millis>
+  <nanos>332000</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:06:00.382518700Z</date>
+  <millis>1711411560382</millis>
+  <nanos>518700</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:06:00.493101100Z</date>
+  <millis>1711411560493</millis>
+  <nanos>101100</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:13:26.943124400Z</date>
+  <millis>1711412006943</millis>
+  <nanos>124400</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:27.451779900Z</date>
+  <millis>1711412007451</millis>
+  <nanos>779900</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:30.143898900Z</date>
+  <millis>1711412010143</millis>
+  <nanos>898900</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:30.278818900Z</date>
+  <millis>1711412010278</millis>
+  <nanos>818900</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:37.594845800Z</date>
+  <millis>1711412017594</millis>
+  <nanos>845800</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:37.704781300Z</date>
+  <millis>1711412017704</millis>
+  <nanos>781300</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2096512862</message>
+</record>
+<record>
+  <date>2024-03-26T00:16:22.973012200Z</date>
+  <millis>1711412182973</millis>
+  <nanos>12200</nanos>
+  <sequence>20</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:16:23.043022500Z</date>
+  <millis>1711412183043</millis>
+  <nanos>22500</nanos>
+  <sequence>21</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:16:31.996289700Z</date>
+  <millis>1711412191996</millis>
+  <nanos>289700</nanos>
+  <sequence>22</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:16:32.071327900Z</date>
+  <millis>1711412192071</millis>
+  <nanos>327900</nanos>
+  <sequence>23</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2096512862</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:17:46.607040300Z</date>
+  <millis>1711412266607</millis>
+  <nanos>40300</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:47.126674500Z</date>
+  <millis>1711412267126</millis>
+  <nanos>674500</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:51.114072200Z</date>
+  <millis>1711412271114</millis>
+  <nanos>72200</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:51.246387300Z</date>
+  <millis>1711412271246</millis>
+  <nanos>387300</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:58.301102200Z</date>
+  <millis>1711412278301</millis>
+  <nanos>102200</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:58.399052800Z</date>
+  <millis>1711412278399</millis>
+  <nanos>52800</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:21:40.967124Z</date>
+  <millis>1711412500967</millis>
+  <nanos>124000</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:41.479546200Z</date>
+  <millis>1711412501479</millis>
+  <nanos>546200</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:43.818290300Z</date>
+  <millis>1711412503818</millis>
+  <nanos>290300</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:43.924595500Z</date>
+  <millis>1711412503924</millis>
+  <nanos>595500</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:50.770384800Z</date>
+  <millis>1711412510770</millis>
+  <nanos>384800</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:50.869948Z</date>
+  <millis>1711412510869</millis>
+  <nanos>948000</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:26:31.024392600Z</date>
+  <millis>1711412791024</millis>
+  <nanos>392600</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:31.522118900Z</date>
+  <millis>1711412791522</millis>
+  <nanos>118900</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:33.664061500Z</date>
+  <millis>1711412793664</millis>
+  <nanos>61500</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:33.766088800Z</date>
+  <millis>1711412793766</millis>
+  <nanos>88800</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:40.017268500Z</date>
+  <millis>1711412800017</millis>
+  <nanos>268500</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:40.118630600Z</date>
+  <millis>1711412800118</millis>
+  <nanos>630600</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:30:10.184280500Z</date>
+  <millis>1711413010184</millis>
+  <nanos>280500</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:10.664660100Z</date>
+  <millis>1711413010664</millis>
+  <nanos>660100</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:12.690211200Z</date>
+  <millis>1711413012690</millis>
+  <nanos>211200</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:12.803647700Z</date>
+  <millis>1711413012803</millis>
+  <nanos>647700</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:19.994920100Z</date>
+  <millis>1711413019994</millis>
+  <nanos>920100</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:20.092739800Z</date>
+  <millis>1711413020092</millis>
+  <nanos>739800</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:31:18.432380Z</date>
+  <millis>1711413078432</millis>
+  <nanos>380000</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:18.959950700Z</date>
+  <millis>1711413078959</millis>
+  <nanos>950700</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:20.872524400Z</date>
+  <millis>1711413080872</millis>
+  <nanos>524400</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:20.964782800Z</date>
+  <millis>1711413080964</millis>
+  <nanos>782800</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:28.503347200Z</date>
+  <millis>1711413088503</millis>
+  <nanos>347200</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:28.608372400Z</date>
+  <millis>1711413088608</millis>
+  <nanos>372400</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2096512862</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:32:28.187574100Z</date>
+  <millis>1711413148187</millis>
+  <nanos>574100</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:28.668047200Z</date>
+  <millis>1711413148668</millis>
+  <nanos>47200</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:30.619180100Z</date>
+  <millis>1711413150619</millis>
+  <nanos>180100</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:30.710385600Z</date>
+  <millis>1711413150710</millis>
+  <nanos>385600</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:39.523845800Z</date>
+  <millis>1711413159523</millis>
+  <nanos>845800</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:39.629747200Z</date>
+  <millis>1711413159629</millis>
+  <nanos>747200</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:33:25.403649900Z</date>
+  <millis>1711413205403</millis>
+  <nanos>649900</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:25.877178400Z</date>
+  <millis>1711413205877</millis>
+  <nanos>178400</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:28.292553100Z</date>
+  <millis>1711413208292</millis>
+  <nanos>553100</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:28.408289900Z</date>
+  <millis>1711413208408</millis>
+  <nanos>289900</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:39.629178200Z</date>
+  <millis>1711413219629</millis>
+  <nanos>178200</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:39.731006600Z</date>
+  <millis>1711413219731</millis>
+  <nanos>6600</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:42.086512300Z</date>
+  <millis>1711413222086</millis>
+  <nanos>512300</nanos>
+  <sequence>20</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:42.136454100Z</date>
+  <millis>1711413222136</millis>
+  <nanos>454100</nanos>
+  <sequence>21</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:50.068178700Z</date>
+  <millis>1711413230068</millis>
+  <nanos>178700</nanos>
+  <sequence>22</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:50.141982500Z</date>
+  <millis>1711413230141</millis>
+  <nanos>982500</nanos>
+  <sequence>23</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:45:59.850398200Z</date>
+  <millis>1711413959850</millis>
+  <nanos>398200</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:00.372201Z</date>
+  <millis>1711413960372</millis>
+  <nanos>201000</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:03.313703500Z</date>
+  <millis>1711413963313</millis>
+  <nanos>703500</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:03.412364600Z</date>
+  <millis>1711413963412</millis>
+  <nanos>364600</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:16.946522700Z</date>
+  <millis>1711413976946</millis>
+  <nanos>522700</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:17.062584100Z</date>
+  <millis>1711413977062</millis>
+  <nanos>584100</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:31.648992500Z</date>
+  <millis>1711413991648</millis>
+  <nanos>992500</nanos>
+  <sequence>20</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:31.704994700Z</date>
+  <millis>1711413991704</millis>
+  <nanos>994700</nanos>
+  <sequence>21</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:39.083883900Z</date>
+  <millis>1711413999083</millis>
+  <nanos>883900</nanos>
+  <sequence>22</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:39.174852Z</date>
+  <millis>1711413999174</millis>
+  <nanos>852000</nanos>
+  <sequence>23</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:47:22.342647500Z</date>
+  <millis>1711414042342</millis>
+  <nanos>647500</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:22.827622900Z</date>
+  <millis>1711414042827</millis>
+  <nanos>622900</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:24.719918Z</date>
+  <millis>1711414044719</millis>
+  <nanos>918000</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:24.815173100Z</date>
+  <millis>1711414044815</millis>
+  <nanos>173100</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:31.782771200Z</date>
+  <millis>1711414051782</millis>
+  <nanos>771200</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:31.895684400Z</date>
+  <millis>1711414051895</millis>
+  <nanos>684400</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:48:26.033265300Z</date>
+  <millis>1711414106033</millis>
+  <nanos>265300</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:26.524680400Z</date>
+  <millis>1711414106524</millis>
+  <nanos>680400</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:28.438477200Z</date>
+  <millis>1711414108438</millis>
+  <nanos>477200</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:28.531677100Z</date>
+  <millis>1711414108531</millis>
+  <nanos>677100</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:34.831937400Z</date>
+  <millis>1711414114831</millis>
+  <nanos>937400</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:34.936809500Z</date>
+  <millis>1711414114936</millis>
+  <nanos>809500</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:52:44.924862Z</date>
+  <millis>1711414364924</millis>
+  <nanos>862000</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:45.387049800Z</date>
+  <millis>1711414365387</millis>
+  <nanos>49800</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:47.620353900Z</date>
+  <millis>1711414367620</millis>
+  <nanos>353900</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:47.721631200Z</date>
+  <millis>1711414367721</millis>
+  <nanos>631200</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:56.357542800Z</date>
+  <millis>1711414376357</millis>
+  <nanos>542800</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:56.457468900Z</date>
+  <millis>1711414376457</millis>
+  <nanos>468900</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2096512862</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:53:47.177626200Z</date>
+  <millis>1711414427177</millis>
+  <nanos>626200</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:47.651909200Z</date>
+  <millis>1711414427651</millis>
+  <nanos>909200</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:49.809077600Z</date>
+  <millis>1711414429809</millis>
+  <nanos>77600</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:49.910040600Z</date>
+  <millis>1711414429910</millis>
+  <nanos>40600</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:59.290669300Z</date>
+  <millis>1711414439290</millis>
+  <nanos>669300</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:59.420770900Z</date>
+  <millis>1711414439420</millis>
+  <nanos>770900</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2096512862</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:54:50.586038400Z</date>
+  <millis>1711414490586</millis>
+  <nanos>38400</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:51.038770900Z</date>
+  <millis>1711414491038</millis>
+  <nanos>770900</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:53.107839100Z</date>
+  <millis>1711414493107</millis>
+  <nanos>839100</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:53.210234400Z</date>
+  <millis>1711414493210</millis>
+  <nanos>234400</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:59.417120200Z</date>
+  <millis>1711414499417</millis>
+  <nanos>120200</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:59.522974900Z</date>
+  <millis>1711414499522</millis>
+  <nanos>974900</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:17.332102900Z</date>
+  <millis>1711414517332</millis>
+  <nanos>102900</nanos>
+  <sequence>19</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>Attempting to log out user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:17.405816600Z</date>
+  <millis>1711414517405</millis>
+  <nanos>816600</nanos>
+  <sequence>20</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>User logged out successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:32.926456800Z</date>
+  <millis>1711414532926</millis>
+  <nanos>456800</nanos>
+  <sequence>25</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:33.141864300Z</date>
+  <millis>1711414533141</millis>
+  <nanos>864300</nanos>
+  <sequence>26</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:36.330915600Z</date>
+  <millis>1711414536330</millis>
+  <nanos>915600</nanos>
+  <sequence>33</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:36.384817200Z</date>
+  <millis>1711414536384</millis>
+  <nanos>817200</nanos>
+  <sequence>34</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:44.865257200Z</date>
+  <millis>1711414544865</millis>
+  <nanos>257200</nanos>
+  <sequence>35</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:44.930745800Z</date>
+  <millis>1711414544930</millis>
+  <nanos>745800</nanos>
+  <sequence>36</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:08:54.199810600Z</date>
+  <millis>1711415334199</millis>
+  <nanos>810600</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T01:08:54.779714400Z</date>
+  <millis>1711415334779</millis>
+  <nanos>714400</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T01:08:57.138819400Z</date>
+  <millis>1711415337138</millis>
+  <nanos>819400</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T01:08:57.257835700Z</date>
+  <millis>1711415337257</millis>
+  <nanos>835700</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:02.764717400Z</date>
+  <millis>1711415342764</millis>
+  <nanos>717400</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:02.867766300Z</date>
+  <millis>1711415342867</millis>
+  <nanos>766300</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:09:52.009372400Z</date>
+  <millis>1711415392009</millis>
+  <nanos>372400</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:52.513297200Z</date>
+  <millis>1711415392513</millis>
+  <nanos>297200</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:54.375260300Z</date>
+  <millis>1711415394375</millis>
+  <nanos>260300</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:54.470104Z</date>
+  <millis>1711415394470</millis>
+  <nanos>104000</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T01:10:01.184764Z</date>
+  <millis>1711415401184</millis>
+  <nanos>764000</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T01:10:01.280440800Z</date>
+  <millis>1711415401280</millis>
+  <nanos>440800</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:11:26.117763Z</date>
+  <millis>1711415486117</millis>
+  <nanos>763000</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:26.661184900Z</date>
+  <millis>1711415486661</millis>
+  <nanos>184900</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:30.166592600Z</date>
+  <millis>1711415490166</millis>
+  <nanos>592600</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:30.263519700Z</date>
+  <millis>1711415490263</millis>
+  <nanos>519700</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:39.565565200Z</date>
+  <millis>1711415499565</millis>
+  <nanos>565200</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:39.670649100Z</date>
+  <millis>1711415499670</millis>
+  <nanos>649100</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:20:05.852289300Z</date>
+  <millis>1711416005852</millis>
+  <nanos>289300</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T01:20:06.353664200Z</date>
+  <millis>1711416006353</millis>
+  <nanos>664200</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T01:20:09.601012800Z</date>
+  <millis>1711416009601</millis>
+  <nanos>12800</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T01:20:09.718047400Z</date>
+  <millis>1711416009718</millis>
+  <nanos>47400</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T01:20:15.868555200Z</date>
+  <millis>1711416015868</millis>
+  <nanos>555200</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T01:20:15.966927200Z</date>
+  <millis>1711416015966</millis>
+  <nanos>927200</nanos>
+  <sequence>14</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 475630590</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:48:08.665747600Z</date>
+  <millis>1711417688665</millis>
+  <nanos>747600</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:51:50.611883100Z</date>
+  <millis>1711417910611</millis>
+  <nanos>883100</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-03-26T01:51:50.990036800Z</date>
+  <millis>1711417910990</millis>
+  <nanos>36800</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>User registered successfully: </message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:00:43.632562500Z</date>
+  <millis>1711418443632</millis>
+  <nanos>562500</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:06:29.087891400Z</date>
+  <millis>1711418789087</millis>
+  <nanos>891400</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:10:26.361747100Z</date>
+  <millis>1711419026361</millis>
+  <nanos>747100</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:10:26.525587300Z</date>
+  <millis>1711419026525</millis>
+  <nanos>587300</nanos>
+  <sequence>4</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>WARNING</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed: 400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:24:13.847000300Z</date>
+  <millis>1711419853847</millis>
+  <nanos>300</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:48:33.827566400Z</date>
+  <millis>1711421313827</millis>
+  <nanos>566400</nanos>
+  <sequence>6</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:47.932806500Z</date>
+  <millis>1711421327932</millis>
+  <nanos>806500</nanos>
+  <sequence>10</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:59.037192600Z</date>
+  <millis>1711421339037</millis>
+  <nanos>192600</nanos>
+  <sequence>19</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>Attempting to log out user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:59.122716700Z</date>
+  <millis>1711421339122</millis>
+  <nanos>716700</nanos>
+  <sequence>20</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>logout</method>
+  <thread>1</thread>
+  <message>User logged out successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:22.701942100Z</date>
+  <millis>1711421362701</millis>
+  <nanos>942100</nanos>
+  <sequence>25</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:38.395936900Z</date>
+  <millis>1711421378395</millis>
+  <nanos>936900</nanos>
+  <sequence>29</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:50.964257600Z</date>
+  <millis>1711421390964</millis>
+  <nanos>257600</nanos>
+  <sequence>33</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:51.150942600Z</date>
+  <millis>1711421391150</millis>
+  <nanos>942600</nanos>
+  <sequence>34</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: newUser</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:03.469219400Z</date>
+  <millis>1711421403469</millis>
+  <nanos>219400</nanos>
+  <sequence>40</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>createGame</method>
+  <thread>1</thread>
+  <message>Attempting to create a new game.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:03.561296100Z</date>
+  <millis>1711421403561</millis>
+  <nanos>296100</nanos>
+  <sequence>41</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>createGame</method>
+  <thread>1</thread>
+  <message>Game created successfully: newChessGame</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:09.039420100Z</date>
+  <millis>1711421409039</millis>
+  <nanos>420100</nanos>
+  <sequence>46</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:09.119883300Z</date>
+  <millis>1711421409119</millis>
+  <nanos>883300</nanos>
+  <sequence>47</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:16.323786500Z</date>
+  <millis>1711421416323</millis>
+  <nanos>786500</nanos>
+  <sequence>52</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:16.375193300Z</date>
+  <millis>1711421416375</millis>
+  <nanos>193300</nanos>
+  <sequence>53</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:21.745828300Z</date>
+  <millis>1711421421745</millis>
+  <nanos>828300</nanos>
+  <sequence>54</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:21.838275500Z</date>
+  <millis>1711421421838</millis>
+  <nanos>275500</nanos>
+  <sequence>55</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2004469385</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:41.341774Z</date>
+  <millis>1711421441341</millis>
+  <nanos>774000</nanos>
+  <sequence>61</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:41.399046Z</date>
+  <millis>1711421441399</millis>
+  <nanos>46000</nanos>
+  <sequence>62</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:47.254615500Z</date>
+  <millis>1711421447254</millis>
+  <nanos>615500</nanos>
+  <sequence>63</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:47.330725500Z</date>
+  <millis>1711421447330</millis>
+  <nanos>725500</nanos>
+  <sequence>64</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 2004469385</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:55.638533200Z</date>
+  <millis>1711421455638</millis>
+  <nanos>533200</nanos>
+  <sequence>69</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T02:50:55.695320Z</date>
+  <millis>1711421455695</millis>
+  <nanos>320000</nanos>
+  <sequence>70</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T02:51:00.962808400Z</date>
+  <millis>1711421460962</millis>
+  <nanos>808400</nanos>
+  <sequence>75</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-03-26T02:51:01.004878600Z</date>
+  <millis>1711421461004</millis>
+  <nanos>878600</nanos>
+  <sequence>76</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-03-26T02:51:06.548627200Z</date>
+  <millis>1711421466548</millis>
+  <nanos>627200</nanos>
+  <sequence>77</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGameAsObserver</method>
+  <thread>1</thread>
+  <message>Attempting to join a game as an observer.</message>
+</record>
+<record>
+  <date>2024-03-26T02:51:06.612274200Z</date>
+  <millis>1711421466612</millis>
+  <nanos>274200</nanos>
+  <sequence>78</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGameAsObserver</method>
+  <thread>1</thread>
+  <message>Joined game successfully as observer: Game ID 2004469385</message>
+</record>
+</log>

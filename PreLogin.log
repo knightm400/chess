@@ -1,0 +1,2320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:05:20.663318400Z</date>
+  <millis>1711407920663</millis>
+  <nanos>318400</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:05:52.858565300Z</date>
+  <millis>1711407952858</millis>
+  <nanos>565300</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: Help</message>
+</record>
+<record>
+  <date>2024-03-25T23:05:52.860782200Z</date>
+  <millis>1711407952860</millis>
+  <nanos>782200</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>WARNING</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Invalid option chosen: Help</message>
+</record>
+<record>
+  <date>2024-03-25T23:06:00.834083900Z</date>
+  <millis>1711407960834</millis>
+  <nanos>83900</nanos>
+  <sequence>3</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 1</message>
+</record>
+<record>
+  <date>2024-03-25T23:06:00.834083900Z</date>
+  <millis>1711407960834</millis>
+  <nanos>83900</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying help information.</message>
+</record>
+<record>
+  <date>2024-03-25T23:06:00.835229Z</date>
+  <millis>1711407960835</millis>
+  <nanos>229000</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayHelp</method>
+  <thread>1</thread>
+  <message>Providing help information to the user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:06:11.200573800Z</date>
+  <millis>1711407971200</millis>
+  <nanos>573800</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-25T23:06:11.202703100Z</date>
+  <millis>1711407971202</millis>
+  <nanos>703100</nanos>
+  <sequence>7</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-25T23:06:36.451162900Z</date>
+  <millis>1711407996451</millis>
+  <nanos>162900</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed for user: knightm400; Reason: Connection refused: connect</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:20:56.656839500Z</date>
+  <millis>1711408856656</millis>
+  <nanos>839500</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:01.777645200Z</date>
+  <millis>1711408861777</millis>
+  <nanos>645200</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 1</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:01.778740300Z</date>
+  <millis>1711408861778</millis>
+  <nanos>740300</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying help information.</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:01.779836Z</date>
+  <millis>1711408861779</millis>
+  <nanos>836000</nanos>
+  <sequence>3</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayHelp</method>
+  <thread>1</thread>
+  <message>Providing help information to the user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:15.862842400Z</date>
+  <millis>1711408875862</millis>
+  <nanos>842400</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:15.864843900Z</date>
+  <millis>1711408875864</millis>
+  <nanos>843900</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-25T23:21:33.461492400Z</date>
+  <millis>1711408893461</millis>
+  <nanos>492400</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration successful for user: knightm400</message>
+</record>
+<record>
+  <date>2024-03-25T23:28:49.137446800Z</date>
+  <millis>1711409329137</millis>
+  <nanos>446800</nanos>
+  <sequence>47</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:28:50.741128100Z</date>
+  <millis>1711409330741</millis>
+  <nanos>128100</nanos>
+  <sequence>48</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 2</message>
+</record>
+<record>
+  <date>2024-03-25T23:28:50.742128700Z</date>
+  <millis>1711409330742</millis>
+  <nanos>128700</nanos>
+  <sequence>49</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to quit the application.</message>
+</record>
+<record>
+  <date>2024-03-25T23:28:50.742128700Z</date>
+  <millis>1711409330742</millis>
+  <nanos>128700</nanos>
+  <sequence>50</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>PreLogin menu closed.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:30:12.571939400Z</date>
+  <millis>1711409412571</millis>
+  <nanos>939400</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:31:28.215247100Z</date>
+  <millis>1711409488215</millis>
+  <nanos>247100</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 1</message>
+</record>
+<record>
+  <date>2024-03-25T23:31:28.216242800Z</date>
+  <millis>1711409488216</millis>
+  <nanos>242800</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying help information.</message>
+</record>
+<record>
+  <date>2024-03-25T23:31:28.217238200Z</date>
+  <millis>1711409488217</millis>
+  <nanos>238200</nanos>
+  <sequence>3</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayHelp</method>
+  <thread>1</thread>
+  <message>Providing help information to the user.</message>
+</record>
+<record>
+  <date>2024-03-25T23:32:17.325868200Z</date>
+  <millis>1711409537325</millis>
+  <nanos>868200</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 2</message>
+</record>
+<record>
+  <date>2024-03-25T23:32:17.326963700Z</date>
+  <millis>1711409537326</millis>
+  <nanos>963700</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to quit the application.</message>
+</record>
+<record>
+  <date>2024-03-25T23:32:17.328048800Z</date>
+  <millis>1711409537328</millis>
+  <nanos>48800</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>PreLogin menu closed.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:32:37.924489800Z</date>
+  <millis>1711409557924</millis>
+  <nanos>489800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:32:44.122579900Z</date>
+  <millis>1711409564122</millis>
+  <nanos>579900</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-25T23:32:44.123683800Z</date>
+  <millis>1711409564123</millis>
+  <nanos>683800</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-25T23:32:54.829285600Z</date>
+  <millis>1711409574829</millis>
+  <nanos>285600</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: knightm400; Reason: Connection refused: connect</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:33:28.692474900Z</date>
+  <millis>1711409608692</millis>
+  <nanos>474900</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:33:55.909593300Z</date>
+  <millis>1711409635909</millis>
+  <nanos>593300</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-25T23:33:55.910593700Z</date>
+  <millis>1711409635910</millis>
+  <nanos>593700</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:04.942646800Z</date>
+  <millis>1711409644942</millis>
+  <nanos>646800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:30.767318100Z</date>
+  <millis>1711409670767</millis>
+  <nanos>318100</nanos>
+  <sequence>16</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:35.194702200Z</date>
+  <millis>1711409675194</millis>
+  <nanos>702200</nanos>
+  <sequence>17</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:35.195575100Z</date>
+  <millis>1711409675195</millis>
+  <nanos>575100</nanos>
+  <sequence>18</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-25T23:34:42.005125700Z</date>
+  <millis>1711409682005</millis>
+  <nanos>125700</nanos>
+  <sequence>21</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:57.212413800Z</date>
+  <millis>1711409757212</millis>
+  <nanos>413800</nanos>
+  <sequence>49</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:59.055090800Z</date>
+  <millis>1711409759055</millis>
+  <nanos>90800</nanos>
+  <sequence>50</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-25T23:35:59.056414900Z</date>
+  <millis>1711409759056</millis>
+  <nanos>414900</nanos>
+  <sequence>51</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-25T23:36:12.265599600Z</date>
+  <millis>1711409772265</millis>
+  <nanos>599600</nanos>
+  <sequence>54</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration successful for user: newPlayer</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-25T23:48:54.182326200Z</date>
+  <millis>1711410534182</millis>
+  <nanos>326200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-25T23:48:58.134835700Z</date>
+  <millis>1711410538134</millis>
+  <nanos>835700</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-25T23:48:58.136845900Z</date>
+  <millis>1711410538136</millis>
+  <nanos>845900</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-25T23:49:07.282135400Z</date>
+  <millis>1711410547282</millis>
+  <nanos>135400</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:00:45.387960500Z</date>
+  <millis>1711411245387</millis>
+  <nanos>960500</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:00:54.807562700Z</date>
+  <millis>1711411254807</millis>
+  <nanos>562700</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:00:54.808560Z</date>
+  <millis>1711411254808</millis>
+  <nanos>560000</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:01.836914300Z</date>
+  <millis>1711411261836</millis>
+  <nanos>914300</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: knightm400; Reason: Connection refused: connect</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:01:32.541577400Z</date>
+  <millis>1711411292541</millis>
+  <nanos>577400</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:35.056641400Z</date>
+  <millis>1711411295056</millis>
+  <nanos>641400</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:35.058190200Z</date>
+  <millis>1711411295058</millis>
+  <nanos>190200</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:41.652476Z</date>
+  <millis>1711411301652</millis>
+  <nanos>476000</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: knightm400; Reason: Server returned HTTP response code: 401 for URL: http://localhost:8080/session</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:45.353653700Z</date>
+  <millis>1711411305353</millis>
+  <nanos>653700</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:45.354813800Z</date>
+  <millis>1711411305354</millis>
+  <nanos>813800</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:01:54.282216400Z</date>
+  <millis>1711411314282</millis>
+  <nanos>216400</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:05:35.552894500Z</date>
+  <millis>1711411535552</millis>
+  <nanos>894500</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:05:39.134027500Z</date>
+  <millis>1711411539134</millis>
+  <nanos>27500</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:05:39.135034400Z</date>
+  <millis>1711411539135</millis>
+  <nanos>34400</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:05:47.030470300Z</date>
+  <millis>1711411547030</millis>
+  <nanos>470300</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:13:15.995829200Z</date>
+  <millis>1711411995995</millis>
+  <nanos>829200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:20.295824700Z</date>
+  <millis>1711412000295</millis>
+  <nanos>824700</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:20.297821300Z</date>
+  <millis>1711412000297</millis>
+  <nanos>821300</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:13:27.452774900Z</date>
+  <millis>1711412007452</millis>
+  <nanos>774900</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:17:36.108350100Z</date>
+  <millis>1711412256108</millis>
+  <nanos>350100</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:39.661252800Z</date>
+  <millis>1711412259661</millis>
+  <nanos>252800</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:39.662310600Z</date>
+  <millis>1711412259662</millis>
+  <nanos>310600</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:17:47.127675600Z</date>
+  <millis>1711412267127</millis>
+  <nanos>675600</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:21:27.310271Z</date>
+  <millis>1711412487310</millis>
+  <nanos>271000</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:30.076425700Z</date>
+  <millis>1711412490076</millis>
+  <nanos>425700</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:30.077425900Z</date>
+  <millis>1711412490077</millis>
+  <nanos>425900</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:21:41.480545900Z</date>
+  <millis>1711412501480</millis>
+  <nanos>545900</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:26:19.832441300Z</date>
+  <millis>1711412779832</millis>
+  <nanos>441300</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:23.549243Z</date>
+  <millis>1711412783549</millis>
+  <nanos>243000</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:23.550242500Z</date>
+  <millis>1711412783550</millis>
+  <nanos>242500</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:26:31.523225800Z</date>
+  <millis>1711412791523</millis>
+  <nanos>225800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:29:56.517094100Z</date>
+  <millis>1711412996517</millis>
+  <nanos>94100</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:03.034081100Z</date>
+  <millis>1711413003034</millis>
+  <nanos>81100</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:03.036300100Z</date>
+  <millis>1711413003036</millis>
+  <nanos>300100</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:30:10.666659800Z</date>
+  <millis>1711413010666</millis>
+  <nanos>659800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:31:09.329945800Z</date>
+  <millis>1711413069329</millis>
+  <nanos>945800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:11.523011600Z</date>
+  <millis>1711413071523</millis>
+  <nanos>11600</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:11.524010300Z</date>
+  <millis>1711413071524</millis>
+  <nanos>10300</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:31:18.961006400Z</date>
+  <millis>1711413078961</millis>
+  <nanos>6400</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:32:13.512835500Z</date>
+  <millis>1711413133512</millis>
+  <nanos>835500</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:15.975087900Z</date>
+  <millis>1711413135975</millis>
+  <nanos>87900</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:15.976168400Z</date>
+  <millis>1711413135976</millis>
+  <nanos>168400</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:32:28.669046500Z</date>
+  <millis>1711413148669</millis>
+  <nanos>46500</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:33:14.800844200Z</date>
+  <millis>1711413194800</millis>
+  <nanos>844200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:18.211227100Z</date>
+  <millis>1711413198211</millis>
+  <nanos>227100</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:18.213237Z</date>
+  <millis>1711413198213</millis>
+  <nanos>237000</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:33:25.878288600Z</date>
+  <millis>1711413205878</millis>
+  <nanos>288600</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:45:46.451914600Z</date>
+  <millis>1711413946451</millis>
+  <nanos>914600</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:45:49.556086900Z</date>
+  <millis>1711413949556</millis>
+  <nanos>86900</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:45:49.556086900Z</date>
+  <millis>1711413949556</millis>
+  <nanos>86900</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:46:00.373200200Z</date>
+  <millis>1711413960373</millis>
+  <nanos>200200</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:47:06.972487400Z</date>
+  <millis>1711414026972</millis>
+  <nanos>487400</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:15.342925100Z</date>
+  <millis>1711414035342</millis>
+  <nanos>925100</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:15.344925700Z</date>
+  <millis>1711414035344</millis>
+  <nanos>925700</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:47:22.828624600Z</date>
+  <millis>1711414042828</millis>
+  <nanos>624600</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:48:15.934352800Z</date>
+  <millis>1711414095934</millis>
+  <nanos>352800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:18.575748800Z</date>
+  <millis>1711414098575</millis>
+  <nanos>748800</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:18.576752200Z</date>
+  <millis>1711414098576</millis>
+  <nanos>752200</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:48:26.526679800Z</date>
+  <millis>1711414106526</millis>
+  <nanos>679800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:52:33.084323600Z</date>
+  <millis>1711414353084</millis>
+  <nanos>323600</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:37.833290100Z</date>
+  <millis>1711414357833</millis>
+  <nanos>290100</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:37.834298Z</date>
+  <millis>1711414357834</millis>
+  <nanos>298000</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:52:45.388143400Z</date>
+  <millis>1711414365388</millis>
+  <nanos>143400</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:53:33.814674200Z</date>
+  <millis>1711414413814</millis>
+  <nanos>674200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:37.895346600Z</date>
+  <millis>1711414417895</millis>
+  <nanos>346600</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:37.896348800Z</date>
+  <millis>1711414417896</millis>
+  <nanos>348800</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:53:47.652941400Z</date>
+  <millis>1711414427652</millis>
+  <nanos>941400</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T00:54:32.279396500Z</date>
+  <millis>1711414472279</millis>
+  <nanos>396500</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:43.314807Z</date>
+  <millis>1711414483314</millis>
+  <nanos>807000</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:43.315807700Z</date>
+  <millis>1711414483315</millis>
+  <nanos>807700</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:54:51.039758800Z</date>
+  <millis>1711414491039</millis>
+  <nanos>758800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:17.407823800Z</date>
+  <millis>1711414517407</millis>
+  <nanos>823800</nanos>
+  <sequence>22</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:22.837276500Z</date>
+  <millis>1711414522837</millis>
+  <nanos>276500</nanos>
+  <sequence>23</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:22.838428400Z</date>
+  <millis>1711414522838</millis>
+  <nanos>428400</nanos>
+  <sequence>24</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T00:55:33.142972500Z</date>
+  <millis>1711414533142</millis>
+  <nanos>972500</nanos>
+  <sequence>27</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:08:40.150129800Z</date>
+  <millis>1711415320150</millis>
+  <nanos>129800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T01:08:45.691959800Z</date>
+  <millis>1711415325691</millis>
+  <nanos>959800</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T01:08:45.693257600Z</date>
+  <millis>1711415325693</millis>
+  <nanos>257600</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T01:08:54.780721300Z</date>
+  <millis>1711415334780</millis>
+  <nanos>721300</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:09:42.715566800Z</date>
+  <millis>1711415382715</millis>
+  <nanos>566800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:45.063698200Z</date>
+  <millis>1711415385063</millis>
+  <nanos>698200</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:45.064696800Z</date>
+  <millis>1711415385064</millis>
+  <nanos>696800</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T01:09:52.514348400Z</date>
+  <millis>1711415392514</millis>
+  <nanos>348400</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:11:16.170076600Z</date>
+  <millis>1711415476170</millis>
+  <nanos>76600</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:19.329168400Z</date>
+  <millis>1711415479329</millis>
+  <nanos>168400</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:19.330225600Z</date>
+  <millis>1711415479330</millis>
+  <nanos>225600</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T01:11:26.662184400Z</date>
+  <millis>1711415486662</millis>
+  <nanos>184400</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:19:56.669420800Z</date>
+  <millis>1711415996669</millis>
+  <nanos>420800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T01:19:59.419829700Z</date>
+  <millis>1711415999419</millis>
+  <nanos>829700</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T01:19:59.420914300Z</date>
+  <millis>1711415999420</millis>
+  <nanos>914300</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T01:20:06.354753900Z</date>
+  <millis>1711416006354</millis>
+  <nanos>753900</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: knightm400</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:47:54.820069500Z</date>
+  <millis>1711417674820</millis>
+  <nanos>69500</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T01:48:00.204327100Z</date>
+  <millis>1711417680204</millis>
+  <nanos>327100</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T01:48:00.205332800Z</date>
+  <millis>1711417680205</millis>
+  <nanos>332800</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T01:48:09.014158400Z</date>
+  <millis>1711417689014</millis>
+  <nanos>158400</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: ijfeij; Reason: Server returned HTTP response code: 401 for URL: http://localhost:8080/session</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T01:51:43.286706700Z</date>
+  <millis>1711417903286</millis>
+  <nanos>706700</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T01:51:46.889407500Z</date>
+  <millis>1711417906889</millis>
+  <nanos>407500</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-26T01:51:46.890520400Z</date>
+  <millis>1711417906890</millis>
+  <nanos>520400</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-26T01:51:50.991780300Z</date>
+  <millis>1711417910991</millis>
+  <nanos>780300</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration successful for user: </message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:00:37.583281900Z</date>
+  <millis>1711418437583</millis>
+  <nanos>281900</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T02:00:40.589163200Z</date>
+  <millis>1711418440589</millis>
+  <nanos>163200</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-26T02:00:40.590264600Z</date>
+  <millis>1711418440590</millis>
+  <nanos>264600</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-26T02:00:43.815869700Z</date>
+  <millis>1711418443815</millis>
+  <nanos>869700</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed for user: ; Reason: Server returned HTTP response code: 400 for URL: http://localhost:8080/user</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:06:23.216382600Z</date>
+  <millis>1711418783216</millis>
+  <nanos>382600</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T02:06:26.428696100Z</date>
+  <millis>1711418786428</millis>
+  <nanos>696100</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-26T02:06:26.429686200Z</date>
+  <millis>1711418786429</millis>
+  <nanos>686200</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-26T02:06:29.247505900Z</date>
+  <millis>1711418789247</millis>
+  <nanos>505900</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed for user: ; Reason: Server returned HTTP response code: 400 for URL: http://localhost:8080/user</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:10:18.778745200Z</date>
+  <millis>1711419018778</millis>
+  <nanos>745200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T02:10:22.312353200Z</date>
+  <millis>1711419022312</millis>
+  <nanos>353200</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-26T02:10:22.313520700Z</date>
+  <millis>1711419022313</millis>
+  <nanos>520700</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-26T02:10:26.526624100Z</date>
+  <millis>1711419026526</millis>
+  <nanos>624100</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed for user: ; Reason: Registration failed: Server returned HTTP response code: 400 for URL: http://localhost:8080/user</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:24:05.069279Z</date>
+  <millis>1711419845069</millis>
+  <nanos>279000</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T02:24:08.113220200Z</date>
+  <millis>1711419848113</millis>
+  <nanos>220200</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-26T02:24:08.114273900Z</date>
+  <millis>1711419848114</millis>
+  <nanos>273900</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-26T02:24:14.029846100Z</date>
+  <millis>1711419854029</millis>
+  <nanos>846100</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed for user: ; Reason: Registration failed: Error: Username, password, and email cannot be empty. for URL: http://localhost:8080/user</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-26T02:46:41.848758200Z</date>
+  <millis>1711421201848</millis>
+  <nanos>758200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:15.817180400Z</date>
+  <millis>1711421295817</millis>
+  <nanos>180400</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 1</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:15.819204600Z</date>
+  <millis>1711421295819</millis>
+  <nanos>204600</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying help information.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:15.820214600Z</date>
+  <millis>1711421295820</millis>
+  <nanos>214600</nanos>
+  <sequence>3</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayHelp</method>
+  <thread>1</thread>
+  <message>Providing help information to the user.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:26.010401200Z</date>
+  <millis>1711421306010</millis>
+  <nanos>401200</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:26.012400800Z</date>
+  <millis>1711421306012</millis>
+  <nanos>400800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:34.266506200Z</date>
+  <millis>1711421314266</millis>
+  <nanos>506200</nanos>
+  <sequence>7</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: alkjslkjdkjsl; Reason: Server returned HTTP response code: 401 for URL: http://localhost:8080/session</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:39.943343700Z</date>
+  <millis>1711421319943</millis>
+  <nanos>343700</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:39.944341200Z</date>
+  <millis>1711421319944</millis>
+  <nanos>341200</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:48.285407300Z</date>
+  <millis>1711421328285</millis>
+  <nanos>407300</nanos>
+  <sequence>11</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration successful for user: newUser</message>
+</record>
+<record>
+  <date>2024-03-26T02:48:59.124729400Z</date>
+  <millis>1711421339124</millis>
+  <nanos>729400</nanos>
+  <sequence>22</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:06.680129Z</date>
+  <millis>1711421346680</millis>
+  <nanos>129000</nanos>
+  <sequence>23</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:06.682127800Z</date>
+  <millis>1711421346682</millis>
+  <nanos>127800</nanos>
+  <sequence>24</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:22.760177500Z</date>
+  <millis>1711421362760</millis>
+  <nanos>177500</nanos>
+  <sequence>26</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed for user: newUser; Reason: Registration failed: Error: Username already taken for URL: http://localhost:8080/user</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:28.291216700Z</date>
+  <millis>1711421368291</millis>
+  <nanos>216700</nanos>
+  <sequence>27</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:28.292216Z</date>
+  <millis>1711421368292</millis>
+  <nanos>216000</nanos>
+  <sequence>28</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:38.557203500Z</date>
+  <millis>1711421378557</millis>
+  <nanos>203500</nanos>
+  <sequence>30</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: newUser; Reason: Server returned HTTP response code: 401 for URL: http://localhost:8080/session</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:46.003056500Z</date>
+  <millis>1711421386003</millis>
+  <nanos>56500</nanos>
+  <sequence>31</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:46.004049700Z</date>
+  <millis>1711421386004</millis>
+  <nanos>49700</nanos>
+  <sequence>32</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-03-26T02:49:51.151940400Z</date>
+  <millis>1711421391151</millis>
+  <nanos>940400</nanos>
+  <sequence>35</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: newUser</message>
+</record>
+</log>
