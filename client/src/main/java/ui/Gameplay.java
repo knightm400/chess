@@ -1,5 +1,4 @@
 package ui;
-
 import static ui.EscapeSequences.*;
 
 // Want a grid, and labels for letters and numbers.
@@ -9,10 +8,7 @@ public class Gameplay {
     public static void drawChessboard() {
         String lightSquare = EscapeSequences.SET_BG_COLOR_CREAM;
         String darkSquare = EscapeSequences.SET_BG_COLOR_DARK_GREEN;
-
-        String coloredWhitePiece = EscapeSequences.SET_TEXT_COLOR_BLACK + SET_BG_COLOR_WHITE + "%s" + EscapeSequences.RESET_TEXT_COLOR + RESET_BG_COLOR;
-        String coloredBlackPiece = EscapeSequences.SET_TEXT_COLOR_YELLOW + "%s" + EscapeSequences.RESET_TEXT_COLOR;
-
+        
         System.out.print("  ");
         for (char c = 'a'; c <= 'h'; c++) {
             System.out.print(emSpace + c + emSpace);
@@ -24,24 +20,25 @@ public class Gameplay {
             System.out.print(row + emSpace);
             for (int col = 1; col <= 8; col++) {
                 String squareColor = (row + col) % 2 == 0 ? lightSquare : darkSquare;
+                System.out.print(squareColor);
                 String piece = determinePiece(col, row);
-                piece = piece.equals(EMPTY) ? emSpace: String.format((Character.isUpperCase(piece.charAt(0)) ? coloredWhitePiece : coloredBlackPiece), piece);
-                System.out.print(squareColor + piece + EscapeSequences.RESET_BG_COLOR);
+                if (!piece.equals(EMPTY)) {
+                    String pieceColor = Character.isUpperCase(piece.charAt(0)) ? SET_TEXT_COLOR_BLACK : SET_TEXT_COLOR_WHITE;
+                    System.out.print(pieceColor);
+                    System.out.print(piece);
+                    System.out.print(RESET_TEXT_COLOR);
+                } else {
+                    System.out.print(emSpace);
+                }
+
+                System.out.print(RESET_BG_COLOR);
             }
-            System.out.println(EscapeSequences.RESET_BG_COLOR + emSpace + row);
+            System.out.println(emSpace + row);
         }
 
         System.out.print("  ");
         for (char c = 'a'; c <= 'h'; c++) {
             System.out.print(emSpace + c + emSpace);
-        }
-        System.out.println();
-    }
-
-    private static void printEmptyRow() {
-        for (int col = 1; col <= 8; col++) {
-            String squareColor = col % 2 == 0 ? SET_BG_COLOR_DARK_GREEN : SET_BG_COLOR_CREAM;
-            System.out.print(squareColor + emSpace + EscapeSequences.RESET_BG_COLOR);
         }
         System.out.println();
     }
