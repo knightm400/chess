@@ -8,17 +8,23 @@ public class Gameplay {
         String lightSquare = EscapeSequences.SET_BG_COLOR_CREAM;
         String darkSquare = EscapeSequences.SET_BG_COLOR_DARK_GREEN;
 
-        System.out.print(emSpace);
-        for (char c = 'a'; c <= 'h'; c++) {
-            System.out.print(emSpace + c + emSpace);
-        }
+        System.out.print("\u2007" + emSpace + "\u2002" + "\u2005" + "\u2006");
+        System.out.print('a' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('b' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('c' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('d' + "\u2003" + "\u2004" + "\u2005" + "\u2009");
+        System.out.print('e' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('f' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('g' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('h' + "\u2003" + "\u2004" + "\u2005");
+
         System.out.println();
 
 
         for (int row = 8; row >= 1; row--) {
             System.out.print(row + emSpace);
             for (int col = 1; col <= 8; col++) {
-                String squareColor = (row + col) % 2 == 0 ? lightSquare : darkSquare;
+                String squareColor = (row + col) % 2 == 0 ? darkSquare : lightSquare;
                 System.out.print(squareColor);
                 String piece = determinePiece(col, row);
                 if (!piece.equals(EMPTY)) {
@@ -35,10 +41,16 @@ public class Gameplay {
             System.out.println(emSpace + row);
         }
 
-        System.out.print(emSpace);
-        for (char c = 'a'; c <= 'h'; c++) {
-            System.out.print(emSpace + c + emSpace);
-        }
+        System.out.print("\u2007" + emSpace + "\u2002" + "\u2005" + "\u2006");
+        System.out.print('a' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('b' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('c' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('d' + "\u2003" + "\u2004" + "\u2005" + "\u2009");
+        System.out.print('e' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('f' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('g' + "\u2003" + "\u2004" + "\u2005");
+        System.out.print('h' + "\u2003" + "\u2004" + "\u2005");
+
         System.out.println();
     }
 
@@ -65,7 +77,7 @@ public class Gameplay {
 
     public static void main(String[] args) {
         System.out.println(ERASE_SCREEN);
-        System.out.println(SET_TEXT_COLOR_GREEN);
+        System.out.println(SET_TEXT_COLOR_WHITE);
         drawChessboard();
         System.out.println(RESET_TEXT_COLOR);
     }
