@@ -4,9 +4,13 @@ import dataAccess.*;
 import spark.Spark;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
+
+import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.sql.SQLException;
+import com.google.gson.Gson;
+import webSocketMessages.userCommands.UserGameCommand;
 
 public class Server {
     private final UserDataAccess userDataAccess;
@@ -56,6 +60,7 @@ public class Server {
 
     @WebSocket
     public static class ChessWebSocketHandler {
+        private static final Gson gson = new Gson();
 
         @OnWebSocketConnect
         public void onConnect(Session session) {
@@ -73,9 +78,32 @@ public class Server {
         public void onMessage(Session session, String message) {
             System.out.println("Message from " + session.getRemoteAddress().getAddress() + ": " + message);
             try {
-                session.getRemote().sendString("Echo: " + message);
+                UserGameCommand command = gson.fromJson(message, UserGameCommand.class);
+                System.out.println("Received command: " + command.getCommandType());
+                switch (command.getCommandType()) {
+                    case JOIN_PLAYER:
+                        break;
+                    case JOIN_OBSERVER:
+                        break;
+                    case MAKE_MOVE:
+                        break;
+                    case LEAVE:
+                        break;
+                    case RESIGN:
+                        break;
+                    default:
+                        System.out.println("Unknown command received.");
+                        break;
+                }
+
+                session.getRemote().sendString("Command received: " + command.getCommandType());
             } catch (Exception e) {
                 e.printStackTrace();
+                try {
+                    session.getRemote().sendString("Error processing your command");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         }
     }
