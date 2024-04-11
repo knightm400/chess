@@ -6,7 +6,10 @@ import chess.ChessPosition;
 import chess.ChessBoard;
 import ui.WebSocket.WebSocketClient;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
+import java.util.List;
 
 import static ui.EscapeSequences.*;
 
@@ -51,6 +54,26 @@ public class Gameplay {
 
     public void drawChessboard() {
         chessBoardRenderer.drawChessboard();
+    }
+
+    public void highlightLegalMoves(String piecePosition) {
+        try {
+            ChessPosition position = new ChessPosition(notationToRow(piecePosition), notationToCol(piecePosition));
+            ChessPiece piece = chessGame.getBoard().getPiece(position);
+            if (piece != null && piece.getTeamColor() == playerColor) {
+                Collection<ChessMove> legalMoves = chessGame.validMoves(position);
+                List<ChessPosition> legalPositions = new ArrayList<>();
+                for (ChessMove move : legalMoves) {
+                    legalPositions.add(move.getEndPosition());
+                }
+                chessBoardRenderer.setHighlightedPositions(position, legalPositions);
+                drawChessboard();
+            } else {
+                System.out.println("No piece at that position or not your piece!");
+            }
+        } catch (Exception e) {
+            System.out.println("Error highlighting legal moves: " + e.getMessage());
+        }
     }
 
     public void joinGameAsPlayer(int gameId, ChessGame.TeamColor playerColor) throws Exception {
@@ -99,7 +122,7 @@ public class Gameplay {
         System.out.println("- Leave: Exits the current game.");
         System.out.println("- Make Move: Make a move in the format 'e2 e4'.");
         System.out.println("- Resign: Resign from the game.");
-        System.out.println("- Highlight Legal Moves: Show legal moves for a piece.");
+        System.out.println("- Highlight: Enter the position of the piece to highlight its legal moves.");
     }
 
     public void processCommand(String command) {
@@ -113,6 +136,15 @@ public class Gameplay {
                 break;
             case "resign":
                 resignGame();
+                break;
+            case "highlight":
+                System.out.println("Enter the position of the piece to highlight its legal moves (e.g., 'e2'):");
+                String positionInput = new Scanner(System.in).nextLine().trim().toLowerCase();
+                if (positionInput.matches("[a-h][1-8]")) {
+                    highlightLegalMoves(positionInput);
+                } else {
+                    System.out.println("Invalid position. Please enter a position like 'e2'.");
+                }
                 break;
             default:
                 if (command.matches("[a-h][1-8] [a-h][1-8]( q| r| b| n)?")) {
