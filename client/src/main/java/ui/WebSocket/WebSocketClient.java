@@ -3,6 +3,7 @@ package ui.WebSocket;
 import chess.ChessGame;
 import com.google.gson.Gson;
 import webSocketMessages.serverMessages.ServerMessage;
+import webSocketMessages.userCommands.JoinObserverCommand;
 import webSocketMessages.userCommands.UserGameCommand;
 import webSocketMessages.userCommands.JoinPlayerCommand;
 
@@ -52,6 +53,12 @@ public class WebSocketClient extends Endpoint {
     public void joinGameAsPlayer(String authToken, int gameId, ChessGame.TeamColor playerColor) throws Exception {
         JoinPlayerCommand joinCommand = new JoinPlayerCommand(authToken, gameId, playerColor);
         String message = gson.toJson(joinCommand);
+        this.session.getBasicRemote().sendText(message);
+    }
+
+    public void joinGameAsObserver(String authToken, int gameId) throws Exception {
+        JoinObserverCommand observerCommand = new JoinObserverCommand(authToken, gameId);
+        String message = gson.toJson(observerCommand);
         this.session.getBasicRemote().sendText(message);
     }
 

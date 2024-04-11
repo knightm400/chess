@@ -160,6 +160,11 @@ public class Gameplay {
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
     }
 
+    public void joinGameAsObserver(int gameId) throws Exception {
+        String authToken = "someAuthToken";
+        webSocketClient.joinGameAsObserver(authToken, gameId);
+    }
+
     public static void displayHelp() {
         System.out.println("Available Commands:");
         System.out.println("- Help: Displays this message.");
