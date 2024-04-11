@@ -172,9 +172,15 @@ public class Gameplay {
     }
 
     public void leaveGame(int gameId) throws Exception {
-        String authToken = "someAuthToken"; 
+        String authToken = "someAuthToken";
         webSocketClient.leaveGame(authToken, gameId);
     }
+
+    public void resignGame(int gameId) throws Exception {
+        String authToken = "someAuthToken"; 
+        webSocketClient.resignGame(authToken, gameId);
+    }
+
 
 
 

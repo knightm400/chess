@@ -73,6 +73,13 @@ public class WebSocketClient extends Endpoint {
         this.session.getBasicRemote().sendText(message);
     }
 
+    public void resignGame(String authToken, int gameId) throws Exception {
+        ResignCommand resignCommand = new ResignCommand(authToken, gameId);
+        String message = gson.toJson(resignCommand);
+        this.session.getBasicRemote().sendText(message);
+    }
+
+
 
 
     public static void main(String[] args) throws Exception {
