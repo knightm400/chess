@@ -17,6 +17,7 @@ public class Gameplay {
     private ServerFacade serverFacade;
     private ChessGame chessGame;
     private ChessBoardRenderer chessBoardRenderer;
+    private int gameId;
 
     public Gameplay(ServerFacade serverFacade) throws Exception {
         this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
@@ -53,6 +54,7 @@ public class Gameplay {
     }
 
     public void joinGameAsPlayer(int gameId, ChessGame.TeamColor playerColor) throws Exception {
+        this.gameId = gameId;
         this.playerColor = playerColor;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
@@ -60,6 +62,7 @@ public class Gameplay {
     }
 
     public void joinGameAsObserver(int gameId) throws Exception {
+        this.gameId = gameId;
         this.playerColor = ChessGame.TeamColor.WHITE;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsObserver(authToken, gameId);
@@ -71,9 +74,22 @@ public class Gameplay {
         webSocketClient.makeMove(authToken, gameId, move);
     }
 
-    public void resignGame(int gameId) throws Exception {
-        String authToken = "someAuthToken";
-        webSocketClient.resignGame(authToken, gameId);
+    public void resignGame() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Are you sure you want to resign the game? (yes/no)");
+        String response = scanner.nextLine().trim().toLowerCase();
+        if ("yes".equals(response)) {
+            try {
+                String authToken = "someAuthToken";
+                webSocketClient.resignGame(authToken, this.gameId);
+                System.out.println("You have resigned from the game.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error resigning from the game: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Resignation cancelled.");
+        }
     }
 
     public static void displayHelp() {
@@ -94,6 +110,9 @@ public class Gameplay {
             case "redraw":
                 System.out.println("Redrawing the chessboard...");
                 drawChessboard();
+                break;
+            case "resign":
+                resignGame();
                 break;
             default:
                 if (command.matches("[a-h][1-8] [a-h][1-8]( q| r| b| n)?")) {
