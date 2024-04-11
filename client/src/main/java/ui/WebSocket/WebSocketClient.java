@@ -1,9 +1,11 @@
 package ui.WebSocket;
 
 import chess.ChessGame;
+import chess.ChessMove;
 import com.google.gson.Gson;
 import webSocketMessages.serverMessages.ServerMessage;
 import webSocketMessages.userCommands.JoinObserverCommand;
+import webSocketMessages.userCommands.MakeMoveCommand;
 import webSocketMessages.userCommands.UserGameCommand;
 import webSocketMessages.userCommands.JoinPlayerCommand;
 
@@ -61,6 +63,13 @@ public class WebSocketClient extends Endpoint {
         String message = gson.toJson(observerCommand);
         this.session.getBasicRemote().sendText(message);
     }
+
+    public void makeMove(String authToken, int gameId, ChessMove move) throws Exception {
+        MakeMoveCommand moveCommand = new MakeMoveCommand(authToken, gameId, move);
+        String message = gson.toJson(moveCommand);
+        this.session.getBasicRemote().sendText(message);
+    }
+
 
     public static void main(String[] args) throws Exception {
         WebSocketClient client = new WebSocketClient("ws://localhost:8080/connect");

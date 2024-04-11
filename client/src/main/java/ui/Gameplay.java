@@ -1,5 +1,6 @@
 package ui;
 import chess.ChessGame;
+import chess.ChessMove;
 import ui.WebSocket.WebSocketClient;
 
 import static ui.EscapeSequences.*;
@@ -164,6 +165,12 @@ public class Gameplay {
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsObserver(authToken, gameId);
     }
+
+    public void makeMove(int gameId, ChessMove move) throws Exception {
+        String authToken = "someAuthToken";
+        webSocketClient.makeMove(authToken, gameId, move);
+    }
+
 
     public static void displayHelp() {
         System.out.println("Available Commands:");
