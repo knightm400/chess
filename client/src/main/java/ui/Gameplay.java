@@ -1,8 +1,12 @@
 package ui;
+import chess.ChessGame;
+import ui.WebSocket.WebSocketClient;
+
 import static ui.EscapeSequences.*;
 
 public class Gameplay {
     private static final String emSpace = EscapeSequences.EMPTY;
+    private WebSocketClient webSocketClient;
 
     public static void drawChessboard() {
         System.out.print(RESET_TEXT_COLOR);
@@ -145,6 +149,15 @@ public class Gameplay {
 
         }
         return EMPTY;
+    }
+
+    public Gameplay() throws Exception {
+        this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
+    }
+
+    public void joinGameAsPlayer(int gameId, ChessGame.TeamColor playerColor) throws Exception {
+        String authToken = "someAuthToken";
+        webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
     }
 
     public static void displayHelp() {
