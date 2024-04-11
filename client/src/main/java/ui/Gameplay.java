@@ -147,6 +147,28 @@ public class Gameplay {
         return EMPTY;
     }
 
+    public static void displayHelp() {
+        System.out.println("Available Commands:");
+        System.out.println("- Help: Displays this message.");
+        System.out.println("- Redraw Chess Board: Redraws the chessboard.");
+        System.out.println("- Leave: Exits the current game.");
+        System.out.println("- Make Move: Make a move in the format 'e2 e4'.");
+        System.out.println("- Resign: Resign from the game.");
+        System.out.println("- Highlight Legal Moves: Show legal moves for a piece.");
+    }
+
+    public static void leaveGame() {
+        System.out.println("Leaving the game...");
+    }
+
+    public static void makeMove(String move) {
+        System.out.println("Making move: " + move);
+    }
+
+    public static void resignGame(String piece) {
+        System.out.println("Highlighting legal moves for: " + piece);
+    }
+
     public static void main(String[] args) {
         System.out.println(ERASE_SCREEN);
         System.out.println(SET_TEXT_COLOR_WHITE);
