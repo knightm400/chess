@@ -171,6 +171,12 @@ public class Gameplay {
         webSocketClient.makeMove(authToken, gameId, move);
     }
 
+    public void leaveGame(int gameId) throws Exception {
+        String authToken = "someAuthToken"; 
+        webSocketClient.leaveGame(authToken, gameId);
+    }
+
+
 
     public static void displayHelp() {
         System.out.println("Available Commands:");
