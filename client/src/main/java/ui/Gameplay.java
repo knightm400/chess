@@ -8,14 +8,17 @@ import static ui.EscapeSequences.*;
 public class Gameplay {
     private static final String emSpace = EscapeSequences.EMPTY;
     private WebSocketClient webSocketClient;
+    private ChessGame.TeamColor playerColor;
 
-    public static void drawChessboard() {
+    public Gameplay() throws Exception {
+        this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
+        this.playerColor = ChessGame.TeamColor.WHITE;
+    }
+
+    public void drawChessboard() {
         System.out.print(RESET_TEXT_COLOR);
-        System.out.println("Chessboard with White at the bottom:");
-        drawSingleBoard(true); // white at bottom
-        System.out.println();
-        System.out.println("Chessboard with Black at the bottom:");
-        drawSingleBoard(false); // black at bottom
+        boolean isWhiteBottom = this.playerColor == ChessGame.TeamColor.WHITE;
+        drawSingleBoard(isWhiteBottom); // white at bottom
     }
 
     private static void drawSingleBoard(boolean isWhiteBottom) {
@@ -152,18 +155,18 @@ public class Gameplay {
         return EMPTY;
     }
 
-    public Gameplay() throws Exception {
-        this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
-    }
-
     public void joinGameAsPlayer(int gameId, ChessGame.TeamColor playerColor) throws Exception {
+        this.playerColor = playerColor;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
+        drawChessboard();
     }
 
     public void joinGameAsObserver(int gameId) throws Exception {
+        this.playerColor = ChessGame.TeamColor.WHITE;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsObserver(authToken, gameId);
+        drawChessboard();
     }
 
     public void makeMove(int gameId, ChessMove move) throws Exception {
@@ -177,7 +180,7 @@ public class Gameplay {
     }
 
     public void resignGame(int gameId) throws Exception {
-        String authToken = "someAuthToken"; 
+        String authToken = "someAuthToken";
         webSocketClient.resignGame(authToken, gameId);
     }
 
@@ -207,9 +210,14 @@ public class Gameplay {
     }
 
     public static void main(String[] args) {
-        System.out.println(ERASE_SCREEN);
-        System.out.println(SET_TEXT_COLOR_WHITE);
-        drawChessboard();
-        System.out.println(RESET_TEXT_COLOR);
+        try {
+            System.out.println(ERASE_SCREEN);
+            System.out.println(SET_TEXT_COLOR_WHITE);
+            Gameplay gameplay = new Gameplay();
+            gameplay.drawChessboard();
+            System.out.println(RESET_TEXT_COLOR);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

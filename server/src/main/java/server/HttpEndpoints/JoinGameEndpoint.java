@@ -1,4 +1,4 @@
-package server;
+package server.HttpEndpoints;
 
 import dataAccess.AuthDataAccess;
 import dataAccess.DataAccessException;

@@ -31,15 +31,15 @@ public class Server {
 
         // Register your endpoints and handle exceptions here.
 
-        Spark.webSocket("/chess", webSocketHandler);
+        Spark.webSocket("/connect", webSocketHandler);
 
-        server.ClearEndpoint.setup(userDataAccess, gameDataAccess, authDataAccess);
-        server.RegisterEndpoint.setup(userDataAccess, authDataAccess);
-        server.LoginEndpoint.setup(authDataAccess, userDataAccess);
-        server.LogoutEndpoint.setup(authDataAccess);
-        server.ListGamesEndpoint.setup(gameDataAccess, authDataAccess);
-        server.CreateGameServiceEndpoint.setup(authDataAccess, gameDataAccess);
-        server.JoinGameEndpoint.setup(gameDataAccess, authDataAccess);
+        server.HttpEndpoints.ClearEndpoint.setup(userDataAccess, gameDataAccess, authDataAccess);
+        server.HttpEndpoints.RegisterEndpoint.setup(userDataAccess, authDataAccess);
+        server.HttpEndpoints.LoginEndpoint.setup(authDataAccess, userDataAccess);
+        server.HttpEndpoints.LogoutEndpoint.setup(authDataAccess);
+        server.HttpEndpoints.ListGamesEndpoint.setup(gameDataAccess, authDataAccess);
+        server.HttpEndpoints.CreateGameServiceEndpoint.setup(authDataAccess, gameDataAccess);
+        server.HttpEndpoints.JoinGameEndpoint.setup(gameDataAccess, authDataAccess);
 
         Spark.awaitInitialization();
         return Spark.port();

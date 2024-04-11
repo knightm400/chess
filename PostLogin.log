@@ -3134,3 +3134,450 @@
   <message>Successfully joined game 2004469385 as observer.</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-11T07:08:28.612769100Z</date>
+  <millis>1712819308612</millis>
+  <nanos>769100</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PostLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-11T07:08:32.157559600Z</date>
+  <millis>1712819312157</millis>
+  <nanos>559600</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice in PostLogin: 5</message>
+</record>
+<record>
+  <date>2024-04-11T07:08:32.168030700Z</date>
+  <millis>1712819312168</millis>
+  <nanos>30700</nanos>
+  <sequence>7</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to join a game in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:08:32.169291900Z</date>
+  <millis>1712819312169</millis>
+  <nanos>291900</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Prompting user for game ID and player color in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:08:32.170290300Z</date>
+  <millis>1712819312170</millis>
+  <nanos>290300</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Listing all games in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:08:45.175557900Z</date>
+  <millis>1712819325175</millis>
+  <nanos>557900</nanos>
+  <sequence>14</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Successfully joined game 2004469385 as white in PostLogin.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-11T07:28:03.982661900Z</date>
+  <millis>1712820483982</millis>
+  <nanos>661900</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PostLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-11T07:28:06.574650400Z</date>
+  <millis>1712820486574</millis>
+  <nanos>650400</nanos>
+  <sequence>7</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice in PostLogin: 5</message>
+</record>
+<record>
+  <date>2024-04-11T07:28:06.575650700Z</date>
+  <millis>1712820486575</millis>
+  <nanos>650700</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to join a game in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:28:06.576651100Z</date>
+  <millis>1712820486576</millis>
+  <nanos>651100</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Prompting user for game ID and player color in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:28:06.577646200Z</date>
+  <millis>1712820486577</millis>
+  <nanos>646200</nanos>
+  <sequence>10</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Listing all games in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:28:14.582125600Z</date>
+  <millis>1712820494582</millis>
+  <nanos>125600</nanos>
+  <sequence>15</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Successfully joined game 2004469385 as WHITE in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:28:15.225996500Z</date>
+  <millis>1712820495225</millis>
+  <nanos>996500</nanos>
+  <sequence>16</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joining a game failed in PostLogin: Handshake error.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-11T07:36:34.194867300Z</date>
+  <millis>1712820994194</millis>
+  <nanos>867300</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PostLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-11T07:36:35.774246100Z</date>
+  <millis>1712820995774</millis>
+  <nanos>246100</nanos>
+  <sequence>7</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice in PostLogin: 5</message>
+</record>
+<record>
+  <date>2024-04-11T07:36:35.775243100Z</date>
+  <millis>1712820995775</millis>
+  <nanos>243100</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to join a game in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:36:35.776242400Z</date>
+  <millis>1712820995776</millis>
+  <nanos>242400</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Prompting user for game ID and player color in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:36:35.777243Z</date>
+  <millis>1712820995777</millis>
+  <nanos>243000</nanos>
+  <sequence>10</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Listing all games in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:36:44.153127Z</date>
+  <millis>1712821004153</millis>
+  <nanos>127000</nanos>
+  <sequence>15</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Successfully joined game 2004469385 as BLACK in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:36:44.950487800Z</date>
+  <millis>1712821004950</millis>
+  <nanos>487800</nanos>
+  <sequence>16</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joining a game failed in PostLogin: Handshake error.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-11T07:50:40.559397700Z</date>
+  <millis>1712821840559</millis>
+  <nanos>397700</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PostLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:42.977967700Z</date>
+  <millis>1712821842977</millis>
+  <nanos>967700</nanos>
+  <sequence>7</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice in PostLogin: 5</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:42.978967700Z</date>
+  <millis>1712821842978</millis>
+  <nanos>967700</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to join a game in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:42.979966900Z</date>
+  <millis>1712821842979</millis>
+  <nanos>966900</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Prompting user for game ID and player color in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:42.980970500Z</date>
+  <millis>1712821842980</millis>
+  <nanos>970500</nanos>
+  <sequence>10</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Listing all games in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:49.493772500Z</date>
+  <millis>1712821849493</millis>
+  <nanos>772500</nanos>
+  <sequence>15</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Successfully joined game 2004469385 as WHITE in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:59.223349500Z</date>
+  <millis>1712821859223</millis>
+  <nanos>349500</nanos>
+  <sequence>16</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice in PostLogin: 5</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:59.225346300Z</date>
+  <millis>1712821859225</millis>
+  <nanos>346300</nanos>
+  <sequence>17</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to join a game in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:59.226348100Z</date>
+  <millis>1712821859226</millis>
+  <nanos>348100</nanos>
+  <sequence>18</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Prompting user for game ID and player color in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:50:59.227345700Z</date>
+  <millis>1712821859227</millis>
+  <nanos>345700</nanos>
+  <sequence>19</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Listing all games in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:51:07.000592400Z</date>
+  <millis>1712821867000</millis>
+  <nanos>592400</nanos>
+  <sequence>24</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Successfully joined game 2004469385 as BLACK in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:51:12.109974900Z</date>
+  <millis>1712821872109</millis>
+  <nanos>974900</nanos>
+  <sequence>25</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice in PostLogin: 6</message>
+</record>
+<record>
+  <date>2024-04-11T07:51:12.110977200Z</date>
+  <millis>1712821872110</millis>
+  <nanos>977200</nanos>
+  <sequence>26</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to join as an observer in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:51:12.111975600Z</date>
+  <millis>1712821872111</millis>
+  <nanos>975600</nanos>
+  <sequence>27</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinObserver</method>
+  <thread>1</thread>
+  <message>Joining a game as an observer in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:51:12.111975600Z</date>
+  <millis>1712821872111</millis>
+  <nanos>975600</nanos>
+  <sequence>28</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Listing all games in PostLogin.</message>
+</record>
+<record>
+  <date>2024-04-11T07:51:16.788378700Z</date>
+  <millis>1712821876788</millis>
+  <nanos>378700</nanos>
+  <sequence>33</sequence>
+  <logger>ui.PostLogin</logger>
+  <level>INFO</level>
+  <class>ui.PostLogin</class>
+  <method>joinObserver</method>
+  <thread>1</thread>
+  <message>Successfully joined game 2004469385 as observer.</message>
+</record>

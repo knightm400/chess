@@ -1,5 +1,6 @@
 package ui;
 
+import chess.ChessGame;
 import model.GameData;
 import service.Result.JoinGameResult;
 
@@ -143,7 +144,6 @@ public class PostLogin {
 
     private void joinGame(Scanner scanner) {
         logger.info("Prompting user for game ID and player color in PostLogin.");
-
         listGames();
 
         System.out.print("Enter the ID of the game you want to join: ");
@@ -159,19 +159,22 @@ public class PostLogin {
         }
 
         System.out.print("Enter the color you want to play as (white/black): ");
-        String playerColor = scanner.nextLine().trim().toLowerCase();
-        while (!playerColor.equals("white") && !playerColor.equals("black")) {
+        String playerColorInput = scanner.nextLine().trim().toLowerCase();
+        while (!playerColorInput.equals("white") && !playerColorInput.equals("black")) {
             System.out.print("Invalid color. Please enter 'white' or 'black': ");
-            playerColor = scanner.nextLine().trim().toLowerCase();
+            playerColorInput = scanner.nextLine().trim().toLowerCase();
         }
 
+        ChessGame.TeamColor playerColor = playerColorInput.equals("white") ? ChessGame.TeamColor.WHITE : ChessGame.TeamColor.BLACK;
+
         try {
-            JoinGameResult result = serverFacade.joinGame(serverFacade.getAuthToken(), gameId, playerColor);
+            JoinGameResult result = serverFacade.joinGame(serverFacade.getAuthToken(), gameId, playerColorInput);
             if (result != null && result.success()) {
                 logger.info("Successfully joined game " + gameId + " as " + playerColor + " in PostLogin.");
                 System.out.println("Successfully joined game " + gameId + " as " + playerColor + ".");
                 System.out.println("Initial Chessboard Layout:");
-                Gameplay.drawChessboard();
+                Gameplay gameplay = new Gameplay();
+                gameplay.joinGameAsPlayer(gameId, playerColor);
             } else {
                 logger.warning("Failed to join game in PostLogin.");
                 System.out.println("Failed to join the game. Please try again.");
@@ -204,7 +207,8 @@ public class PostLogin {
                 logger.info("Successfully joined game " + gameId + " as observer.");
                 System.out.println("Successfully joined game " + gameId + " as an observer.");
                 System.out.println("Initial Chessboard Layout:");
-                Gameplay.drawChessboard();
+                Gameplay gameplay = new Gameplay();
+                gameplay.joinGameAsObserver(gameId);
             } else {
                 logger.warning("Failed to join game as observer.");
                 System.out.println("Failed to join the game as an observer. Please try again.");
