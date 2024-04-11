@@ -79,6 +79,13 @@ public class WebSocketClient extends Endpoint {
         this.session.getBasicRemote().sendText(message);
     }
 
+    public void closeConnection() throws Exception {
+        if (session != null) {
+            session.close();
+            System.out.println("WebSocket connection closed.");
+        }
+    }
+
 
 
 

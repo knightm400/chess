@@ -173,8 +173,9 @@ public class PostLogin {
                 logger.info("Successfully joined game " + gameId + " as " + playerColor + " in PostLogin.");
                 System.out.println("Successfully joined game " + gameId + " as " + playerColor + ".");
                 System.out.println("Initial Chessboard Layout:");
-                Gameplay gameplay = new Gameplay();
+                Gameplay gameplay = new Gameplay(this.serverFacade);
                 gameplay.joinGameAsPlayer(gameId, playerColor);
+                gameplay.enterGameplayLoop();
             } else {
                 logger.warning("Failed to join game in PostLogin.");
                 System.out.println("Failed to join the game. Please try again.");
@@ -207,7 +208,7 @@ public class PostLogin {
                 logger.info("Successfully joined game " + gameId + " as observer.");
                 System.out.println("Successfully joined game " + gameId + " as an observer.");
                 System.out.println("Initial Chessboard Layout:");
-                Gameplay gameplay = new Gameplay();
+                Gameplay gameplay = new Gameplay(this.serverFacade);
                 gameplay.joinGameAsObserver(gameId);
             } else {
                 logger.warning("Failed to join game as observer.");

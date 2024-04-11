@@ -1,7 +1,10 @@
 package ui;
 import chess.ChessGame;
 import chess.ChessMove;
+import server.Server;
 import ui.WebSocket.WebSocketClient;
+
+import java.util.Scanner;
 
 import static ui.EscapeSequences.*;
 
@@ -9,10 +12,27 @@ public class Gameplay {
     private static final String emSpace = EscapeSequences.EMPTY;
     private WebSocketClient webSocketClient;
     private ChessGame.TeamColor playerColor;
+    private ServerFacade serverFacade;
 
-    public Gameplay() throws Exception {
+    public Gameplay(ServerFacade serverFacade) throws Exception {
         this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
         this.playerColor = ChessGame.TeamColor.WHITE;
+        this.serverFacade = serverFacade;
+    }
+
+    public void enterGameplayLoop() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a command ('Leave' to exit):");
+        while (true) {
+            String command = scanner.nextLine();
+            if ("leave".equalsIgnoreCase(command)) {
+                System.out.println("Exiting game...");
+                break;
+            } else {
+                processCommand(command);
+                System.out.println("Enter a command ('Leave' to exit):");
+            }
+        }
     }
 
     public void drawChessboard() {
@@ -174,11 +194,6 @@ public class Gameplay {
         webSocketClient.makeMove(authToken, gameId, move);
     }
 
-    public void leaveGame(int gameId) throws Exception {
-        String authToken = "someAuthToken";
-        webSocketClient.leaveGame(authToken, gameId);
-    }
-
     public void resignGame(int gameId) throws Exception {
         String authToken = "someAuthToken";
         webSocketClient.resignGame(authToken, gameId);
@@ -197,8 +212,38 @@ public class Gameplay {
         System.out.println("- Highlight Legal Moves: Show legal moves for a piece.");
     }
 
-    public static void leaveGame() {
-        System.out.println("Leaving the game...");
+    public void processCommand(String command) {
+        switch (command.toLowerCase()) {
+            case "help":
+                displayHelp();
+                break;
+            case "redraw":
+                System.out.println("Redrawing the chessboard...");
+                drawChessboard();
+                break;
+            default:
+                System.out.println("Unknown command. Type 'Help' to see a list of available commands.");
+                break;
+        }
+    }
+
+    public void leaveGame(int gameId) {
+        try {
+            String authToken = "someAuthToken";
+            webSocketClient.leaveGame(authToken, gameId);
+            System.out.println("You have left the game.");
+            webSocketClient.closeConnection();
+
+            transitionBackToPostLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error leaving game: " + e.getMessage());
+        }
+    }
+
+    private void transitionBackToPostLogin() {
+        PostLogin postLogin = new PostLogin(serverFacade);
+        postLogin.displayMenu();
     }
 
     public static void makeMove(String move) {
@@ -213,7 +258,8 @@ public class Gameplay {
         try {
             System.out.println(ERASE_SCREEN);
             System.out.println(SET_TEXT_COLOR_WHITE);
-            Gameplay gameplay = new Gameplay();
+            ServerFacade serverFacade = new ServerFacade();
+            Gameplay gameplay = new Gameplay(serverFacade);
             gameplay.drawChessboard();
             System.out.println(RESET_TEXT_COLOR);
         } catch (Exception e) {
