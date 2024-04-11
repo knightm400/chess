@@ -31,6 +31,11 @@ public class ChessBoardRenderer {
         this.legalMovePositions = legalMoves;
     }
 
+    public void clearHighlights() {
+        this.selectedPosition = null;
+        this.legalMovePositions.clear();
+    }
+
     public void drawChessboard() {
         boolean isWhiteBottom = this.playerColor == ChessGame.TeamColor.WHITE;
         drawSingleBoard(isWhiteBottom); // white at bottom

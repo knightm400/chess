@@ -95,6 +95,8 @@ public class Gameplay {
     public void makeMove(int gameId, ChessMove move) throws Exception {
         String authToken = "someAuthToken";
         webSocketClient.makeMove(authToken, gameId, move);
+        chessBoardRenderer.clearHighlights();
+        drawChessboard();
     }
 
     public void resignGame() {
@@ -132,6 +134,7 @@ public class Gameplay {
                 break;
             case "redraw":
                 System.out.println("Redrawing the chessboard...");
+                chessBoardRenderer.clearHighlights();
                 drawChessboard();
                 break;
             case "resign":
@@ -172,6 +175,7 @@ public class Gameplay {
                         ChessMove move = new ChessMove(start, end, promotionType);
                         chessGame.makeMove(move);
                         System.out.println("Move made. It's now the turn of " + chessGame.getTeamTurn());
+                        chessBoardRenderer.clearHighlights();
                         drawChessboard();
                     } catch (Exception e) {
                         System.out.println("Error processing move: " + e.getMessage());
