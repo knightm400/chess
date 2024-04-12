@@ -1,9 +1,5 @@
 package ui;
-import chess.ChessGame;
-import chess.ChessMove;
-import chess.ChessPiece;
-import chess.ChessPosition;
-import chess.ChessBoard;
+import chess.*;
 import ui.WebSocket.WebSocketClient;
 
 import java.util.ArrayList;
@@ -29,6 +25,10 @@ public class Gameplay {
         this.chessGame = new ChessGame();
         initializeChessBoard();
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
+    }
+
+    public void updateGame(ChessGame game) {
+        this.chessGame = game;
     }
 
     public void initializeChessBoard() {
@@ -83,6 +83,7 @@ public class Gameplay {
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
+        this.chessGame.setTeamTurn(ChessGame.TeamColor.WHITE);
         drawChessboard();
     }
 
@@ -95,8 +96,20 @@ public class Gameplay {
     }
 
     public void makeMove(int gameId, ChessMove move) throws Exception {
-        String authToken = "someAuthToken";
-        webSocketClient.makeMove(authToken, gameId, move);
+        ChessPosition startPosition = move.getStartPosition();
+        ChessPiece piece = chessGame.getBoard().getPiece(startPosition);
+        if (piece != null && piece.getTeamColor() == playerColor && playerColor == chessGame.getTeamTurn()) {
+            System.out.println("You cannot move the opponent's pieces.");
+            return;
+        }
+        try {
+            chessGame.makeMove(move);
+            System.out.println("Move made. It's now " + chessGame.getTeamTurn() + "'s turn.");
+        } catch (InvalidMoveException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
         chessBoardRenderer.clearHighlights();
         drawChessboard();
     }
@@ -158,39 +171,27 @@ public class Gameplay {
             default:
                 if (command.matches("[a-h][1-8] [a-h][1-8]( q| r| b| n)?")) {
                     try {
-                        String[] parts = command.split(" ");
-                        ChessPosition start = new ChessPosition(notationToRow(parts[0]), notationToCol(parts[0]));
-                        ChessPosition end = new ChessPosition(notationToRow(parts[1]), notationToCol(parts[1]));
-                        ChessPiece.PieceType promotionType = null;
-                        if(parts[1].length() > 2) {
-                            switch(parts[1].charAt(3)) {
-                                case 'q':
-                                    promotionType = ChessPiece.PieceType.QUEEN;
-                                    break;
-                                case 'r':
-                                    promotionType = ChessPiece.PieceType.ROOK;
-                                    break;
-                                case 'b':
-                                    promotionType = ChessPiece.PieceType.BISHOP;
-                                    break;
-                                case 'n':
-                                    promotionType = ChessPiece.PieceType.KNIGHT;
-                                    break;
-                            }
-                        }
-                        ChessMove move = new ChessMove(start, end, promotionType);
-                        chessGame.makeMove(move);
-                        System.out.println("Move made. It's now the turn of " + chessGame.getTeamTurn());
-                        chessBoardRenderer.clearHighlights();
-                        drawChessboard();
+                        ChessMove move = parseMove(command);
+                        makeMove(gameId, move); // Using Gameplay's makeMove instead of ChessGame's directly
                     } catch (Exception e) {
-                        System.out.println("Error processing move: " + e.getMessage());
+                        System.out.println(e.getMessage());
                     }
                 } else {
                     System.out.println("Unknown command. Type 'Help' to see a list of available commands.");
                 }
                 break;
         }
+    }
+
+    private ChessMove parseMove(String command) {
+        String[] parts = command.split(" ");
+        ChessPosition start = new ChessPosition(notationToRow(parts[0]), notationToCol(parts[0]));
+        ChessPosition end = new ChessPosition(notationToRow(parts[1]), notationToCol(parts[1]));
+        ChessPiece.PieceType promotionType = null; // Handle promotion
+        if (parts.length > 2) {
+            promotionType = ChessPiece.PieceType.valueOf(parts[2].toUpperCase().trim());
+        }
+        return new ChessMove(start, end, promotionType);
     }
 
     private int notationToRow(String notation) {
@@ -219,10 +220,6 @@ public class Gameplay {
     private void transitionBackToPostLogin() {
         PostLogin postLogin = new PostLogin(serverFacade);
         postLogin.displayMenu();
-    }
-
-    public static void makeMove(String move) {
-        System.out.println("Making move: " + move);
     }
 
     public static void resignGame(String piece) {

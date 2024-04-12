@@ -4,6 +4,9 @@ import chess.ChessGame;
 import chess.ChessMove;
 import com.google.gson.Gson;
 import webSocketMessages.serverMessages.ServerMessage;
+import webSocketMessages.serverMessages.LoadGameMessage;
+import webSocketMessages.serverMessages.ErrorMessage;
+import webSocketMessages.serverMessages.NotificationMessage;
 import webSocketMessages.userCommands.*;
 
 import javax.websocket.ClientEndpoint;
@@ -15,8 +18,20 @@ import java.net.URI;
 public class WebSocketClient extends Endpoint {
     private Session session;
     private final Gson gson = new Gson();
+    private ui.Gameplay gameplay;
 
+    public WebSocketClient(String serverUri, ui.Gameplay gameplay) throws Exception {
+        this.gameplay = gameplay;
+        connect(serverUri);
+    }
+
+    // Overloaded constructor without Gameplay instance
     public WebSocketClient(String serverUri) throws Exception {
+        this.gameplay = null;  // No Gameplay instance available
+        connect(serverUri);
+    }
+
+    private void connect(String serverUri) throws Exception {
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         this.session = container.connectToServer(this, new URI(serverUri));
         this.session.addMessageHandler(new MessageHandler.Whole<String>() {
@@ -27,9 +42,29 @@ public class WebSocketClient extends Endpoint {
         });
     }
 
+
     @Override
     public void onOpen(Session session, EndpointConfig config) {
         System.out.println("Connected to server");
+    }
+
+    private void handleServerMessage(String message) {
+        ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
+        switch(serverMessage.getServerMessageType()) {
+            case LOAD_GAME:
+                LoadGameMessage loadGameMessage = gson.fromJson(message, LoadGameMessage.class);
+                gameplay.updateGame(loadGameMessage.getGame());
+                gameplay.drawChessboard();
+                break;
+            case ERROR:
+                ErrorMessage errorMessage = gson.fromJson(message, ErrorMessage.class);
+                System.out.println("Error: " + errorMessage.getErrorMessage());
+                break;
+            case NOTIFICATION:
+                NotificationMessage notificationMessage = gson.fromJson(message, NotificationMessage.class);
+                System.out.println("Notification: " + notificationMessage.getMessage());
+                break;
+        }
     }
 
     public void sendUserCommand(UserGameCommand command) throws Exception {
@@ -37,17 +72,7 @@ public class WebSocketClient extends Endpoint {
         this.session.getBasicRemote().sendText(message);
     }
 
-    private void handleServerMessage(String message) {
-        ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
-        switch(serverMessage.getServerMessageType()) {
-            case LOAD_GAME:
-                break;
-            case ERROR:
-                break;
-            case NOTIFICATION:
-                break;
-        }
-    }
+
 
     public void joinGameAsPlayer(String authToken, int gameId, ChessGame.TeamColor playerColor) throws Exception {
         JoinPlayerCommand joinCommand = new JoinPlayerCommand(authToken, gameId, playerColor);
