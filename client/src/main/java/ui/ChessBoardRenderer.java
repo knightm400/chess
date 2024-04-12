@@ -46,6 +46,7 @@ public class ChessBoardRenderer {
         String darkSquare = EscapeSequences.SET_BG_COLOR_DARK_GREEN;
         String cellPadding = " ";
 
+
         if (isWhiteBottom) {
             System.out.print("\u2007" + emSpace + "\u2002" + "\u2005" + "\u2006");
             System.out.print('a' + "\u2003" + "\u2004" + "\u2005");
@@ -74,20 +75,19 @@ public class ChessBoardRenderer {
             int displayRow = isWhiteBottom ? row : 9 - row;
             System.out.print(displayRow + emSpace);
             for (int col = 1; col <= 8; col++) {
-                int displayCol = isWhiteBottom ? col : 9 - col;
-                ChessPosition currentPosition = new ChessPosition(displayRow, displayCol);
-                boolean isDarkSquare = (displayRow + displayCol) % 2 == 0;
-                if (currentPosition.equals(selectedPosition)) {
+                ChessPosition actualPosition = new ChessPosition(row, col);
+                boolean isDarkSquare = (row + col) % 2 == 0;
+                if (actualPosition.equals(selectedPosition)) {
                     System.out.print(SET_BG_COLOR_GREEN);
-                } else if (legalMovePositions.contains(currentPosition)) {
+                } else if (legalMovePositions.contains(actualPosition)) {
                     System.out.print(isDarkSquare ? SET_BG_COLOR_DARK_YELLOW : SET_BG_COLOR_YELLOW);
                 } else {
                     System.out.print(isDarkSquare ? SET_BG_COLOR_DARK_GREEN : SET_BG_COLOR_CREAM);
                 }
-                String piece = determinePiece(displayCol, displayRow, isWhiteBottom);
+                String piece = determinePiece(col, row, isWhiteBottom);
                 if (!piece.equals(emSpace)) {
-                    String pieceColor = (piece.matches("[♙♘♗♖♕♔]")) ? SET_TEXT_COLOR_BLACK : SET_TEXT_COLOR_BLACK;
-                    System.out.print(cellPadding + pieceColor + piece + cellPadding);
+                    System.out.print(RESET_TEXT_COLOR);
+                    System.out.print(cellPadding + SET_TEXT_COLOR_BLACK + piece + cellPadding);
                     System.out.print(RESET_TEXT_COLOR);
                 } else {
                     System.out.print(emSpace);
@@ -96,6 +96,8 @@ public class ChessBoardRenderer {
             }
             System.out.println(emSpace + displayRow);
             System.out.print(RESET_BG_COLOR);
+            System.out.print(RESET_TEXT_COLOR);
+
         }
 
         if (isWhiteBottom) {
@@ -125,7 +127,8 @@ public class ChessBoardRenderer {
 
     private String determinePiece(int col, int row, boolean isWhiteBottom) {
         int boardRow = isWhiteBottom ? row : 9 - row;
-        ChessPosition position = new ChessPosition(boardRow, col);
+        int boardCol = isWhiteBottom ? row : 9 - col;
+        ChessPosition position = new ChessPosition(boardRow, boardCol);
         ChessPiece piece = chessGame.getBoard().getPiece(position);
         if (piece != null) {
             switch (piece.getPieceType()) {

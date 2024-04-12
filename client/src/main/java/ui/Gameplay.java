@@ -81,6 +81,7 @@ public class Gameplay {
         this.playerColor = playerColor;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
+        this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
         drawChessboard();
     }
 
