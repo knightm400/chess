@@ -16,6 +16,10 @@ public class ConnectionManager {
         connections.remove(session);
     }
 
+    public Connection getConnection(Session session) {
+        return connections.get(session);
+    }
+
     public void sendMessage(Session session, String message) {
         Connection connection = connections.get(session);
         if (connection != null) {

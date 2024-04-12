@@ -1,44 +1,26 @@
 package server.WebSocket;
+import model.AuthData;
 import org.eclipse.jetty.websocket.api.Session;
+import model.UserData;
 
 public class Connection {
     private final Session session;
-    private String username;
-    private Integer gameId;
-    private String role;
+    private AuthData authData;
 
-    public Connection(Session session, String username) {
+    public Connection(Session session, AuthData authData) {
         this.session = session;
-        this.username = username;
-        this.gameId = null;
-        this.role = null;
+        this.authData = authData;
     }
 
     public Session getSession() {
         return session;
     }
 
-    public String getUsername() {
-        return username;
+    public AuthData getAuthData() {
+        return authData;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Integer getGameId() {
-        return gameId;
-    }
-
-    public void setGameId(Integer gameId) {
-        this.gameId = gameId;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public void setUserData(AuthData authData) {
+        this.authData = authData;
     }
 }

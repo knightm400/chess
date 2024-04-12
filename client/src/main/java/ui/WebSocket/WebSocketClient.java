@@ -52,9 +52,13 @@ public class WebSocketClient extends Endpoint {
         ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
         switch(serverMessage.getServerMessageType()) {
             case LOAD_GAME:
-                LoadGameMessage loadGameMessage = gson.fromJson(message, LoadGameMessage.class);
-                gameplay.updateGame(loadGameMessage.getGame());
-                gameplay.drawChessboard();
+                if (gameplay != null) {
+                    LoadGameMessage loadGameMessage = gson.fromJson(message, LoadGameMessage.class);
+                    gameplay.updateGame(loadGameMessage.getGame());
+                    gameplay.drawChessboard();
+                } else {
+                    System.out.println("Gameplay instance not available, cannot update game.");
+                }
                 break;
             case ERROR:
                 ErrorMessage errorMessage = gson.fromJson(message, ErrorMessage.class);
