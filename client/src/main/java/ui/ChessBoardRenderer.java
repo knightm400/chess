@@ -127,7 +127,7 @@ public class ChessBoardRenderer {
 
     private String determinePiece(int col, int row, boolean isWhiteBottom) {
         int boardRow = isWhiteBottom ? row : 9 - row;
-        int boardCol = isWhiteBottom ? row : 9 - col;
+        int boardCol = isWhiteBottom ? col : 9 - col;
         ChessPosition position = new ChessPosition(boardRow, boardCol);
         ChessPiece piece = chessGame.getBoard().getPiece(position);
         if (piece != null) {

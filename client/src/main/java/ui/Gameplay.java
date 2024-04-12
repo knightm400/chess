@@ -21,12 +21,18 @@ public class Gameplay {
     private ChessGame chessGame;
     private ChessBoardRenderer chessBoardRenderer;
     private int gameId;
+    private String playerName;
+
+    private void notifyUsers(String message) {
+        System.out.println(message);
+    }
 
     public Gameplay(ServerFacade serverFacade) throws Exception {
         this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
         this.playerColor = ChessGame.TeamColor.WHITE;
         this.serverFacade = serverFacade;
         this.chessGame = new ChessGame();
+        this.playerName = playerName;
         initializechessBoard();
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
     }
@@ -79,18 +85,24 @@ public class Gameplay {
     public void joinGameAsPlayer(int gameId, ChessGame.TeamColor playerColor) throws Exception {
         this.gameId = gameId;
         this.playerColor = playerColor;
+        this.playerName = playerName;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
         drawChessboard();
+        sendNotification(playerName + " has joined the game as " + (playerColor == ChessGame.TeamColor.WHITE ? "White" : "Black"));
+    }
+
+    private void sendNotification(String message) {
+        System.out.println(message);
     }
 
     public void joinGameAsObserver(int gameId) throws Exception {
         this.gameId = gameId;
-        this.playerColor = ChessGame.TeamColor.WHITE;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsObserver(authToken, gameId);
         drawChessboard();
+        sendNotification(observerName + " has joined the game as an observer.");
     }
 
     public void makeMove(int gameId, ChessMove move) throws Exception {
