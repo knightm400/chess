@@ -1,5 +1,6 @@
 package ui;
 import chess.*;
+import model.GameData;
 import ui.WebSocket.WebSocketClient;
 
 import java.util.ArrayList;
@@ -27,8 +28,18 @@ public class Gameplay {
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
     }
 
-    public void updateGame(ChessGame game) {
-        this.chessGame = game;
+    public void updateGameFromServer(GameData gameData) {
+        ChessGame chessGame = convertDataToChessGame(gameData);
+        updateGame(chessGame);
+    }
+    public void updateGame(ChessGame updatedGame) {
+        this.chessGame = updatedGame;
+        drawChessboard();
+    }
+
+    private ChessGame convertDataToChessGame(GameData gameData) {
+        ChessGame newGame = new ChessGame();
+        return newGame;
     }
 
     public void initializeChessBoard() {

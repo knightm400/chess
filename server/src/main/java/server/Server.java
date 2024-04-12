@@ -1,6 +1,7 @@
 package server;
 
 import dataAccess.*;
+import server.WebSocket.ConnectionManager;
 import spark.*;
 import org.eclipse.jetty.websocket.api.Session;
 import java.sql.SQLException;
@@ -10,13 +11,14 @@ public class Server {
     private final UserDataAccess userDataAccess;
     private final GameDataAccess gameDataAccess;
     private final AuthDataAccess authDataAccess;
-    private final WebSocketHandler webSocketHandler;
+    private WebSocketHandler webSocketHandler;
 
     public Server() {
         userDataAccess = new MySqlDataAccess();
         gameDataAccess = new MySqlDataAccess();
         authDataAccess = new MySqlDataAccess();
-        webSocketHandler = new WebSocketHandler();
+        ConnectionManager connectionManager = new ConnectionManager();
+        webSocketHandler = new WebSocketHandler(authDataAccess, connectionManager, gameDataAccess);
     }
 
 

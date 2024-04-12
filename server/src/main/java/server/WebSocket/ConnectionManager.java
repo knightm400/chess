@@ -6,7 +6,7 @@ import org.eclipse.jetty.websocket.api.Session;
 import java.util.Map;
 
 public class ConnectionManager {
-    private final Map<Session, Connection> connections = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Session, Connection> connections = new ConcurrentHashMap<>();
 
     public void add(Session session, Connection connection) {
         connections.put(session, connection);
@@ -33,12 +33,8 @@ public class ConnectionManager {
     }
 
     public void broadcastMessage(String message) {
-        for (Connection connection : connections.values()) {
-            try {
-                connection.getSession().getRemote().sendString(message);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        for (Session session : connections.keySet()) {
+            sendMessage(session, message);
         }
     }
 }
