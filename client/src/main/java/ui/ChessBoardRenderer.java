@@ -118,8 +118,8 @@ public class ChessBoardRenderer {
             System.out.print('f' + "\u2003" + "\u2004" + "\u2005");
             System.out.print('e' + "\u2003" + "\u2004" + "\u2005" + "\u2009");
             System.out.print('d' + "\u2003" + "\u2004" + "\u2005");
-            System.out.print('b' + "\u2003" + "\u2004" + "\u2005");
             System.out.print('c' + "\u2003" + "\u2004" + "\u2005");
+            System.out.print('b' + "\u2003" + "\u2004" + "\u2005");
             System.out.print('a' + "\u2003" + "\u2004" + "\u2005");
             System.out.println();
         }

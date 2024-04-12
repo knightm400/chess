@@ -21,23 +21,17 @@ public class Gameplay {
     private ChessGame chessGame;
     private ChessBoardRenderer chessBoardRenderer;
     private int gameId;
-    private String playerName;
-
-    private void notifyUsers(String message) {
-        System.out.println(message);
-    }
 
     public Gameplay(ServerFacade serverFacade) throws Exception {
         this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
         this.playerColor = ChessGame.TeamColor.WHITE;
         this.serverFacade = serverFacade;
         this.chessGame = new ChessGame();
-        this.playerName = playerName;
-        initializechessBoard();
+        initializeChessBoard();
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
     }
 
-    private void initializechessBoard() {
+    public void initializeChessBoard() {
         ChessBoard board = new ChessBoard();
         board.resetBoard();
         this.chessGame.setBoard(board);
@@ -45,7 +39,8 @@ public class Gameplay {
 
     public void enterGameplayLoop() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter 'Help' to know what other actions to take");
+        System.out.println("To make a move, enter the position of the piece and the position you want to move to in the format 'e2 e4'.");
+        System.out.println("Enter 'Help' to know what other actions you can take.");
         while (true) {
             String command = scanner.nextLine();
             if ("leave".equalsIgnoreCase(command)) {
@@ -85,24 +80,18 @@ public class Gameplay {
     public void joinGameAsPlayer(int gameId, ChessGame.TeamColor playerColor) throws Exception {
         this.gameId = gameId;
         this.playerColor = playerColor;
-        this.playerName = playerName;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
         drawChessboard();
-        sendNotification(playerName + " has joined the game as " + (playerColor == ChessGame.TeamColor.WHITE ? "White" : "Black"));
-    }
-
-    private void sendNotification(String message) {
-        System.out.println(message);
     }
 
     public void joinGameAsObserver(int gameId) throws Exception {
         this.gameId = gameId;
+        this.playerColor = ChessGame.TeamColor.WHITE;
         String authToken = "someAuthToken";
         webSocketClient.joinGameAsObserver(authToken, gameId);
         drawChessboard();
-        sendNotification(observerName + " has joined the game as an observer.");
     }
 
     public void makeMove(int gameId, ChessMove move) throws Exception {
@@ -121,23 +110,25 @@ public class Gameplay {
                 String authToken = "someAuthToken";
                 webSocketClient.resignGame(authToken, this.gameId);
                 System.out.println("You have resigned from the game.");
+                drawChessboard();
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Error resigning from the game: " + e.getMessage());
             }
         } else {
             System.out.println("Resignation cancelled.");
+            drawChessboard();
         }
     }
 
     public static void displayHelp() {
         System.out.println("Available Commands:");
-        System.out.println("- Help: Displays this message.");
-        System.out.println("- Redraw Chess Board: Redraws the chessboard.");
-        System.out.println("- Leave: Exits the current game.");
+        System.out.println("- 'Help': Displays this message.");
+        System.out.println("- 'Redraw': Redraws the chessboard.");
+        System.out.println("- 'Leave': Exits the current game.");
+        System.out.println("- 'Resign': Resign from the game.");
+        System.out.println("- 'Highlight': Enter the position of the piece to highlight its legal moves.");
         System.out.println("- Make Move: Make a move in the format 'e2 e4'.");
-        System.out.println("- Resign: Resign from the game.");
-        System.out.println("- Highlight: Enter the position of the piece to highlight its legal moves.");
     }
 
     public void processCommand(String command) {
@@ -147,6 +138,8 @@ public class Gameplay {
                 break;
             case "redraw":
                 System.out.println("Redrawing the chessboard...");
+                initializeChessBoard();
+                chessGame.resetTurn();
                 chessBoardRenderer.clearHighlights();
                 drawChessboard();
                 break;

@@ -224,6 +224,10 @@ public class ChessGame {
         return true;
     }
 
+    public void resetTurn() {
+        this.teamTurn = TeamColor.WHITE;
+    }
+
     /**
      * Sets this game's chessboard with a given board
      *
