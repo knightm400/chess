@@ -9667,3 +9667,4 @@
   <thread>1</thread>
   <message>Joining a game failed in PostLogin: The connection has been closed.</message>
 </record>
+</log>
