@@ -14,7 +14,9 @@ import webSocketMessages.userCommands.*;
 import javax.websocket.ClientEndpoint;
 import javax.websocket.Endpoint;
 import javax.websocket.*;
+import java.io.IOException;
 import java.net.URI;
+import java.util.logging.Level;
 
 @ClientEndpoint
 public class WebSocketClient extends Endpoint {
@@ -64,6 +66,10 @@ public class WebSocketClient extends Endpoint {
         System.out.println("Connected to server");
     }
 
+    public Session getSession() {
+        return this.session;
+    }
+
     private void handleServerMessage(String message) {
         ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
         switch(serverMessage.getServerMessageType()) {
@@ -89,10 +95,10 @@ public class WebSocketClient extends Endpoint {
 
     public void sendUserCommand(UserGameCommand command) throws Exception {
         if (this.session == null || !this.session.isOpen()) {
-            throw new IllegalStateException("Cannot send message. WebSocket is not connected.");
+            connect();
         }
         String message = gson.toJson(command);
-        this.session.getBasicRemote().sendText(message);
+        this.session.getAsyncRemote().sendText(message);
     }
 
     public void joinGameAsPlayer(String authToken, int gameId, ChessGame.TeamColor playerColor) throws Exception {
@@ -131,7 +137,6 @@ public class WebSocketClient extends Endpoint {
             System.out.println("WebSocket connection closed.");
         }
     }
-
     public static void main(String[] args) throws Exception {
         String serverUri = "ws://localhost:8080/connect";
         ServerFacade serverFacade = new ServerFacade();

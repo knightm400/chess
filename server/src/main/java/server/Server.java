@@ -3,7 +3,6 @@ package server;
 import dataAccess.*;
 import server.WebSocket.ConnectionManager;
 import spark.*;
-import org.eclipse.jetty.websocket.api.Session;
 import java.sql.SQLException;
 import server.WebSocket.WebSocketHandler;
 

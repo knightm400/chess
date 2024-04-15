@@ -36,7 +36,7 @@ public class ConnectionManager {
                 logger.log(Level.SEVERE, "Error sending message to WebSocket", e);
                 try {
                     session.close();
-                } catch (Exception ex) { 
+                } catch (Exception ex) {
                     logger.log(Level.SEVERE, "Error closing WebSocket session", ex);
                 }
                 connections.remove(session);

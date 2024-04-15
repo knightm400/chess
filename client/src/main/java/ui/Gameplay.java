@@ -19,13 +19,26 @@ public class Gameplay {
     private ChessBoardRenderer chessBoardRenderer;
     private int gameId;
 
+    public void initializeWebSocket() throws Exception {
+        if (this.webSocketClient == null || !this.webSocketClient.getSession().isOpen()) {
+            this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect", this);
+            System.out.println("WebSocket initialized and connected.");
+        } else {
+            System.out.println("WebSocket already connected.");
+        }
+    }
+
     public Gameplay(ServerFacade serverFacade) throws Exception {
         this.playerColor = ChessGame.TeamColor.WHITE;
         this.serverFacade = serverFacade;
         this.chessGame = new ChessGame();
         initializeChessBoard();
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
-        this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect", this);
+        try {
+            initializeWebSocket();
+        } catch (Exception e) {
+            System.out.println("Failed to initialize WebSocket: " + e.getMessage());
+        }
     }
 
     public void updateGameFromServer(GameData gameData) {

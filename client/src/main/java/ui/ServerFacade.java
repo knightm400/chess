@@ -1,6 +1,7 @@
 package ui;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -24,7 +25,6 @@ public class ServerFacade {
     private static final Gson gson = new Gson();
     private static final Logger logger = Logger.getLogger(ServerFacade.class.getName());
     private String authToken =  null;
-    private ConnectionManager connectionManager;
     private WebSocketClientHandler webSocketClientHandler;
 
     public void setAuthToken(String newAuthToken) {
@@ -41,12 +41,15 @@ public class ServerFacade {
     }
 
     public ServerFacade() {
-        connectionManager = new ConnectionManager();
-        webSocketClientHandler = new WebSocketClientHandler(connectionManager);
+        webSocketClientHandler = new WebSocketClientHandler();
     }
 
     public void sendWebSocketMessage(String message) {
-        connectionManager.broadcastMessage(message);
+        try {
+            webSocketClientHandler.sendMessage(message);
+        } catch (IOException e) {
+            logger.severe("Failed to send WebSocket message: " + e.getMessage());
+        }
     }
 
     public void handleWebSocketMessage(String message, Session session) {

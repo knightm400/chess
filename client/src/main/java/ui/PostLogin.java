@@ -52,7 +52,7 @@ public class PostLogin {
                 case "2":
                     logger.info("User chose to logout in PostLogin.");
                     logout();
-                    running = false; // Assuming the transition to PreLogin will happen after logout
+                    running = false;
                     break;
                 case "3":
                     logger.info("User chose to create a game in PostLogin.");
@@ -210,6 +210,7 @@ public class PostLogin {
                 System.out.println("Initial Chessboard Layout:");
                 Gameplay gameplay = new Gameplay(this.serverFacade);
                 gameplay.joinGameAsObserver(gameId);
+                gameplay.enterGameplayLoop();
             } else {
                 logger.warning("Failed to join game as observer.");
                 System.out.println("Failed to join the game as an observer. Please try again.");

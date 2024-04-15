@@ -1,7 +1,6 @@
 package server.WebSocket;
 import model.AuthData;
 import org.eclipse.jetty.websocket.api.Session;
-import model.UserData;
 
 public class Connection {
     private final Session session;

@@ -7,8 +7,6 @@ import model.AuthData;
 import model.GameData;
 import org.eclipse.jetty.websocket.api.*;
 import com.google.gson.Gson;
-import server.WebSocket.Connection;
-import server.WebSocket.ConnectionManager;
 import webSocketMessages.userCommands.JoinPlayerCommand;
 import webSocketMessages.userCommands.JoinObserverCommand;
 import webSocketMessages.userCommands.MakeMoveCommand;
@@ -24,7 +22,6 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import java.util.List;
 
 import java.io.IOException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebSocket
