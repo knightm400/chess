@@ -35,7 +35,7 @@ public class WebSocketClientHandler {
     }
 
     private void processMessage(String message, Session session) throws IOException {
-        connectionManager.sendMessage(session, "Echo: " + message);
+        connectionManager.sendMessage(session, message);
     }
 
     public void handleClose(Session session, int statusCode, String reason) {

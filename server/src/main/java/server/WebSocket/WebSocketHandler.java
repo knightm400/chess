@@ -24,6 +24,8 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import java.util.List;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebSocket
 public class WebSocketHandler {
@@ -31,6 +33,7 @@ public class WebSocketHandler {
     private final ConnectionManager connectionManager;
     private final AuthDataAccess authDataAccess;
     private final GameDataAccess gameDataAccess;
+    private static final Logger logger = Logger.getLogger(WebSocketHandler.class.getName());
 
     public WebSocketHandler(AuthDataAccess authDataAccess, ConnectionManager connectionManager, GameDataAccess gameDataAccess) {
         this.authDataAccess = authDataAccess;
@@ -51,7 +54,7 @@ public class WebSocketHandler {
             if (authData != null) {
                 Connection connection = new Connection(session, authData);
                 connectionManager.add(session, connection);
-                session.getRemote().sendString(gson.toJson(new GenericMessage("Welcome!")));
+                session.getRemote().sendString(gson.toJson("Welcome!"));
             } else {
                 session.close(new CloseStatus(1008, "Authentication failed"));
             }
@@ -69,7 +72,7 @@ public class WebSocketHandler {
 
     @OnWebSocketClose
     public void onClose(Session session, int statusCode, String reason) {
-        System.out.println("Closed connection: " + session.getRemoteAddress().getAddress() + ", Reason: " + reason);
+        logger.info("Websocket connection closed: " + session.getRemoteAddress().getAddress() + ", Reason: " + reason);
         connectionManager.remove(session);
     }
 
@@ -105,6 +108,7 @@ public class WebSocketHandler {
                     break;
             }
         } catch (Exception e) {
+            e.printStackTrace();
             try {
                 session.getRemote().sendString(gson.toJson(new ErrorMessage("Error processing your command: " + e.getMessage())));
             } catch (IOException ioException) {
@@ -124,21 +128,15 @@ public class WebSocketHandler {
                 session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found or access denied")));
             }
         } catch (DataAccessException e) {
-            try {
-                session.getRemote().sendString(gson.toJson(new ErrorMessage("Database error: " + e.getMessage())));
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            session.getRemote().sendString(gson.toJson(new ErrorMessage("Database error: " + e.getMessage())));
         }
     }
 
     private void handleJoinObserver(Session session, UserGameCommand command) throws IOException {
-        if (!(command instanceof JoinObserverCommand)) return;
         JoinObserverCommand observerCommand = (JoinObserverCommand) command;
         try {
             GameData gameData = gameDataAccess.getGame(observerCommand.getGameId());
             if (gameData != null) {
-                String username = connectionManager.getConnection(session).getAuthData().username();
                 session.getRemote().sendString(gson.toJson(new LoadGameMessage(gameData)));
             } else {
                 session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found")));
@@ -149,15 +147,16 @@ public class WebSocketHandler {
     }
 
     private void handleMakeMove(Session session, UserGameCommand command, String message) throws IOException {
-        if (!(command instanceof MakeMoveCommand)) return;
         MakeMoveCommand moveCommand = (MakeMoveCommand) command;
         try {
             GameData gameData = gameDataAccess.getGame(moveCommand.getGameId());
-            String confirmationMessage = "Move received and processed successfully!";
-            session.getRemote().sendString(confirmationMessage);
+            if (gameData != null) {
+                session.getRemote().sendString(gson.toJson(new LoadGameMessage(gameData)));
+            } else {
+                session.getRemote().sendString(gson.toJson(new ErrorMessage("Unable to make move")));
+            }
         } catch (DataAccessException e) {
             session.getRemote().sendString(gson.toJson(new ErrorMessage("Database error: " + e.getMessage())));
-
         }
     }
 
