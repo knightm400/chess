@@ -21,40 +21,49 @@ import java.util.logging.Level;
 @ClientEndpoint
 public class WebSocketClient extends Endpoint {
     private Session session;
+    private static volatile WebSocketClient instance;
     private final Gson gson = new Gson();
-    private final String serverUri;
+    private final String serverUri = "ws://localhost:8080/connect";
     private ui.Gameplay gameplay;
 
-    public WebSocketClient(String serverUri, ui.Gameplay gameplay) throws Exception {
-        this.serverUri = serverUri;
-        this.gameplay = gameplay;
+    private WebSocketClient() throws Exception {
         connect();
     }
 
-    private void connect() throws Exception {
+    public static WebSocketClient getInstance() throws Exception {
+        if (instance == null) {
+            synchronized (WebSocketClient.class) {
+                if (instance == null) {
+                    instance = new WebSocketClient();
+                }
+            }
+        }
+        return instance;
+    }
+
+    private synchronized void connect() throws Exception {
+        if (session != null && session.isOpen()) {
+            System.out.println("Connection is already open.");
+            return;
+        }
+
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         int retryCount = 0;
         final int MAX_RETRIES = 5;
 
-        while (true) {
+        while (session == null || !session.isOpen()) {
             try {
-                this.session = container.connectToServer(this, new URI(serverUri));
-                this.session.addMessageHandler(new MessageHandler.Whole<String>() {
-                    @Override
-                    public void onMessage(String message) {
-                        handleServerMessage(message);
-                    }
-                });
+                session = container.connectToServer(this, new URI(serverUri));
+                session.addMessageHandler(String.class, this::handleServerMessage);
                 System.out.println("Connected to server");
                 break;
             } catch (Exception e) {
                 retryCount++;
                 if (retryCount > MAX_RETRIES) {
                     System.out.println("Failed to connect after " + MAX_RETRIES + " attempts.");
-                    throw e;
+                    throw new Exception("Unable to establish WebSocket connection.");
                 }
-                e.printStackTrace();
-                System.out.println("Connection failed, retrying in 5 seconds...");
+                System.out.println("Connection attempt failed, retrying...");
                 Thread.sleep(5000);
             }
         }
@@ -64,6 +73,7 @@ public class WebSocketClient extends Endpoint {
     @Override
     public void onOpen(Session session, EndpointConfig config) {
         System.out.println("Connected to server");
+        this.session = session;
     }
 
     public Session getSession() {
@@ -98,7 +108,7 @@ public class WebSocketClient extends Endpoint {
             connect();
         }
         String message = gson.toJson(command);
-        this.session.getAsyncRemote().sendText(message);
+        session.getAsyncRemote().sendText(message);
     }
 
     public void joinGameAsPlayer(String authToken, int gameId, ChessGame.TeamColor playerColor) throws Exception {
@@ -138,10 +148,16 @@ public class WebSocketClient extends Endpoint {
         }
     }
     public static void main(String[] args) throws Exception {
-        String serverUri = "ws://localhost:8080/connect";
-        ServerFacade serverFacade = new ServerFacade();
-        Gameplay gameplay = new Gameplay(serverFacade);
-        WebSocketClient client = new WebSocketClient(serverUri, gameplay);
-        client.joinGameAsPlayer("yourAuthTokenHere", 1, ChessGame.TeamColor.WHITE);
+        try {
+            WebSocketClient client = WebSocketClient.getInstance();
+
+            String serverUri = "ws://localhost:8080/connect";
+            ServerFacade serverFacade = new ServerFacade();
+            Gameplay gameplay = new Gameplay(serverFacade);
+            client.joinGameAsPlayer("yourAuthTokenHere", 1, ChessGame.TeamColor.WHITE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

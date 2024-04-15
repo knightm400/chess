@@ -56,14 +56,8 @@ public class WebSocketHandler {
                 session.close(new CloseStatus(1008, "Authentication failed"));
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            if (session.isOpen()) {
-                try {
-                    session.close(new CloseStatus(1011, "An error occurred"));
-                } catch (Exception generalException) {
-                    generalException.printStackTrace();
-                }
-            }
+            logger.severe("Error during WebSocket connection: " + e.getMessage());
+            safelyCloseSession(session, 1011, "An error occurred");
         }
     }
 
@@ -76,6 +70,10 @@ public class WebSocketHandler {
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
         try {
+            if (session == null || !session.isOpen()) {
+                logger.warning("Session is closed or null, cannot process message");
+                return;
+            }
             UserGameCommand command = gson.fromJson(message, UserGameCommand.class);
             Connection connection = connectionManager.getConnection(session);
             if (connection == null || connection.getAuthData() == null) {
@@ -105,11 +103,17 @@ public class WebSocketHandler {
                     break;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.severe("Error processing WebSocket message: " + e.getMessage());
+            safelyCloseSession(session, 1011, "Error processing your command");
+        }
+    }
+
+    private void safelyCloseSession(Session session, int statusCode, String reason) {
+        if (session != null && session.isOpen()) {
             try {
-                session.getRemote().sendString(gson.toJson(new ErrorMessage("Error processing your command: " + e.getMessage())));
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
+                session.close(new CloseStatus(statusCode, reason));
+            } catch (Exception e) {
+                logger.severe("Failed to close session: " + e.getMessage());
             }
         }
     }
