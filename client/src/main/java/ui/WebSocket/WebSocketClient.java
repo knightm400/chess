@@ -3,6 +3,8 @@ package ui.WebSocket;
 import chess.ChessGame;
 import chess.ChessMove;
 import com.google.gson.Gson;
+import ui.Gameplay;
+import ui.ServerFacade;
 import webSocketMessages.serverMessages.ServerMessage;
 import webSocketMessages.serverMessages.LoadGameMessage;
 import webSocketMessages.serverMessages.ErrorMessage;
@@ -18,28 +20,42 @@ import java.net.URI;
 public class WebSocketClient extends Endpoint {
     private Session session;
     private final Gson gson = new Gson();
+    private final String serverUri;
     private ui.Gameplay gameplay;
 
     public WebSocketClient(String serverUri, ui.Gameplay gameplay) throws Exception {
+        this.serverUri = serverUri;
         this.gameplay = gameplay;
-        connect(serverUri);
+        connect();
     }
 
-    // Overloaded constructor without Gameplay instance
-    public WebSocketClient(String serverUri) throws Exception {
-        this.gameplay = null;  // No Gameplay instance available
-        connect(serverUri);
-    }
-
-    private void connect(String serverUri) throws Exception {
+    private void connect() throws Exception {
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-        this.session = container.connectToServer(this, new URI(serverUri));
-        this.session.addMessageHandler(new MessageHandler.Whole<String>() {
-            @Override
-            public void onMessage(String message) {
-                handleServerMessage(message);
+        int retryCount = 0;
+        final int MAX_RETRIES = 5;
+
+        while (true) {
+            try {
+                this.session = container.connectToServer(this, new URI(serverUri));
+                this.session.addMessageHandler(new MessageHandler.Whole<String>() {
+                    @Override
+                    public void onMessage(String message) {
+                        handleServerMessage(message);
+                    }
+                });
+                System.out.println("Connected to server");
+                break;
+            } catch (Exception e) {
+                retryCount++;
+                if (retryCount > MAX_RETRIES) {
+                    System.out.println("Failed to connect after " + MAX_RETRIES + " attempts.");
+                    throw e;
+                }
+                e.printStackTrace();
+                System.out.println("Connection failed, retrying in 5 seconds...");
+                Thread.sleep(5000);
             }
-        });
+        }
     }
 
 
@@ -54,7 +70,7 @@ public class WebSocketClient extends Endpoint {
             case LOAD_GAME:
                 if (gameplay != null) {
                     LoadGameMessage loadGameMessage = gson.fromJson(message, LoadGameMessage.class);
-                    gameplay.updateGame(loadGameMessage.getGame());
+                    gameplay.updateGameFromServer(loadGameMessage.getGame());
                     gameplay.drawChessboard();
                 } else {
                     System.out.println("Gameplay instance not available, cannot update game.");
@@ -72,11 +88,12 @@ public class WebSocketClient extends Endpoint {
     }
 
     public void sendUserCommand(UserGameCommand command) throws Exception {
+        if (this.session == null || !this.session.isOpen()) {
+            throw new IllegalStateException("Cannot send message. WebSocket is not connected.");
+        }
         String message = gson.toJson(command);
         this.session.getBasicRemote().sendText(message);
     }
-
-
 
     public void joinGameAsPlayer(String authToken, int gameId, ChessGame.TeamColor playerColor) throws Exception {
         JoinPlayerCommand joinCommand = new JoinPlayerCommand(authToken, gameId, playerColor);
@@ -115,11 +132,11 @@ public class WebSocketClient extends Endpoint {
         }
     }
 
-
-
-
     public static void main(String[] args) throws Exception {
-        WebSocketClient client = new WebSocketClient("ws://localhost:8080/connect");
+        String serverUri = "ws://localhost:8080/connect";
+        ServerFacade serverFacade = new ServerFacade();
+        Gameplay gameplay = new Gameplay(serverFacade);
+        WebSocketClient client = new WebSocketClient(serverUri, gameplay);
         client.joinGameAsPlayer("yourAuthTokenHere", 1, ChessGame.TeamColor.WHITE);
     }
 }

@@ -6,7 +6,6 @@ import dataAccess.GameDataAccess;
 import model.AuthData;
 import model.GameData;
 import org.eclipse.jetty.websocket.api.*;
-import org.eclipse.jetty.websocket.api.annotations.*;
 import com.google.gson.Gson;
 import server.WebSocket.Connection;
 import server.WebSocket.ConnectionManager;
@@ -16,6 +15,12 @@ import webSocketMessages.userCommands.MakeMoveCommand;
 import webSocketMessages.userCommands.UserGameCommand;
 import webSocketMessages.serverMessages.ErrorMessage;
 import webSocketMessages.serverMessages.LoadGameMessage;
+import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.api.annotations.WebSocket;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
+
 import java.util.List;
 
 import java.io.IOException;
@@ -114,7 +119,6 @@ public class WebSocketHandler {
             GameData gameData = gameDataAccess.getGame(joinCommand.getGameId());
             if (gameData != null) {
                 String username = connectionManager.getConnection(session).getAuthData().username();
-                // Additional logic for checking if the user can join this game
                 session.getRemote().sendString(gson.toJson(new LoadGameMessage(gameData)));
             } else {
                 session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found or access denied")));
@@ -135,7 +139,6 @@ public class WebSocketHandler {
             GameData gameData = gameDataAccess.getGame(observerCommand.getGameId());
             if (gameData != null) {
                 String username = connectionManager.getConnection(session).getAuthData().username();
-                // Logic for observer joining
                 session.getRemote().sendString(gson.toJson(new LoadGameMessage(gameData)));
             } else {
                 session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found")));

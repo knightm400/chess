@@ -20,12 +20,12 @@ public class Gameplay {
     private int gameId;
 
     public Gameplay(ServerFacade serverFacade) throws Exception {
-        this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect");
         this.playerColor = ChessGame.TeamColor.WHITE;
         this.serverFacade = serverFacade;
         this.chessGame = new ChessGame();
         initializeChessBoard();
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
+        this.webSocketClient = new WebSocketClient("ws://localhost:8080/connect", this);
     }
 
     public void updateGameFromServer(GameData gameData) {
@@ -109,8 +109,13 @@ public class Gameplay {
     public void makeMove(int gameId, ChessMove move) throws Exception {
         ChessPosition startPosition = move.getStartPosition();
         ChessPiece piece = chessGame.getBoard().getPiece(startPosition);
-        if (piece != null && piece.getTeamColor() == playerColor && playerColor == chessGame.getTeamTurn()) {
-            System.out.println("You cannot move the opponent's pieces.");
+        if (piece != null && piece.getTeamColor() == playerColor) {
+            if (playerColor != chessGame.getTeamTurn()) {
+                System.out.println("It's not your turn.");
+                return;
+            }
+        } else {
+            System.out.println("You cannot move the opponent's pieces or no piece at that position.");
             return;
         }
         try {

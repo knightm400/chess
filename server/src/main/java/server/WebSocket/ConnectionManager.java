@@ -2,7 +2,7 @@ package server.WebSocket;
 
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
-import org.eclipse.jetty.websocket.api.Session;
+import javax.websocket.Session;
 import java.util.Map;
 
 public class ConnectionManager {
@@ -24,7 +24,9 @@ public class ConnectionManager {
         Connection connection = connections.get(session);
         if (connection != null) {
             try {
-                session.getRemote().sendString(message);
+                if (session.isOpen()) {
+                    session.getBasicRemote().sendText(message);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
                 connections.remove(session);

@@ -6093,3 +6093,490 @@
   <message>Login successful for user: meganaknight</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-12T23:58:10.094596300Z</date>
+  <millis>1712966290094</millis>
+  <nanos>596300</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:12.639554400Z</date>
+  <millis>1712966292639</millis>
+  <nanos>554400</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:12.640560300Z</date>
+  <millis>1712966292640</millis>
+  <nanos>560300</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:16.108067Z</date>
+  <millis>1712966296108</millis>
+  <nanos>67000</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: meganaknight; Reason: Server returned HTTP response code: 401 for URL: http://localhost:8080/session</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:30.891529800Z</date>
+  <millis>1712966310891</millis>
+  <nanos>529800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:30.892541600Z</date>
+  <millis>1712966310892</millis>
+  <nanos>541600</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:34.455499400Z</date>
+  <millis>1712966314455</millis>
+  <nanos>499400</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login failed for user: meganaknight; Reason: Server returned HTTP response code: 401 for URL: http://localhost:8080/session</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:36.652200700Z</date>
+  <millis>1712966316652</millis>
+  <nanos>200700</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:36.653196900Z</date>
+  <millis>1712966316653</millis>
+  <nanos>196900</nanos>
+  <sequence>10</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-04-12T23:58:45.486281100Z</date>
+  <millis>1712966325486</millis>
+  <nanos>281100</nanos>
+  <sequence>12</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration successful for user: meganaknight</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-13T00:10:42.380839800Z</date>
+  <millis>1712967042380</millis>
+  <nanos>839800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-13T00:10:50.972688700Z</date>
+  <millis>1712967050972</millis>
+  <nanos>688700</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-13T00:10:50.973845200Z</date>
+  <millis>1712967050973</millis>
+  <nanos>845200</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-13T00:10:54.749769100Z</date>
+  <millis>1712967054749</millis>
+  <nanos>769100</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: meganaknight</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-13T00:21:51.638796500Z</date>
+  <millis>1712967711638</millis>
+  <nanos>796500</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-13T00:22:59.140141400Z</date>
+  <millis>1712967779140</millis>
+  <nanos>141400</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-13T00:22:59.141143800Z</date>
+  <millis>1712967779141</millis>
+  <nanos>143800</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-13T00:23:03.762757100Z</date>
+  <millis>1712967783762</millis>
+  <nanos>757100</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: meganaknight</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-13T00:32:11.785315200Z</date>
+  <millis>1712968331785</millis>
+  <nanos>315200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-15T03:55:58.793726300Z</date>
+  <millis>1713153358793</millis>
+  <nanos>726300</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-15T03:56:10.852206900Z</date>
+  <millis>1713153370852</millis>
+  <nanos>206900</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-15T03:56:10.852206900Z</date>
+  <millis>1713153370852</millis>
+  <nanos>206900</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-15T03:56:14.672874600Z</date>
+  <millis>1713153374672</millis>
+  <nanos>874600</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: meganaknight</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-15T03:56:36.506785Z</date>
+  <millis>1713153396506</millis>
+  <nanos>785000</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-15T03:56:39.863182Z</date>
+  <millis>1713153399863</millis>
+  <nanos>182000</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-15T03:56:39.864271900Z</date>
+  <millis>1713153399864</millis>
+  <nanos>271900</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-15T03:56:43.561650300Z</date>
+  <millis>1713153403561</millis>
+  <nanos>650300</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: meganaknight</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-15T03:59:15.686695Z</date>
+  <millis>1713153555686</millis>
+  <nanos>695000</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-15T03:59:18.601487300Z</date>
+  <millis>1713153558601</millis>
+  <nanos>487300</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-15T03:59:18.601487300Z</date>
+  <millis>1713153558601</millis>
+  <nanos>487300</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-15T03:59:22.411864600Z</date>
+  <millis>1713153562411</millis>
+  <nanos>864600</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: meganaknight</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-15T04:24:47.640506200Z</date>
+  <millis>1713155087640</millis>
+  <nanos>506200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-15T04:24:52.781423900Z</date>
+  <millis>1713155092781</millis>
+  <nanos>423900</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 1</message>
+</record>
+<record>
+  <date>2024-04-15T04:24:52.782333Z</date>
+  <millis>1713155092782</millis>
+  <nanos>333000</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying help information.</message>
+</record>
+<record>
+  <date>2024-04-15T04:24:52.782333Z</date>
+  <millis>1713155092782</millis>
+  <nanos>333000</nanos>
+  <sequence>3</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayHelp</method>
+  <thread>1</thread>
+  <message>Providing help information to the user.</message>
+</record>
+<record>
+  <date>2024-04-15T04:24:56.911425500Z</date>
+  <millis>1713155096911</millis>
+  <nanos>425500</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-15T04:24:56.913388800Z</date>
+  <millis>1713155096913</millis>
+  <nanos>388800</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-15T04:25:02.267429Z</date>
+  <millis>1713155102267</millis>
+  <nanos>429000</nanos>
+  <sequence>8</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: meganaknight</message>
+</record>

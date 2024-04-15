@@ -14,13 +14,18 @@ import java.util.logging.Logger;
 import com.google.gson.Gson;
 import model.GameData;
 import model.MessageResponse;
+import server.WebSocket.ConnectionManager;
 import service.Result.*;
 
+import javax.websocket.Session;
+import ui.WebSocket.WebSocketClientHandler;
 public class ServerFacade {
     private String SERVER_BASE_URL = "http://localhost:8080";
     private static final Gson gson = new Gson();
     private static final Logger logger = Logger.getLogger(ServerFacade.class.getName());
     private String authToken =  null;
+    private ConnectionManager connectionManager;
+    private WebSocketClientHandler webSocketClientHandler;
 
     public void setAuthToken(String newAuthToken) {
         this.authToken = newAuthToken;
@@ -33,6 +38,19 @@ public class ServerFacade {
         } catch (Exception e) {
             logger.severe("Failed to initialize log file handler.");
         }
+    }
+
+    public ServerFacade() {
+        connectionManager = new ConnectionManager();
+        webSocketClientHandler = new WebSocketClientHandler(connectionManager);
+    }
+
+    public void sendWebSocketMessage(String message) {
+        connectionManager.broadcastMessage(message);
+    }
+
+    public void handleWebSocketMessage(String message, Session session) {
+        System.out.println("Received WebSocket message: " + message);
     }
 
     public String clearData() throws Exception {
