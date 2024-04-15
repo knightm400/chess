@@ -22,11 +22,9 @@ public class ConnectionManager {
 
     public void sendMessage(Session session, String message) {
         Connection connection = connections.get(session);
-        if (connection != null) {
+        if (connection != null && session.isOpen()) {
             try {
-                if (session.isOpen()) {
-                    session.getBasicRemote().sendText(message);
-                }
+                session.getBasicRemote().sendText(message);
             } catch (IOException e) {
                 e.printStackTrace();
                 connections.remove(session);
