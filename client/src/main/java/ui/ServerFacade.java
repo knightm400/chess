@@ -358,6 +358,7 @@ public class ServerFacade {
         return this.authToken;
     }
 
+
     public void setServerBaseUrl(String baseUrl) {
         SERVER_BASE_URL = baseUrl;
     }
