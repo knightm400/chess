@@ -172,10 +172,8 @@ public class PostLogin {
             if (result != null && result.success()) {
                 logger.info("Successfully joined game " + gameId + " as " + playerColor + " in PostLogin.");
                 System.out.println("Successfully joined game " + gameId + " as " + playerColor + ".");
-                System.out.println("Initial Chessboard Layout:");
                 Gameplay gameplay = new Gameplay(this.serverFacade);
                 gameplay.joinGameAsPlayer(gameId, playerColor);
-                gameplay.enterGameplayLoop();
             } else {
                 logger.warning("Failed to join game in PostLogin.");
                 System.out.println("Failed to join the game. Please try again.");

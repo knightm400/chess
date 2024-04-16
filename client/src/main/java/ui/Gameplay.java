@@ -11,7 +11,6 @@ import java.util.List;
 import static ui.EscapeSequences.*;
 
 public class Gameplay {
-    private static final String emSpace = EscapeSequences.EMPTY;
     private WebSocketClient webSocketClient;
     private ChessGame.TeamColor playerColor;
     private ServerFacade serverFacade;
@@ -102,22 +101,24 @@ public class Gameplay {
     public void joinGameAsPlayer(int gameId, ChessGame.TeamColor playerColor) throws Exception {
         this.gameId = gameId;
         this.playerColor = playerColor;
-        String authToken = "someAuthToken";
+        String authToken = serverFacade.getAuthToken();
         webSocketClient.joinGameAsPlayer(authToken, gameId, playerColor);
         this.chessBoardRenderer = new ChessBoardRenderer(this.chessGame, this.playerColor);
         this.chessGame.setTeamTurn(ChessGame.TeamColor.WHITE);
         drawChessboard();
+        enterGameplayLoop();
     }
 
     public void joinGameAsObserver(int gameId) throws Exception {
         this.gameId = gameId;
         this.playerColor = ChessGame.TeamColor.WHITE;
-        String authToken = "someAuthToken";
+        String authToken = serverFacade.getAuthToken();
         webSocketClient.joinGameAsObserver(authToken, gameId);
         drawChessboard();
     }
 
     public void makeMove(int gameId, ChessMove move) throws Exception {
+        String authToken = serverFacade.getAuthToken();
         ChessPosition startPosition = move.getStartPosition();
         ChessPiece piece = chessGame.getBoard().getPiece(startPosition);
         if (piece != null && piece.getTeamColor() == playerColor) {
@@ -147,7 +148,7 @@ public class Gameplay {
         String response = scanner.nextLine().trim().toLowerCase();
         if ("yes".equals(response)) {
             try {
-                String authToken = "someAuthToken";
+                String authToken = serverFacade.getAuthToken();
                 webSocketClient.resignGame(authToken, this.gameId);
                 System.out.println("You have resigned from the game.");
                 drawChessboard();
@@ -232,7 +233,7 @@ public class Gameplay {
 
     public void leaveGame(int gameId) {
         try {
-            String authToken = "someAuthToken";
+            String authToken = serverFacade.getAuthToken();
             webSocketClient.leaveGame(authToken, gameId);
             System.out.println("You have left the game.");
             webSocketClient.closeConnection();

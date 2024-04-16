@@ -38,27 +38,10 @@ public class WebSocketHandler {
         this.gameDataAccess = gameDataAccess;
     }
 
+    //Should not set authToken here, should set it in UserGameCommand
     @OnWebSocketConnect
     public void onConnect(Session session) {
-        try {
-            List<String> tokens = session.getUpgradeRequest().getParameterMap().get("authToken");
-            if (tokens == null || tokens.isEmpty()) {
-                session.close(new CloseStatus(1008, "Authentication token is missing"));
-                return;
-            }
-            String token = tokens.get(0);
-            AuthData authData = authDataAccess.getAuth(token);
-            if (authData != null) {
-                Connection connection = new Connection(session, authData);
-                connectionManager.add(session, connection);
-                session.getRemote().sendString(gson.toJson("Welcome!"));
-            } else {
-                session.close(new CloseStatus(1008, "Authentication failed"));
-            }
-        } catch (Exception e) {
-            logger.severe("Error during WebSocket connection: " + e.getMessage());
-            safelyCloseSession(session, 1011, "An error occurred");
-        }
+        logger.info("WebSocket connection established");
     }
 
     @OnWebSocketClose
@@ -67,44 +50,66 @@ public class WebSocketHandler {
         connectionManager.remove(session);
     }
 
+    // Keep original string for serialization
+    // After you check what string it is, you need to deserialize to get the original string back
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
+        logger.info("Received message: " + message);
         try {
-            if (session == null || !session.isOpen()) {
-                logger.warning("Session is closed or null, cannot process message");
-                return;
-            }
             UserGameCommand command = gson.fromJson(message, UserGameCommand.class);
-            Connection connection = connectionManager.getConnection(session);
-            if (connection == null || connection.getAuthData() == null) {
+            if (authenticate(session, command.getAuthString())) {
+                processCommand(session, command, message);
+            } else {
                 session.getRemote().sendString(gson.toJson(new ErrorMessage("Authentication required")));
-                return;
-            }
-
-            AuthData authData = connection.getAuthData();
-            switch (command.getCommandType()) {
-                case JOIN_PLAYER:
-                    handleJoinPlayer(session, command);
-                    break;
-                case JOIN_OBSERVER:
-                    handleJoinObserver(session, command);
-                    break;
-                case MAKE_MOVE:
-                    handleMakeMove(session, command, message);
-                    break;
-                case LEAVE:
-                    // Implement logic to handle a player or observer leaving a game
-                    break;
-                case RESIGN:
-                    // Implement logic to handle a player resigning from a game
-                    break;
-                default:
-                    session.getRemote().sendString(gson.toJson(new ErrorMessage("Unknown command")));
-                    break;
             }
         } catch (Exception e) {
             logger.severe("Error processing WebSocket message: " + e.getMessage());
-            safelyCloseSession(session, 1011, "Error processing your command");
+            safelyCloseSession(session, 1011,"Error processing your command");
+        }
+    }
+
+    private boolean authenticate(Session session, String authToken) {
+        try {
+            AuthData authData = authDataAccess.getAuth(authToken);
+            if (authData != null) {
+                Connection connection = new Connection(session, authData);
+                connectionManager.add(session, connection);
+                logger.info("Authentication successful for token: " + authToken);
+                return true;
+            } else {
+                logger.warning("Failed to authenticate with token: " + authToken);
+                try {
+                    session.getRemote().sendString(gson.toJson(new ErrorMessage("Invalid authentication token")));
+                } catch (IOException e) {
+                    logger.severe("Failed to send authentication error message: " + e.getMessage());
+                }
+                return false;
+            }
+        } catch (DataAccessException e) {
+            logger.severe("Authentication failed: " + e.getMessage());
+            try {
+                session.getRemote().sendString(gson.toJson(new ErrorMessage("Authentication error: " + e.getMessage())));
+            } catch (IOException ioException) {
+                logger.severe("Failed to send error message: " + ioException.getMessage());
+            }
+            return false;
+        }
+    }
+
+    // Deserialize J
+    private void processCommand(Session session, UserGameCommand command, String message) throws IOException {
+        switch (command.getCommandType()) {
+            case JOIN_PLAYER:
+                JoinPlayerCommand joinPlayerCommand = gson.fromJson(message, JoinPlayerCommand.class);
+                handleJoinPlayer(session, joinPlayerCommand);
+                break;
+            case JOIN_OBSERVER:
+                break;
+            case MAKE_MOVE:
+                break;
+            default:
+                session.getRemote().sendString(gson.toJson(new ErrorMessage("Unknown command")));
+                break;
         }
     }
 
@@ -125,6 +130,7 @@ public class WebSocketHandler {
             if (gameData != null) {
                 String username = connectionManager.getConnection(session).getAuthData().username();
                 session.getRemote().sendString(gson.toJson(new LoadGameMessage(gameData)));
+                logger.info("Sending LoadGameMessage " + gson.toJson(new LoadGameMessage((gameData))));
             } else {
                 session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found or access denied")));
             }

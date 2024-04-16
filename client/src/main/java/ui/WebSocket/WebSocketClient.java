@@ -3,6 +3,8 @@ package ui.WebSocket;
 import chess.ChessGame;
 import chess.ChessMove;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import model.GameData;
 import ui.Gameplay;
 import ui.ServerFacade;
 import webSocketMessages.serverMessages.ServerMessage;
@@ -25,9 +27,18 @@ public class WebSocketClient extends Endpoint {
     private final Gson gson = new Gson();
     private final String serverUri = "ws://localhost:8080/connect";
     private ui.Gameplay gameplay;
+    private GameDataListener listener;
 
     private WebSocketClient() throws Exception {
         connect();
+    }
+
+    private void setGameDataListener(GameDataListener listener) {
+        this.listener = listener;
+    }
+
+    public interface GameDataListener {
+        void onGameDataReceived(GameData gameData);
     }
 
     public static WebSocketClient getInstance() throws Exception {
@@ -55,7 +66,6 @@ public class WebSocketClient extends Endpoint {
             try {
                 session = container.connectToServer(this, new URI(serverUri));
                 session.addMessageHandler(String.class, this::handleServerMessage);
-                System.out.println("Connected to server");
                 break;
             } catch (Exception e) {
                 retryCount++;
@@ -81,25 +91,35 @@ public class WebSocketClient extends Endpoint {
     }
 
     private void handleServerMessage(String message) {
-        ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
-        switch(serverMessage.getServerMessageType()) {
-            case LOAD_GAME:
-                if (gameplay != null) {
+        try {
+            System.out.println("Received message: " + message); // Log received message
+            ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
+            System.out.println("Parsed message type: " + serverMessage.getServerMessageType()); // Log message type
+
+            switch(serverMessage.getServerMessageType()) {
+                case LOAD_GAME:
                     LoadGameMessage loadGameMessage = gson.fromJson(message, LoadGameMessage.class);
-                    gameplay.updateGameFromServer(loadGameMessage.getGame());
-                    gameplay.drawChessboard();
-                } else {
-                    System.out.println("Gameplay instance not available, cannot update game.");
-                }
-                break;
-            case ERROR:
-                ErrorMessage errorMessage = gson.fromJson(message, ErrorMessage.class);
-                System.out.println("Error: " + errorMessage.getErrorMessage());
-                break;
-            case NOTIFICATION:
-                NotificationMessage notificationMessage = gson.fromJson(message, NotificationMessage.class);
-                System.out.println("Notification: " + notificationMessage.getMessage());
-                break;
+                    if (gameplay != null) {
+                        gameplay.updateGameFromServer(loadGameMessage.getGame());
+                        gameplay.drawChessboard();
+                    } else {
+                        System.out.println("Gameplay instance not available, cannot update game.");
+                    }
+                    break;
+                case ERROR:
+                    ErrorMessage errorMessage = gson.fromJson(message, ErrorMessage.class);
+                    System.out.println("Error: " + errorMessage.getErrorMessage());
+                    break;
+                case NOTIFICATION:
+                    NotificationMessage notificationMessage = gson.fromJson(message, NotificationMessage.class);
+                    System.out.println("Notification: " + notificationMessage.getMessage());
+                    break;
+                default:
+                    System.out.println("Unknown message type received.");
+                    break;
+            }
+        } catch (JsonSyntaxException e) {
+            System.err.println("Failed to parse the message: " + e.getMessage());
         }
     }
 
@@ -114,6 +134,7 @@ public class WebSocketClient extends Endpoint {
     public void joinGameAsPlayer(String authToken, int gameId, ChessGame.TeamColor playerColor) throws Exception {
         JoinPlayerCommand joinCommand = new JoinPlayerCommand(authToken, gameId, playerColor);
         String message = gson.toJson(joinCommand);
+        System.out.println("Sending join game command: " + message);
         this.session.getBasicRemote().sendText(message);
     }
 
