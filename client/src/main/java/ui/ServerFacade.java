@@ -269,7 +269,7 @@ public class ServerFacade {
         if (responseCode == 200) {
             CreateGameResult createGameResult = gson.fromJson(response.toString(), CreateGameResult.class);
             logger.info("Game created successfully: " + gameName);
-            return new GameData(createGameResult.gameID(), null, null, null, null, null, null); // Modify according to your GameData constructor
+            return new GameData(createGameResult.gameID(), null, null, null, null, null, null);
         } else {
             logger.warning("Failed to create game: " + responseCode);
             throw new Exception("Failed to create game: HTTP error code " + responseCode);

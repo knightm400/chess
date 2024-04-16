@@ -1,8 +1,10 @@
 package webSocketMessages.userCommands;
 
 import chess.ChessGame;
+import com.google.gson.annotations.SerializedName;
 
 public class JoinPlayerCommand extends UserGameCommand {
+    @SerializedName("gameID")
     private int gameId;
     private ChessGame.TeamColor playerColor;
 

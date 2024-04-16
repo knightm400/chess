@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import model.GameData;
 import ui.Gameplay;
+import ui.PostLogin;
 import ui.ServerFacade;
 import webSocketMessages.serverMessages.ServerMessage;
 import webSocketMessages.serverMessages.LoadGameMessage;
@@ -27,18 +28,13 @@ public class WebSocketClient extends Endpoint {
     private final Gson gson = new Gson();
     private final String serverUri = "ws://localhost:8080/connect";
     private ui.Gameplay gameplay;
-    private GameDataListener listener;
 
     private WebSocketClient() throws Exception {
         connect();
     }
 
-    private void setGameDataListener(GameDataListener listener) {
-        this.listener = listener;
-    }
-
-    public interface GameDataListener {
-        void onGameDataReceived(GameData gameData);
+    public void setGameplay(Gameplay gameplay) {
+        this.gameplay = gameplay;
     }
 
     public static WebSocketClient getInstance() throws Exception {
@@ -92,7 +88,7 @@ public class WebSocketClient extends Endpoint {
 
     private void handleServerMessage(String message) {
         try {
-            System.out.println("Received message: " + message); // Log received message
+            System.out.println("Received message: " + message);
             ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
             System.out.println("Parsed message type: " + serverMessage.getServerMessageType()); // Log message type
 
@@ -169,16 +165,12 @@ public class WebSocketClient extends Endpoint {
         }
     }
     public static void main(String[] args) throws Exception {
-        try {
-            WebSocketClient client = WebSocketClient.getInstance();
-
-            String serverUri = "ws://localhost:8080/connect";
-            ServerFacade serverFacade = new ServerFacade();
-            Gameplay gameplay = new Gameplay(serverFacade);
-            client.joinGameAsPlayer("yourAuthTokenHere", 1, ChessGame.TeamColor.WHITE);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        ServerFacade serverFacade = new ServerFacade();
+        PostLogin postLogin = new PostLogin(serverFacade);
+        if (serverFacade.getAuthToken() == null || serverFacade.getAuthToken().isEmpty()) {
+            System.out.println("Auth token is not available. Please login first.");
+            return;
         }
+        postLogin.displayMenu();
     }
 }
