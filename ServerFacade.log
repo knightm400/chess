@@ -10629,3 +10629,155 @@
   <message>Joined game successfully: Game ID 1569160242</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-17T05:24:18.405468200Z</date>
+  <millis>1713331458405</millis>
+  <nanos>468200</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-04-17T05:24:21.916722200Z</date>
+  <millis>1713331461916</millis>
+  <nanos>722200</nanos>
+  <sequence>10</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-04-17T05:24:22.042783200Z</date>
+  <millis>1713331462042</millis>
+  <nanos>783200</nanos>
+  <sequence>11</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-04-17T05:24:28.578478300Z</date>
+  <millis>1713331468578</millis>
+  <nanos>478300</nanos>
+  <sequence>12</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-04-17T05:24:28.683931600Z</date>
+  <millis>1713331468683</millis>
+  <nanos>931600</nanos>
+  <sequence>13</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 1152820966</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-17T05:30:50.098649200Z</date>
+  <millis>1713331850098</millis>
+  <nanos>649200</nanos>
+  <sequence>3</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Attempting to register a new user.</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:58.021828700Z</date>
+  <millis>1713331858021</millis>
+  <nanos>828700</nanos>
+  <sequence>7</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Attempting to login user.</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:58.297838600Z</date>
+  <millis>1713331858297</millis>
+  <nanos>838600</nanos>
+  <sequence>8</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>User logged in successfully: meganaknight</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:59.790327100Z</date>
+  <millis>1713331859790</millis>
+  <nanos>327100</nanos>
+  <sequence>15</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Attempting to list games.</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:59.872996600Z</date>
+  <millis>1713331859872</millis>
+  <nanos>996600</nanos>
+  <sequence>16</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>listGames</method>
+  <thread>1</thread>
+  <message>Games listed successfully.</message>
+</record>
+<record>
+  <date>2024-04-17T05:31:04.773761100Z</date>
+  <millis>1713331864773</millis>
+  <nanos>761100</nanos>
+  <sequence>17</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Attempting to join a game.</message>
+</record>
+<record>
+  <date>2024-04-17T05:31:04.886496400Z</date>
+  <millis>1713331864886</millis>
+  <nanos>496400</nanos>
+  <sequence>18</sequence>
+  <logger>ui.ServerFacade</logger>
+  <level>INFO</level>
+  <class>ui.ServerFacade</class>
+  <method>joinGame</method>
+  <thread>1</thread>
+  <message>Joined game successfully: Game ID 1152820966</message>
+</record>
+</log>

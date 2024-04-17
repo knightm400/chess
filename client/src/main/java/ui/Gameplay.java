@@ -1,6 +1,7 @@
 package ui;
 import chess.*;
 import model.GameData;
+import ui.ServerFacade;
 import ui.WebSocket.WebSocketClient;
 
 import java.util.ArrayList;
@@ -121,6 +122,7 @@ public class Gameplay {
         String authToken = serverFacade.getAuthToken();
         ChessPosition startPosition = move.getStartPosition();
         ChessPiece piece = chessGame.getBoard().getPiece(startPosition);
+        webSocketClient.makeMove(authToken, gameId, move);
         if (piece != null && piece.getTeamColor() == playerColor) {
             if (playerColor != chessGame.getTeamTurn()) {
                 System.out.println("It's not your turn.");

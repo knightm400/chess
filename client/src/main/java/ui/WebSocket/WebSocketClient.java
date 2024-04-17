@@ -119,14 +119,6 @@ public class WebSocketClient extends Endpoint {
         }
     }
 
-    public void sendUserCommand(UserGameCommand command) throws Exception {
-        if (this.session == null || !this.session.isOpen()) {
-            connect();
-        }
-        String message = gson.toJson(command);
-        session.getAsyncRemote().sendText(message);
-    }
-
     public void joinGameAsPlayer(String authToken, int gameId, ChessGame.TeamColor playerColor) throws Exception {
         JoinPlayerCommand joinCommand = new JoinPlayerCommand(authToken, gameId, playerColor);
         String message = gson.toJson(joinCommand);

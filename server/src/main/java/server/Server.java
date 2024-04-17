@@ -20,6 +20,14 @@ public class Server {
         webSocketHandler = new WebSocketHandler(authDataAccess, connectionManager, gameDataAccess);
     }
 
+    public void initialize() {
+        try {
+            gameDataAccess.clearGames();
+            System.out.println("All game data cleared successfully.");
+        } catch (DataAccessException e) {
+            System.err.println("Failed to clear game data on server start: " + e.getMessage());
+        }
+    }
 
     public int run(int desiredPort) {
         try {
@@ -27,6 +35,7 @@ public class Server {
         } catch (SQLException e) {
             throw new RuntimeException("Failed to initialize database and tables: " + e.getMessage());
         }
+        initialize();
         Spark.port(desiredPort);
         Spark.staticFiles.location("web");
 

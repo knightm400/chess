@@ -8001,3 +8001,143 @@
   <message>Registration successful for user: meganaknight</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-17T05:23:58.874294800Z</date>
+  <millis>1713331438874</millis>
+  <nanos>294800</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-17T05:24:09.641092900Z</date>
+  <millis>1713331449641</millis>
+  <nanos>92900</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-04-17T05:24:09.642252400Z</date>
+  <millis>1713331449642</millis>
+  <nanos>252400</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-04-17T05:24:19.006522100Z</date>
+  <millis>1713331459006</millis>
+  <nanos>522100</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration successful for user: meganaknight</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-17T05:30:40.319714200Z</date>
+  <millis>1713331840319</millis>
+  <nanos>714200</nanos>
+  <sequence>0</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>Displaying PreLogin menu.</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:42.652557800Z</date>
+  <millis>1713331842652</millis>
+  <nanos>557800</nanos>
+  <sequence>1</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 4</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:42.653557200Z</date>
+  <millis>1713331842653</millis>
+  <nanos>557200</nanos>
+  <sequence>2</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to register.</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:50.470975600Z</date>
+  <millis>1713331850470</millis>
+  <nanos>975600</nanos>
+  <sequence>4</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>SEVERE</level>
+  <class>ui.PreLogin</class>
+  <method>register</method>
+  <thread>1</thread>
+  <message>Registration failed for user: meganaknight; Reason: Registration failed: Error: Username already taken for URL: http://localhost:8080/user</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:55.105799300Z</date>
+  <millis>1713331855105</millis>
+  <nanos>799300</nanos>
+  <sequence>5</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User choice: 3</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:55.107803Z</date>
+  <millis>1713331855107</millis>
+  <nanos>803000</nanos>
+  <sequence>6</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>displayMenu</method>
+  <thread>1</thread>
+  <message>User chose to login.</message>
+</record>
+<record>
+  <date>2024-04-17T05:30:58.297838600Z</date>
+  <millis>1713331858297</millis>
+  <nanos>838600</nanos>
+  <sequence>9</sequence>
+  <logger>ui.PreLogin</logger>
+  <level>INFO</level>
+  <class>ui.PreLogin</class>
+  <method>login</method>
+  <thread>1</thread>
+  <message>Login successful for user: meganaknight</message>
+</record>
+</log>

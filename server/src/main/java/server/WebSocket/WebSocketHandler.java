@@ -10,11 +10,10 @@ import model.AuthData;
 import model.GameData;
 import org.eclipse.jetty.websocket.api.*;
 import com.google.gson.Gson;
+import service.JoinGameService;
+import service.Result.JoinGameResult;
 import webSocketMessages.serverMessages.NotificationMessage;
-import webSocketMessages.userCommands.JoinPlayerCommand;
-import webSocketMessages.userCommands.JoinObserverCommand;
-import webSocketMessages.userCommands.MakeMoveCommand;
-import webSocketMessages.userCommands.UserGameCommand;
+import webSocketMessages.userCommands.*;
 import webSocketMessages.serverMessages.ErrorMessage;
 import webSocketMessages.serverMessages.LoadGameMessage;
 import org.eclipse.jetty.websocket.api.Session;
@@ -28,6 +27,8 @@ import java.util.List;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static chess.ChessGame.TeamColor.WHITE;
 
 @WebSocket
 public class WebSocketHandler {
@@ -78,8 +79,14 @@ public class WebSocketHandler {
                     break;
                 case MAKE_MOVE:
                     MakeMoveCommand makeMoveCommand = gson.fromJson(message, MakeMoveCommand.class);
+                    handleMakeMove(session, makeMoveCommand, message);
                     break;
-                // handle other cases
+                case LEAVE:
+                    LeaveCommand leaveCommand = gson.fromJson(message, LeaveCommand.class);
+                    handleLeave();
+                case RESIGN:
+                    ResignCommand resignCommand = gson.fromJson(message, ResignCommand.class);
+                    break;
                 default:
                     session.getRemote().sendString(gson.toJson(new ErrorMessage("Unknown command")));
                     break;
@@ -127,37 +134,38 @@ public class WebSocketHandler {
         if (connection == null) {
             return;
         }
+
         try {
-            GameData gameData = gameDataAccess.getGame(joinCommand.getGameId());
-            if (gameData == null) {
-                logger.warning("Game ID " + joinCommand.getGameId() + " not found.");
-                session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found")));
+            JoinGameService joinGameService = new JoinGameService(gameDataAccess, authDataAccess);
+            String playerColor = joinCommand.getPlayerColor().toString();
+            JoinGameResult result = joinGameService.joinGame(joinCommand.getAuthString(), joinCommand.getGameId(), playerColor.toUpperCase());
+
+            if (!result.success()) {
+                session.getRemote().sendString(gson.toJson(new ErrorMessage(result.message())));
                 return;
             }
 
-
+            GameData gameData = gameDataAccess.getGame(joinCommand.getGameId());
             connection = new Connection(session, connection.getAuthData(), joinCommand.getGameId());
             connectionManager.add(session, connection);
             LoadGameMessage loadGameMessage = new LoadGameMessage(gameData);
             session.getRemote().sendString(gson.toJson(loadGameMessage));
 
             String username = connection.getAuthData().username();
-            String playerColor = joinCommand.getPlayerColor().toString().toLowerCase();
-            String notificationMessage = username + " joined the game as " + playerColor;
+            String notificationMessage = username + " joined the game as " + playerColor.toLowerCase();
             NotificationMessage notification = new NotificationMessage(notificationMessage);
+
+            logger.info("Broadcasting join notification to other players in the game.");
             connectionManager.broadcastMessage(joinCommand.getGameId(), gson.toJson(notification), session);
+
             logger.info("Loaded game and sent LoadGameMessage for game ID " + joinCommand.getGameId());
+
         } catch (DataAccessException e) {
-            logger.log(Level.SEVERE, "Database access error when attempting to join game: ", e);
-            try {
-                session.getRemote().sendString(gson.toJson(new ErrorMessage("Error accessing game data")));
-            } catch (IOException ioException) {
-                logger.log(Level.SEVERE, "Failed to send error message: ", ioException);
-            }
-        } catch (IOException e) {
-            logger.log(Level.SEVERE, "IO Exception when sending game data: ", e);
+            logger.log(Level.SEVERE, "Error when attempting to join game: " + e.getMessage());
+            session.getRemote().sendString(gson.toJson(new ErrorMessage("Error processing your request")));
         }
     }
+
 
     private void handleJoinObserver(Session session, UserGameCommand command) throws IOException {
         JoinObserverCommand observerCommand = (JoinObserverCommand) command;
