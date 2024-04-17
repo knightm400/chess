@@ -83,9 +83,10 @@ public class WebSocketHandler {
                     break;
                 case LEAVE:
                     LeaveCommand leaveCommand = gson.fromJson(message, LeaveCommand.class);
-                    handleLeave();
+                    handleLeave(session, leaveCommand);
                 case RESIGN:
                     ResignCommand resignCommand = gson.fromJson(message, ResignCommand.class);
+                    handleResign(session, resignCommand);
                     break;
                 default:
                     session.getRemote().sendString(gson.toJson(new ErrorMessage("Unknown command")));
@@ -195,4 +196,44 @@ public class WebSocketHandler {
         }
     }
 
+    private void handleLeave(Session session, LeaveCommand leaveCommand) {
+        try {
+            GameData gameData = gameDataAccess.getGame(leaveCommand.getGameId());
+            if (gameData == null) {
+                session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found")));
+                return;
+            }
+
+            connectionManager.remove(session);  // Remove from active connections
+
+            NotificationMessage notification = new NotificationMessage(leaveCommand.getUsername() + " has left the game.");
+            connectionManager.broadcastMessage(leaveCommand.getGameId(), gson.toJson(notification), null); // Notify all clients in the game
+
+            logger.info(leaveCommand.getUsername() + " left game ID " + leaveCommand.getGameId());
+        } catch (Exception e) {
+            logger.severe("Error processing leave command: " + e.getMessage());
+            safelyCloseSession(session, 1011, "Error processing leave command");
+        }
+
+    }
+
+    private void handleResign(Session session, ResignCommand resignCommand) {
+        try {
+            GameData gameData = gameDataAccess.getGame(resignCommand.getGameId());
+            if (gameData == null) {
+                session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found")));
+                return;
+            }
+
+            String winner = gameData.whiteUsername().equals(resignCommand.getUsername()) ? gameData.blackUsername() : gameData.whiteUsername();
+
+            NotificationMessage notification = new NotificationMessage(resignCommand.getUsername() + " has resigned. Winner is " + winner);
+            connectionManager.broadcastMessage(resignCommand.getGameId(), gson.toJson(notification), null); // Notify all clients in the game
+
+            logger.info(resignCommand.getUsername() + " resigned from game ID " + resignCommand.getGameId() + ". Winner declared: " + winner);
+        } catch (Exception e) {
+            logger.severe("Error processing resign command: " + e.getMessage());
+            safelyCloseSession(session, 1011, "Error processing resign command");
+        }
+    }
 }
