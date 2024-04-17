@@ -135,11 +135,7 @@ public class WebSocketHandler {
                 return;
             }
 
-            if ((joinCommand.getPlayerColor() == ChessGame.TeamColor.WHITE && gameData.whiteUsername() != null) ||
-                    (joinCommand.getPlayerColor() == ChessGame.TeamColor.BLACK && gameData.blackUsername() != null)) {
-                session.getRemote().sendString(gson.toJson(new ErrorMessage("The " + joinCommand.getPlayerColor().toString().toLowerCase() + " team is already occupied.")));
-                return;
-            }
+
             connection = new Connection(session, connection.getAuthData(), joinCommand.getGameId());
             connectionManager.add(session, connection);
             LoadGameMessage loadGameMessage = new LoadGameMessage(gameData);
