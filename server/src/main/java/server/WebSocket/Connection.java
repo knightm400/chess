@@ -25,7 +25,4 @@ public class Connection {
         return gameId;
     }
 
-    public void setUserData(AuthData authData) {
-        this.authData = authData;
-    }
 }

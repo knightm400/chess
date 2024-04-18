@@ -11,8 +11,5 @@ public class GenericMessage {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
 
