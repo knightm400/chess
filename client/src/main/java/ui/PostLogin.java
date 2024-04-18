@@ -108,7 +108,7 @@ public class PostLogin {
         String gameName = scanner.nextLine().trim();
 
         try {
-            GameData newGame = serverFacade.createGame(gameName);
+            GameData newGame = serverFacade.createGame(serverFacade.getAuthToken(), gameName);
             if (newGame != null) {
                 logger.info("New game created successfully in PostLogin: " + gameName);
                 System.out.println("Game '" + gameName + "' created successfully!");
@@ -141,7 +141,7 @@ public class PostLogin {
         }
     }
 
-    private boolean joinGame(Scanner scanner) {
+    private void joinGame(Scanner scanner) {
         logger.info("Prompting user for game ID and player color in PostLogin.");
         listGames();
 
@@ -165,20 +165,22 @@ public class PostLogin {
         }
 
         try {
-            boolean success = serverFacade.joinGame(serverFacade.getAuthToken(), gameId, playerColorInput);
-            if (success) {
-                logger.info("Successfully joined game " + gameId + " as " + playerColorInput + " in PostLogin.");
-                System.out.println("Successfully joined game " + gameId + " as " + playerColorInput + ".");
-                return true;
+            GameData gameData = serverFacade.joinGame(serverFacade.getAuthToken(), gameId, playerColorInput);
+            if (gameData != null) {
+                logger.info("Successfully joined game " + gameData.gameID() + " as " + playerColorInput + " in PostLogin.");
+                System.out.println("Successfully joined game " + gameData.gameID() + " as " + playerColorInput + ".");
+                Gameplay gameplay = new Gameplay(this.serverFacade);
+                gameplay.joinGameAsPlayer(gameData.gameID(), playerColorInput.equals("white") ? ChessGame.TeamColor.WHITE : ChessGame.TeamColor.BLACK);
             } else {
+                logger.warning("Failed to join game in PostLogin.");
                 System.out.println("Failed to join the game. Please try again.");
             }
         } catch (Exception e) {
             logger.severe("Joining a game failed in PostLogin: " + e.getMessage());
             System.out.println("Failed to join the game: " + e.getMessage());
         }
-        return false;
     }
+
 
 
     private void joinObserver(Scanner scanner) {

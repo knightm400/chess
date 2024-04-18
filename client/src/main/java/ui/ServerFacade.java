@@ -162,49 +162,88 @@ public class ServerFacade {
         return gson.fromJson(response, new TypeToken<List<GameData>>() {}.getType());
     }
 
-    public GameData createGame(String gameName) throws Exception {
+    public GameData createGame(String authToken, String gameName) throws Exception {
         logger.info("Attempting to create a new game.");
         String endpoint = "/game";
         URL url = new URL(SERVER_BASE_URL + endpoint);
         HttpURLConnection connection = setupConnection(url, "POST", true);
 
+        if (authToken != null && !authToken.isEmpty()) {
+            connection.setRequestProperty("Authorization", authToken);
+        }
+
         Map<String, String> requestBodyMap = new HashMap<>();
         requestBodyMap.put("gameName", gameName);
-        sendRequest(connection, requestBodyMap);
 
-        String response = handleResponse(connection, "Game created successfully.", "Failed to create game");
-        return gson.fromJson(response, GameData.class);
+        String requestBody = gson.toJson(requestBodyMap);
+        try (OutputStream os = connection.getOutputStream()) {
+            byte[] input = requestBody.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        int responseCode = connection.getResponseCode();
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        }
+
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            logger.info("Game created successfully: " + gameName);
+            return gson.fromJson(response.toString(), GameData.class);
+        } else {
+            MessageResponse messageResponse = gson.fromJson(response.toString(), MessageResponse.class);
+            logger.warning("Failed to create game: " + responseCode + " - " + messageResponse.getMessage());
+            throw new Exception("Failed to create game: " + messageResponse.getMessage());
+        }
     }
 
-    public boolean joinGame(String authToken, Integer gameID, String playerColor) throws Exception {
+    public GameData joinGame(String authToken, Integer gameID, String playerColor) throws Exception {
         logger.info("Attempting to join a game.");
-        String endpoint = "/game";
+        String endpoint = "/game/join";
         URL url = new URL(SERVER_BASE_URL + endpoint);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         connection.setRequestMethod("PUT");
         connection.setDoOutput(true);
         connection.setRequestProperty("Content-Type", "application/json");
-        if (this.authToken != null) {
-            connection.setRequestProperty("Authorization", this.authToken);
+        if (authToken != null) {
+            connection.setRequestProperty("Authorization", authToken);
         }
 
-        String jsonRequestBody = gson.toJson(Map.of("gameID", gameID, "playerColor", playerColor));
+        Map<String, Object> jsonRequestBody = new HashMap<>();
+        jsonRequestBody.put("gameID", gameID);
+        jsonRequestBody.put("playerColor", playerColor);
 
+        String requestBody = gson.toJson(jsonRequestBody);
         try (OutputStream os = connection.getOutputStream()) {
-            byte[] input = jsonRequestBody.getBytes("utf-8");
+            byte[] input = requestBody.getBytes("utf-8");
             os.write(input, 0, input.length);
         }
 
         int responseCode = connection.getResponseCode();
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
+            String responseLine;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        }
+
         if (responseCode == 200) {
             logger.info("Joined game successfully: Game ID " + gameID);
-            return true;
+            return gson.fromJson(response.toString(), GameData.class);
         } else {
-            logger.warning("Failed to join game: " + responseCode);
-            return false;
+            MessageResponse messageResponse = gson.fromJson(response.toString(), MessageResponse.class);
+            logger.warning("Failed to join game: " + responseCode + " - " + messageResponse.getMessage());
+            throw new Exception("Failed to join game: " + messageResponse.getMessage());
         }
     }
+
 
 
     public boolean joinGameAsObserver(Integer gameId) throws Exception {
