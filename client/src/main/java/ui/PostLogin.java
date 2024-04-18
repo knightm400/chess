@@ -108,7 +108,7 @@ public class PostLogin {
         String gameName = scanner.nextLine().trim();
 
         try {
-            GameData newGame = serverFacade.createGame(serverFacade.getAuthToken(), gameName);
+            GameData newGame = serverFacade.createGame(gameName);
             if (newGame != null) {
                 logger.info("New game created successfully in PostLogin: " + gameName);
                 System.out.println("Game '" + gameName + "' created successfully!");
