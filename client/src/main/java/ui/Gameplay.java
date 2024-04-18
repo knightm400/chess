@@ -19,16 +19,6 @@ public class Gameplay {
     private ChessBoardRenderer chessBoardRenderer;
     private int gameId;
 
-    public void initializeWebSocket() throws Exception {
-        if (this.webSocketClient == null || !this.webSocketClient.getSession().isOpen()) {
-            System.out.println("Initializing WebSocket connection...");
-            this.webSocketClient = WebSocketClient.getInstance();
-            System.out.println("WebSocket initialized and connected.");
-        } else {
-            System.out.println("WebSocket already connected.");
-        }
-    }
-
     public Gameplay(ServerFacade serverFacade) throws Exception {
         this.playerColor = ChessGame.TeamColor.WHITE;
         this.serverFacade = serverFacade;

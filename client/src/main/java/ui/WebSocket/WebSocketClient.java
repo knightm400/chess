@@ -33,9 +33,6 @@ public class WebSocketClient extends Endpoint {
         connect();
     }
 
-    public void setGameplay(Gameplay gameplay) {
-        this.gameplay = gameplay;
-    }
 
     public static WebSocketClient getInstance() throws Exception {
         if (instance == null) {
@@ -145,9 +142,6 @@ public class WebSocketClient extends Endpoint {
     }
 
     public void resignGame(String authToken, int gameId) throws Exception {
-//        ResignCommand resignCommand = new ResignCommand(authToken, gameId);
-//        String message = gson.toJson(resignCommand);
-//        this.session.getBasicRemote().sendText(message);
     }
 
     public void closeConnection() throws Exception {

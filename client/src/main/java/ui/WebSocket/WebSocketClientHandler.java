@@ -18,12 +18,6 @@ public class WebSocketClientHandler {
         }
     }
 
-    @OnMessage
-    public void onMessage(String message, Session session) {
-        logger.info("Received message from " + session.getId() + ": " + message);
-        processMessage(message);
-    }
-
     private void processMessage(String message) {
         logger.info("Processing message: " + message);
     }
