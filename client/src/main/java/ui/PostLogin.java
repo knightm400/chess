@@ -2,7 +2,6 @@ package ui;
 
 import chess.ChessGame;
 import model.GameData;
-import service.Result.JoinGameResult;
 
 import java.util.List;
 import java.util.Scanner;
@@ -142,7 +141,7 @@ public class PostLogin {
         }
     }
 
-    private void joinGame(Scanner scanner) {
+    private boolean joinGame(Scanner scanner) {
         logger.info("Prompting user for game ID and player color in PostLogin.");
         listGames();
 
@@ -165,24 +164,22 @@ public class PostLogin {
             playerColorInput = scanner.nextLine().trim().toLowerCase();
         }
 
-        ChessGame.TeamColor playerColor = playerColorInput.equals("white") ? ChessGame.TeamColor.WHITE : ChessGame.TeamColor.BLACK;
-
         try {
-            JoinGameResult result = serverFacade.joinGame(serverFacade.getAuthToken(), gameId, playerColorInput);
-            if (result != null && result.success()) {
-                logger.info("Successfully joined game " + gameId + " as " + playerColor + " in PostLogin.");
-                System.out.println("Successfully joined game " + gameId + " as " + playerColor + ".");
-                Gameplay gameplay = new Gameplay(this.serverFacade);
-                gameplay.joinGameAsPlayer(gameId, playerColor);
+            boolean success = serverFacade.joinGame(serverFacade.getAuthToken(), gameId, playerColorInput);
+            if (success) {
+                logger.info("Successfully joined game " + gameId + " as " + playerColorInput + " in PostLogin.");
+                System.out.println("Successfully joined game " + gameId + " as " + playerColorInput + ".");
+                return true;
             } else {
-                logger.warning("Failed to join game in PostLogin.");
                 System.out.println("Failed to join the game. Please try again.");
             }
         } catch (Exception e) {
             logger.severe("Joining a game failed in PostLogin: " + e.getMessage());
             System.out.println("Failed to join the game: " + e.getMessage());
         }
+        return false;
     }
+
 
     private void joinObserver(Scanner scanner) {
         logger.info("Joining a game as an observer in PostLogin.");

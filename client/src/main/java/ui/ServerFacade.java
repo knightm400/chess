@@ -276,7 +276,7 @@ public class ServerFacade {
         }
     }
 
-    public JoinGameResult joinGame(String authToken, Integer gameID, String playerColor) throws Exception {
+    public boolean joinGame(String authToken, Integer gameID, String playerColor) throws Exception {
         logger.info("Attempting to join a game.");
         String endpoint = "/game";
         URL url = new URL(SERVER_BASE_URL + endpoint);
@@ -296,25 +296,16 @@ public class ServerFacade {
             os.write(input, 0, input.length);
         }
 
-        StringBuilder response = new StringBuilder();
         int responseCode = connection.getResponseCode();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(
-                responseCode >= HttpURLConnection.HTTP_BAD_REQUEST ? connection.getErrorStream() : connection.getInputStream(), "utf-8"))) {
-            String responseLine = null;
-            while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
-            }
-        }
-
         if (responseCode == 200) {
-            JoinGameResult joinGameResult = gson.fromJson(response.toString(), JoinGameResult.class);
             logger.info("Joined game successfully: Game ID " + gameID);
-            return joinGameResult;
+            return true;
         } else {
             logger.warning("Failed to join game: " + responseCode);
-            throw new Exception("Failed to join game: HTTP error code " + responseCode);
+            return false;
         }
     }
+
 
     public boolean joinGameAsObserver(Integer gameId) throws Exception {
         logger.info("Attempting to join a game as an observer.");
