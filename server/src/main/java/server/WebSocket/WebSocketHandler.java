@@ -129,6 +129,7 @@ public class WebSocketHandler {
         }
     }
 
+
     private void handleJoinPlayer(Session session, UserGameCommand command) throws IOException {
         JoinPlayerCommand joinCommand = (JoinPlayerCommand) command;
         Connection connection = authenticate(session, joinCommand.getAuthString());
@@ -137,33 +138,65 @@ public class WebSocketHandler {
         }
 
         try {
-            JoinGameService joinGameService = new JoinGameService(gameDataAccess, authDataAccess);
-            String playerColor = joinCommand.getPlayerColor().toString();
-            JoinGameResult result = joinGameService.joinGame(joinCommand.getAuthString(), joinCommand.getGameId(), playerColor.toUpperCase());
-
-            if (!result.success()) {
-                session.getRemote().sendString(gson.toJson(new ErrorMessage(result.message())));
+            GameData gameData = gameDataAccess.getGame(joinCommand.getGameId());
+            if (gameData == null) {
+                session.getRemote().sendString(gson.toJson(new ErrorMessage("Game not found")));
                 return;
             }
 
-            GameData gameData = gameDataAccess.getGame(joinCommand.getGameId());
-            connection = new Connection(session, connection.getAuthData(), joinCommand.getGameId());
-            connectionManager.add(session, connection);
-            LoadGameMessage loadGameMessage = new LoadGameMessage(gameData);
-            session.getRemote().sendString(gson.toJson(loadGameMessage));
+            if ((joinCommand.getPlayerColor().equals(ChessGame.TeamColor.WHITE) && gameData.whiteUsername() != null) ||
+                    (joinCommand.getPlayerColor().equals(ChessGame.TeamColor.BLACK) && gameData.blackUsername() != null)) {
+                session.getRemote().sendString(gson.toJson(new ErrorMessage("Color already taken")));
+                return;
+            }
+
+            updateGameDataWithPlayer(gameData, joinCommand.getPlayerColor(), connection.getAuthData().username());
+
+            connectionManager.add(session, new Connection(session, connection.getAuthData(), joinCommand.getGameId()));
+            session.getRemote().sendString(gson.toJson(new LoadGameMessage(gameData)));
 
             String username = connection.getAuthData().username();
-            String notificationMessage = username + " joined the game as " + playerColor.toLowerCase();
-            NotificationMessage notification = new NotificationMessage(notificationMessage);
-
-            logger.info("Broadcasting join notification to other players in the game.");
+            String message = username + " has joined the game as " + joinCommand.getPlayerColor();
+            NotificationMessage notification = new NotificationMessage(message);
             connectionManager.broadcastMessage(joinCommand.getGameId(), gson.toJson(notification), session);
-
-            logger.info("Loaded game and sent LoadGameMessage for game ID " + joinCommand.getGameId());
+            logger.info("Player " + username + " joined as " + joinCommand.getPlayerColor() + " and notifications sent to other players.");
 
         } catch (DataAccessException e) {
-            logger.log(Level.SEVERE, "Error when attempting to join game: " + e.getMessage());
+            logger.log(Level.SEVERE, "Error accessing game data: " + e.getMessage());
             session.getRemote().sendString(gson.toJson(new ErrorMessage("Error processing your request")));
+        }
+    }
+
+    private void updateGameDataWithPlayer(GameData gameData, ChessGame.TeamColor playerColor, String username) throws DataAccessException {
+        GameData updatedGameData;
+        if ("WHITE".equals(playerColor)) {
+            updatedGameData = new GameData(
+                    gameData.gameID(),
+                    username,
+                    gameData.blackUsername(),
+                    gameData.gameName(),
+                    gameData.gameData(),
+                    "WHITE",
+                    gameData.blackColor()
+            );
+        } else {
+            updatedGameData = new GameData(
+                    gameData.gameID(),
+                    gameData.whiteUsername(),
+                    username,
+                    gameData.gameName(),
+                    gameData.gameData(),
+                    gameData.whiteColor(),
+                    "BLACK"
+            );
+        }
+
+        try {
+            gameDataAccess.updateGame(updatedGameData);
+            logger.info("Game data updated successfully for game ID " + gameData.gameID());
+        } catch (DataAccessException e) {
+            logger.log(Level.SEVERE, "Failed to update game data: " + e.getMessage());
+            throw e;
         }
     }
 
@@ -204,7 +237,7 @@ public class WebSocketHandler {
                 return;
             }
 
-            connectionManager.remove(session);  // Remove from active connections
+            connectionManager.remove(session);
 
             NotificationMessage notification = new NotificationMessage(leaveCommand.getUsername() + " has left the game.");
             connectionManager.broadcastMessage(leaveCommand.getGameId(), gson.toJson(notification), null); // Notify all clients in the game
