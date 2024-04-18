@@ -18,8 +18,4 @@ public class WebSocketClientHandler {
         }
     }
 
-    private void processMessage(String message) {
-        logger.info("Processing message: " + message);
-    }
-
 }
